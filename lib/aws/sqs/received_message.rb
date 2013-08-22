@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class SQS
 
@@ -65,7 +66,7 @@ module AWS
       #   sns_msg = message.as_sns_message
       #
       #   sns_msg.topic
-      #   #=> <AWS::SNS::Topic ...>
+      #   #=> <Ideeli::AWS::SNS::Topic ...>
       #
       #   sns_msg.to_h.inspect
       #   #=> { :body => '...', :topic_arn => ... }
@@ -179,4 +180,5 @@ module AWS
     end
 
   end
+end
 end

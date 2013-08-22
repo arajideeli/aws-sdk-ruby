@@ -13,6 +13,7 @@
 
 require 'rexml/document'
 
+module Ideeli
 module AWS
   class S3
 
@@ -75,7 +76,7 @@ module AWS
       #   You can build an ACL using the {AccessControlList} class and
       #   pass this object.
       #
-      #       acl = AWS::S3::AccessControlList.new
+      #       acl = Ideeli::AWS::S3::AccessControlList.new
       #       acl.grant(:full_control).to(:canonical_user_id => "8a6...fef")
       #       acl #=> this is acceptible
       #
@@ -201,4 +202,5 @@ module AWS
 
     end
   end
+end
 end

@@ -15,6 +15,7 @@ require 'bigdecimal'
 require 'set'
 require 'base64'
 
+module Ideeli
 module AWS
   class DynamoDB
 
@@ -108,4 +109,5 @@ module AWS
     end
 
   end
+end
 end

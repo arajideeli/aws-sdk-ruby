@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class EMR
     describe InstanceGroup do
@@ -179,3 +180,4 @@ module AWS
   end
 end
 
+end

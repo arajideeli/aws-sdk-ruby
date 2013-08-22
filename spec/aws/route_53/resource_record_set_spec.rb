@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class Route53
     describe ResourceRecordSet do
@@ -92,4 +93,5 @@ module AWS
       end
     end
   end
+end
 end

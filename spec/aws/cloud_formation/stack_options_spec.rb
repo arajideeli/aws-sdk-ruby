@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class CloudFormation
     describe StackOptions do
@@ -96,4 +97,5 @@ module AWS
 
     end
   end
+end
 end

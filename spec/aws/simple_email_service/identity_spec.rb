@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleEmailService
     describe Identity do
@@ -480,7 +481,7 @@ module AWS
             client.should_receive(:verify_domain_dkim).
               with(:domain => identity.identity).
               and_return(resp)
-              
+
             identity.verify_dkim
 
           end
@@ -496,4 +497,5 @@ module AWS
 
     end
   end
+end
 end

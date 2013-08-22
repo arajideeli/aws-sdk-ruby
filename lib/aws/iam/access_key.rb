@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class IAM
 
@@ -139,7 +140,7 @@ module AWS
       #
       # You can also use these credentials to make requests:
       #
-      #     s3 = AWS::S3.new(access_keys.credentials)
+      #     s3 = Ideeli::AWS::S3.new(access_keys.credentials)
       #     s3.buckets.create('newbucket')
       #
       # @return [Hash] Returns a hash with the access key id and
@@ -177,4 +178,5 @@ module AWS
 
     end
   end
+end
 end

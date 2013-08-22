@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleWorkflow
     describe DecisionTaskCollection do
@@ -547,4 +548,5 @@ module AWS
 
     end
   end
+end
 end

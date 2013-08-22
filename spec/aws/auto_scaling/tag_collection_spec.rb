@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class AutoScaling
     describe TagCollection do
@@ -128,4 +129,5 @@ module AWS
 
     end
   end
+end
 end

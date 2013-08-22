@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
     class Tree
@@ -155,4 +156,5 @@ module AWS
 
     end
   end
+end
 end

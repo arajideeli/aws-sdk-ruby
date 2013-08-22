@@ -16,6 +16,7 @@ require 'time'
 require 'bigdecimal'
 require 'base64'
 
+module Ideeli
 module AWS
   module Core
 
@@ -76,4 +77,5 @@ module AWS
     end
 
   end
+end
 end

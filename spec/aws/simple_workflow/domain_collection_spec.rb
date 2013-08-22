@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleWorkflow
     describe DomainCollection do
@@ -168,4 +169,5 @@ module AWS
 
     end
   end
+end
 end

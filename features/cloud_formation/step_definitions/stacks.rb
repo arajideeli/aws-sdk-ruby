@@ -19,7 +19,7 @@ def simple_template ami, description
       "Description": "#{@template_description}",
       "Resources": {
         "web": {
-          "Type": "AWS::EC2::Instance",
+          "Type": "Ideeli::AWS::EC2::Instance",
           "Properties": {
             "ImageId": "#{ami}"
           }
@@ -102,7 +102,7 @@ When /^I create a stack with parameters$/ do
     },
     "Resources": {
       "web": {
-        "Type": "AWS::EC2::Instance",
+        "Type": "Ideeli::AWS::EC2::Instance",
         "Properties": {
           "InstanceType": { "Ref" : "InstanceType" },
           "SecurityGroups" : [ {"Ref" : "SecurityGroup"} ],

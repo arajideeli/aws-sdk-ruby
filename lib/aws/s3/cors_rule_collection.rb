@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class S3
 
@@ -172,7 +173,7 @@ module AWS
         resp.data[:rules].each do |rule|
           yield(CORSRule.new(rule))
         end
-      rescue AWS::S3::Errors::NoSuchCORSConfiguration
+      rescue Ideeli::AWS::S3::Errors::NoSuchCORSConfiguration
         # no cors rules exist for this bucket, nothing to yield
       end
 
@@ -191,4 +192,5 @@ module AWS
 
     end
   end
+end
 end

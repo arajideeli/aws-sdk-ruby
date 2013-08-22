@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class RDS
     describe DBSnapshot do
@@ -175,7 +176,7 @@ module AWS
 
         it 'returns false if the describe call raises an error' do
           client.stub(:describe_db_snapshots).
-            and_raise(AWS::RDS::Errors::DBSnapshotNotFound)
+            and_raise(Ideeli::AWS::RDS::Errors::DBSnapshotNotFound)
           snapshot.exists?.should eq(false)
         end
 
@@ -183,4 +184,5 @@ module AWS
 
     end
   end
+end
 end

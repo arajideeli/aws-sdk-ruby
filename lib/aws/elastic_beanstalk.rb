@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/elastic_beanstalk/config'
 
+module Ideeli
 module AWS
 
   # Provides an expressive, object-oriented interface to AWS Elastic Beanstalk.
@@ -29,7 +30,7 @@ module AWS
   #
   # Or you can set them directly on the ElasticBeanstalk interface:
   #
-  #     beanstalk = AWS::ElasticBeanstalk.new(
+  #     beanstalk = Ideeli::AWS::ElasticBeanstalk.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -47,4 +48,5 @@ module AWS
 
   end
 
+end
 end

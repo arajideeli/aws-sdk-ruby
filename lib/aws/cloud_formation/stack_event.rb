@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class CloudFormation
 
@@ -56,7 +57,7 @@ module AWS
       #   resource.
       attr_reader :resource_status_reason
 
-      # @return [String] Type of the resource (e.g. 'AWS::EC2::Instance').
+      # @return [String] Type of the resource (e.g. 'Ideeli::AWS::EC2::Instance').
       attr_reader :resource_type
 
       # @return [String] The unique ID name of the instance of the stack.
@@ -70,4 +71,5 @@ module AWS
 
     end
   end
+end
 end

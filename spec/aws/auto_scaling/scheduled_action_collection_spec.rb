@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class AutoScaling
     describe ScheduledActionCollection do
@@ -163,4 +164,5 @@ module AWS
 
     end
   end
+end
 end

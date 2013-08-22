@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
 
@@ -71,7 +72,7 @@ module AWS
       # @return [Configuration]
       attr_reader :config
 
-      AWS::SERVICES.values.each do |svc|
+      Ideeli::AWS::SERVICES.values.each do |svc|
         define_method(svc.method_name) do
           AWS.const_get(svc.class_name).new(:config => config)
         end
@@ -80,4 +81,5 @@ module AWS
 
     end
   end
+end
 end

@@ -14,6 +14,7 @@
 require 'date'
 require 'time'
 
+module Ideeli
 module AWS
   class CloudWatch
 
@@ -132,4 +133,5 @@ module AWS
 
     end
   end
+end
 end

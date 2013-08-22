@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/simple_email_service/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon
@@ -38,7 +39,7 @@ module AWS
   #
   # Or you can set them directly on the SimpleEmailService interface:
   #
-  #     ses = AWS::SimpleEmailService.new(
+  #     ses = Ideeli::AWS::SimpleEmailService.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -429,4 +430,5 @@ module AWS
     end
 
   end
+end
 end

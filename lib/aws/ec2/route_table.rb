@@ -14,6 +14,7 @@
 require 'aws/ec2/route_table/route'
 require 'aws/ec2/route_table/association'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -202,4 +203,5 @@ module AWS
 
     end
   end
+end
 end

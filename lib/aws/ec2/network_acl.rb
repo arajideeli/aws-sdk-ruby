@@ -14,6 +14,7 @@
 require 'aws/ec2/network_acl/entry'
 require 'aws/ec2/network_acl/association'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -253,4 +254,5 @@ module AWS
 
     end
   end
+end
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class IAM
     describe LoginProfile do
@@ -162,4 +163,5 @@ module AWS
 
     end
   end
+end
 end

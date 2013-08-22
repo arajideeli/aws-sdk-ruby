@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'base64'
 
+module Ideeli
 module AWS
   class AutoScaling
     describe LaunchConfiguration do
@@ -173,4 +174,5 @@ module AWS
 
     end
   end
+end
 end

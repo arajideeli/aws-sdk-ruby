@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SNS
     shared_examples_for "it has a delivery policy" do
@@ -119,4 +120,5 @@ module AWS
 
     end
   end
+end
 end

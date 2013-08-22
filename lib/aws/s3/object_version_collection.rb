@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class S3
 
@@ -34,10 +35,10 @@ module AWS
     #     #=> itHPX6m8na_sog0cAtkgP3QITEE8v5ij
     #
     #     object.versions['itHPX6m8na_sog0cAtkgP3QITEE8v5ij']
-    #     #=> <AWS::S3::ObjectVersion:<<bucket>>:myobj:itHPX6m8na_sog0cAtkgP3QITEE8v5ij>
+    #     #=> <Ideeli::AWS::S3::ObjectVersion:<<bucket>>:myobj:itHPX6m8na_sog0cAtkgP3QITEE8v5ij>
     #
     #     object.versions.latest
-    #     #=> <AWS::S3::ObjectVersion:<<bucket>>:myobj:T2TwAiZ3SmNr7tOfe0QBa4RZnSb3GSLq>
+    #     #=> <Ideeli::AWS::S3::ObjectVersion:<<bucket>>:myobj:T2TwAiZ3SmNr7tOfe0QBa4RZnSb3GSLq>
     #
     # If you know the id of a particular version you can get that object.
     #
@@ -86,4 +87,5 @@ module AWS
 
     end
   end
+end
 end

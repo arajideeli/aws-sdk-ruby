@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/s3/config'
 
+module Ideeli
 module AWS
 
   # Provides an expressive, object-oriented interface to Amazon S3.
@@ -37,7 +38,7 @@ module AWS
   #
   # Or you can set them directly on the S3 interface:
   #
-  #     s3 = AWS::S3.new(
+  #     s3 = Ideeli::AWS::S3.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -45,7 +46,7 @@ module AWS
   #
   # Before you can upload files to S3, you need to create a bucket.
   #
-  #     s3 = AWS::S3.new
+  #     s3 = Ideeli::AWS::S3.new
   #     bucket = s3.buckets.create('my-bucket')
   #
   # If a bucket already exists, you can get a reference to the bucket.
@@ -69,7 +70,7 @@ module AWS
   #
   # If the object already exists, you can get a reference to the object.
   #
-  #     # makes no request, returns an AWS::S3::S3Object
+  #     # makes no request, returns an Ideeli::AWS::S3::S3Object
   #     obj = bucket.objects['key']
   #
   # ## Reading and Writing an Object
@@ -152,4 +153,5 @@ module AWS
     end
 
   end
+end
 end

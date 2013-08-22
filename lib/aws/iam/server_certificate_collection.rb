@@ -11,13 +11,14 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class IAM
 
     # A collection that provides access to IAM server certificates
     # belonging to this account.
     #
-    #     iam = AWS::IAM.new
+    #     iam = Ideeli::AWS::IAM.new
     #     certificates = iam.server_certificates
     #
     # ## Uploading A Server Certificate
@@ -135,4 +136,5 @@ module AWS
     end
 
   end
+end
 end

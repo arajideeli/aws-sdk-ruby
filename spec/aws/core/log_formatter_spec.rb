@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Core
     describe LogFormatter do
@@ -65,7 +66,7 @@ module AWS
           end
 
           it 'replaces :service with the request class service name' do
-            http_request.stub_chain(:class, :name).and_return('AWS::EC2::Request')
+            http_request.stub_chain(:class, :name).and_return('Ideeli::AWS::EC2::Request')
             message_for(':service').should == 'EC2'
           end
 
@@ -116,10 +117,10 @@ module AWS
             end
 
             it 'returns the class name when an error is present' do
-              error = AWS::S3::Errors::NoSuchKeyError.new('msg')
+              error = Ideeli::AWS::S3::Errors::NoSuchKeyError.new('msg')
               response.error = error
               message_for(':error_class').should ==
-                'AWS::S3::Errors::NoSuchKeyError'
+                'Ideeli::AWS::S3::Errors::NoSuchKeyError'
             end
 
           end
@@ -132,7 +133,7 @@ module AWS
             end
 
             it 'returns the error message when an error is present' do
-              error = AWS::S3::Errors::NoSuchKeyError.new('error-msg')
+              error = Ideeli::AWS::S3::Errors::NoSuchKeyError.new('error-msg')
               response.error = error
               message_for(':error_message').should == 'error-msg'
             end
@@ -274,4 +275,5 @@ module AWS
       end
     end
   end
+end
 end

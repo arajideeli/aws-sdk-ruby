@@ -11,12 +11,13 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class AutoScaling
 
     # Allows you to enumerate Auto Scaling instances.
     #
-    #     auto_scaling = AWS::AutoScaling.new
+    #     auto_scaling = Ideeli::AWS::AutoScaling.new
     #     auto_scaling.instances.each do |instance|
     #       # ...
     #     end
@@ -24,7 +25,7 @@ module AWS
     # You can also get an Auto Scaling instance by its EC2 instance id.
     #
     #     auto_scaling_instance = auto_scaling.instances['i-12345678']
-    #     auto_scaling_instance.class #=> AWS::AutoScaling::Instance
+    #     auto_scaling_instance.class #=> Ideeli::AWS::AutoScaling::Instance
     #
     class InstanceCollection
 
@@ -60,4 +61,5 @@ module AWS
 
     end
   end
+end
 end

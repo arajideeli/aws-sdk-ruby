@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class EC2
     describe VPNGateway do
@@ -147,4 +148,5 @@ module AWS
       end
     end
   end
+end
 end

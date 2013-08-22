@@ -15,6 +15,7 @@ require 'uri'
 require 'net/http'
 require 'json'
 
+module Ideeli
 module AWS
   module Core
 
@@ -93,7 +94,7 @@ module AWS
 
         # @return [Hash]
         def load_data
-          #return JSON.parse(File.read(File.join(AWS::ROOT, 'endpoints.json')))
+          #return JSON.parse(File.read(File.join(Ideeli::AWS::ROOT, 'endpoints.json')))
           host = 'aws-sdk-configurations.amazonwebservices.com'
           path = '/endpoints.json'
           http = Net::HTTP
@@ -106,4 +107,5 @@ module AWS
 
     end
   end
+end
 end

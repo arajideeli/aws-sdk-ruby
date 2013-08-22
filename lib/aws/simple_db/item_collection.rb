@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class SimpleDB
 
@@ -97,8 +98,8 @@ module AWS
       # Yields to the block once for each item in the collection.
       # This method can yield two type of objects:
       #
-      # * AWS::SimpleDB::Item objects (only the item name is populated)
-      # * AWS::SimpleDB::ItemData objects (some or all attributes populated)
+      # * Ideeli::AWS::SimpleDB::Item objects (only the item name is populated)
+      # * Ideeli::AWS::SimpleDB::ItemData objects (some or all attributes populated)
       #
       # The default mode of an ItemCollection is to yield Item objects with
       # no populated attributes.
@@ -106,14 +107,14 @@ module AWS
       #     # only receives item names from SimpleDB
       #     domain.items.each do |item|
       #       puts item.name
-      #       puts item.class.name # => AWS::SimpleDB::Item
+      #       puts item.class.name # => Ideeli::AWS::SimpleDB::Item
       #     end
       #
       # You can switch a collection into yielded {ItemData} objects by
       # specifying what attributes to request:
       #
       #     domain.items.select(:all).each do |item_data|
-      #       puts item_data.class.name # => AWS::SimpleDB::ItemData
+      #       puts item_data.class.name # => Ideeli::AWS::SimpleDB::ItemData
       #       puts item_data.attributes # => { 'attr-name' => 'attr-value', ... }
       #     end
       #
@@ -648,4 +649,5 @@ module AWS
 
     end
   end
+end
 end

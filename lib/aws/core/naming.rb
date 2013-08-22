@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
 
@@ -18,7 +19,7 @@ module AWS
     module Naming
 
       def service_name
-        self.name.split(/::/)[1]
+        self.name.split(/::/)[2]
       end
 
       def service_ruby_name
@@ -27,4 +28,5 @@ module AWS
 
     end
   end
+end
 end

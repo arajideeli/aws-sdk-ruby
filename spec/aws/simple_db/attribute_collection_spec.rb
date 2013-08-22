@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleDB
     describe AttributeCollection do
@@ -475,4 +476,5 @@ module AWS
 
     end
   end
+end
 end

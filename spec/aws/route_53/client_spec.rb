@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class Route53
     describe Client do
@@ -514,4 +515,5 @@ XML
 
     end
   end
+end
 end

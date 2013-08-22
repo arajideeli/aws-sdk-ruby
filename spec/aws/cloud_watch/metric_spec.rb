@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class CloudWatch
     describe Metric do
@@ -72,4 +73,5 @@ module AWS
 
     end
   end
+end
 end

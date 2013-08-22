@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/cloud_search/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon CloudSearch.
@@ -35,20 +36,20 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::CloudSearch interface:
+  # Or you can set them directly on the Ideeli::AWS::CloudSearch interface:
   #
-  #     cs = AWS::CloudSearch.new(
+  #     cs = Ideeli::AWS::CloudSearch.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
   # # Using the Client
   #
-  # AWS::CloudSearch does not provide higher level abstractions for CloudSearch at
+  # Ideeli::AWS::CloudSearch does not provide higher level abstractions for CloudSearch at
   # this time.  You can still access all of the API methods using
-  # {AWS::CloudSearch::Client}.  Here is how you access the client and make
+  # {Ideeli::AWS::CloudSearch::Client}.  Here is how you access the client and make
   # a simple request:
   #
-  #     cs = AWS::CloudSearch.new
+  #     cs = Ideeli::AWS::CloudSearch.new
   #
   #     resp = cs.client.describe_domains
   #     resp[:domain_status_list].each do |domain|
@@ -71,4 +72,5 @@ module AWS
 
   end
 
+end
 end

@@ -11,7 +11,8 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
-module AWS::Core
+module Ideeli
+module Ideeli::AWS::Core
 
   shared_examples_for "configured grammars module" do
 
@@ -151,4 +152,5 @@ module AWS::Core
 
   end
 
+end
 end

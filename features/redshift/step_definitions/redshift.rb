@@ -13,7 +13,7 @@
 
 Before("@redshift") do
 
-  @redshift = AWS::Redshift.new
+  @redshift = Ideeli::AWS::Redshift.new
   @client = @redshift.client
 
 end

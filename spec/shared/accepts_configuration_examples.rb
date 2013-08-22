@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for 'a class that accepts configuration' do |*used_config|
@@ -38,4 +39,5 @@ module AWS
 
   end
 
+end
 end

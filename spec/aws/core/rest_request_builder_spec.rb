@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Core
     describe RESTRequestBuilder do
@@ -286,4 +287,5 @@ XML
       end
     end
   end
+end
 end

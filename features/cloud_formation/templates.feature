@@ -23,7 +23,7 @@ Feature: CloudFormations templates
         "Description": "A simple template",
         "Resources": {
           "web": {
-            "Type": "AWS::EC2::Instance",
+            "Type": "Ideeli::AWS::EC2::Instance",
             "Properties": {
               "ImageId": "ami-41814f28"
             }
@@ -52,7 +52,7 @@ Feature: CloudFormations templates
 
         "Resources": {
           "web": {
-            "Type": "AWS::EC2::Instance",
+            "Type": "Ideeli::AWS::EC2::Instance",
             "Properties": {
               "ImageId": "ami-41814f28"
             },

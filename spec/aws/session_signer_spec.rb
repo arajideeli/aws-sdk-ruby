@@ -13,9 +13,11 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
 #  describe SessionSigner do
 #  end
 
+end
 end

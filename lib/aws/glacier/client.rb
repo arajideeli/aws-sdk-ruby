@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class Glacier
 
@@ -18,7 +19,7 @@ module AWS
     # You can specify the special value of '-' to specify your
     # AWS account ID.
     #
-    #   glacier = AWS::Glacier.new
+    #   glacier = Ideeli::AWS::Glacier.new
     #   resp = glacier.client.list_vaults(:account_id => '-')
     #
     class Client < Core::RESTJSONClient
@@ -44,4 +45,5 @@ module AWS
 
     end
   end
+end
 end

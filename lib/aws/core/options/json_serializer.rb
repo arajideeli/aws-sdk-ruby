@@ -14,6 +14,7 @@
 require 'json'
 require 'base64'
 
+module Ideeli
 module AWS
   module Core
     module Options
@@ -79,4 +80,5 @@ module AWS
       end
     end
   end
+end
 end

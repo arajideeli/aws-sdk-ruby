@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe Rails do
 
@@ -26,7 +27,7 @@ module AWS
           ::Rails.stub(:version).and_return('3.0')
           ::Rails.stub(:logger).and_return('foo')
 
-          AWS::Rails.log_to_rails_logger
+          Ideeli::AWS::Rails.log_to_rails_logger
           logger = AWS.config.logger
 
           # undo the setup
@@ -45,7 +46,7 @@ module AWS
 
           ::RAILS_DEFAULT_LOGGER = 'bar'
 
-          AWS::Rails.log_to_rails_logger
+          Ideeli::AWS::Rails.log_to_rails_logger
           logger = AWS.config.logger
 
           # undo the setup
@@ -91,18 +92,18 @@ module AWS
 
         it 'adds an :amazon_ses delivery method' do
           ActionMailer::Base.should_receive(:add_delivery_method).
-            with(:amazon_ses, AWS::SimpleEmailService, {})
-          AWS::Rails.add_action_mailer_delivery_method
+            with(:amazon_ses, Ideeli::AWS::SimpleEmailService, {})
+          Ideeli::AWS::Rails.add_action_mailer_delivery_method
         end
 
         it 'uses an ActiveSupport lazy load hook' do
           ActiveSupport.should_receive(:on_load).
             with(:action_mailer)
-          AWS::Rails.add_action_mailer_delivery_method
+          Ideeli::AWS::Rails.add_action_mailer_delivery_method
         end
 
         it 'returns nil' do
-          AWS::Rails.add_action_mailer_delivery_method.should == nil
+          Ideeli::AWS::Rails.add_action_mailer_delivery_method.should == nil
         end
 
         context 'older rails' do
@@ -127,7 +128,7 @@ module AWS
             ActionMailer::Base.should_receive(:define_method).
               with('perform_delivery_amazon_ses')
 
-            AWS::Rails.add_action_mailer_delivery_method
+            Ideeli::AWS::Rails.add_action_mailer_delivery_method
 
           end
 
@@ -135,9 +136,9 @@ module AWS
 
             ses = double('ses')
             ses.should_receive(:send_raw_email).with('raw')
-            AWS::SimpleEmailService.should_receive(:new).with({}).and_return(ses)
+            Ideeli::AWS::SimpleEmailService.should_receive(:new).with({}).and_return(ses)
 
-            AWS::Rails.add_action_mailer_delivery_method
+            Ideeli::AWS::Rails.add_action_mailer_delivery_method
             ActionMailer::Base.new.perform_delivery_amazon_ses('raw')
 
           end
@@ -149,4 +150,5 @@ module AWS
     end
 
   end
+end
 end

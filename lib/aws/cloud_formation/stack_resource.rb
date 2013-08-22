@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class CloudFormation
 
@@ -28,7 +29,7 @@ module AWS
     #   Success/failure message associated with the resource.
     #
     # @attr_reader [String] resource_type
-    #   Type of the resource (e.g. 'AWS::EC2::Instance')
+    #   Type of the resource (e.g. 'Ideeli::AWS::EC2::Instance')
     #
     # @attr_reader [String] stack_name
     #   The name associated with the stack.
@@ -114,4 +115,5 @@ module AWS
 
     end
   end
+end
 end

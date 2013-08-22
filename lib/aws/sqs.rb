@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/sqs/config'
 
+module Ideeli
 module AWS
 
   # Provides an expressive, object-oriented interface to Amazon SQS.
@@ -29,7 +30,7 @@ module AWS
   #
   # Or you can set them directly on the SQS interface:
   #
-  #     sqs = AWS::SQS.new(
+  #     sqs = Ideeli::AWS::SQS.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -78,4 +79,5 @@ module AWS
 
   end
 
+end
 end

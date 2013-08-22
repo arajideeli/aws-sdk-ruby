@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class ELB
 
@@ -148,7 +149,7 @@ module AWS
       #   on this port.
       def exists?
         !_description.nil?
-      rescue AWS::Core::Resource::NotFound
+      rescue Ideeli::AWS::Core::Resource::NotFound
         false
       end
 
@@ -187,4 +188,5 @@ module AWS
 
     end
   end
+end
 end

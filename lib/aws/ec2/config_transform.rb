@@ -1,5 +1,6 @@
 # Copyright 2011-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
+module Ideeli
 module AWS
   class EC2
 
@@ -60,4 +61,5 @@ module AWS
     end
 
   end
+end
 end

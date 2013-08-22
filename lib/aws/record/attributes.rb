@@ -13,11 +13,12 @@
 
 require 'date'
 
+module Ideeli
 module AWS
   module Record
       module Attributes
 
-      # Base class for all of the AWS::Record attributes.
+      # Base class for all of the Ideeli::AWS::Record attributes.
       class BaseAttr
 
         # @param [Symbol] name Name of this attribute.  It should be a name that
@@ -385,4 +386,5 @@ module AWS
       end
     end
   end
+end
 end

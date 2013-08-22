@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/storage_gateway/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with AWS Storage Gateway.
@@ -35,20 +36,20 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::StorageGateway interface:
+  # Or you can set them directly on the Ideeli::AWS::StorageGateway interface:
   #
-  #     sg = AWS::StorageGateway.new(
+  #     sg = Ideeli::AWS::StorageGateway.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
   # # Using the Client
   #
-  # AWS::StorageGateway does not provide higher level abstractions for Route 53 at
+  # Ideeli::AWS::StorageGateway does not provide higher level abstractions for Route 53 at
   # this time.  You can still access all of the API methods using
-  # {AWS::StorageGateway::Client}.  Here is how you access the client and make
+  # {Ideeli::AWS::StorageGateway::Client}.  Here is how you access the client and make
   # a simple request:
   #
-  #     sg = AWS::StorageGateway.new
+  #     sg = Ideeli::AWS::StorageGateway.new
   #
   #     resp = sg.client.list_gateways
   #     resp[:gateways].each do |gateway|
@@ -70,4 +71,5 @@ module AWS
     endpoint_prefix 'storagegateway'
 
   end
+end
 end

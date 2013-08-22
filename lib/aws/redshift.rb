@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/redshift/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon Redshift.
@@ -32,9 +33,9 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::Redshift interface:
+  # Or you can set them directly on the Ideeli::AWS::Redshift interface:
   #
-  #     redshift = AWS::Redshift.new(
+  #     redshift = Ideeli::AWS::Redshift.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -49,4 +50,5 @@ module AWS
     endpoint_prefix 'redshift'
 
   end
+end
 end

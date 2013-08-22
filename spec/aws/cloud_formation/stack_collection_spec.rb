@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'uri'
 
+module Ideeli
 module AWS
   class CloudFormation
     describe StackCollection do
@@ -307,4 +308,5 @@ module AWS
 
     end
   end
+end
 end

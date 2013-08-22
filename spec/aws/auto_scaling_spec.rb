@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe AutoScaling do
 
@@ -221,4 +222,5 @@ module AWS
     end
 
   end
+end
 end

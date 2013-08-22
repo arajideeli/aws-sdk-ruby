@@ -23,14 +23,14 @@ EOS
 end
 
 # Gets an instance of the SQS interface using the default configuration
-sqs = AWS::SQS.new
+sqs = Ideeli::AWS::SQS.new
 
 puts "Creating queue '#{queue_name}' ..."
 q = nil
 begin
   # Creates new queue or gets erxisting queue
   q = sqs.queues.create queue_name
-rescue AWS::SQS::Errors::InvalidParameterValue => e
+rescue Ideeli::AWS::SQS::Errors::InvalidParameterValue => e
   puts "Invalid queue name '#{queue_name}'. "+e.message
   exit 1
 end

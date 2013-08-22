@@ -13,6 +13,7 @@
 
 require 'aws/ec2/internet_gateway/attachment'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -119,4 +120,5 @@ module AWS
 
     end
   end
+end
 end

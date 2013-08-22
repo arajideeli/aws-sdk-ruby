@@ -13,12 +13,14 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Record
     describe Model do
 
-      it_should_behave_like("an aws record base class", AWS::Record::Model)
+      it_should_behave_like("an aws record base class", Ideeli::AWS::Record::Model)
 
     end
   end
+end
 end

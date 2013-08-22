@@ -12,7 +12,7 @@
 # language governing permissions and limitations under the License.
 
 When /^I set the queue policy$/ do
-  @policy = AWS::SQS::Policy.new
+  @policy = Ideeli::AWS::SQS::Policy.new
   @policy.allow(
     :actions => :any,
     :principles => ["arn:aws:iam::681294939609:root"],

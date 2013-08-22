@@ -14,13 +14,14 @@
 require 'spec_helper'
 require 'time'
 
+module Ideeli
 module AWS
   shared_examples_for "an authorize v4 request" do
 
     let(:request) { described_class.new }
 
     let(:credentials) {
-      AWS::Core::CredentialProviders::StaticProvider.new({
+      Ideeli::AWS::Core::CredentialProviders::StaticProvider.new({
         :access_key_id => 'akid',
         :secret_access_key => 'secret',
       })
@@ -84,4 +85,5 @@ module AWS
 
     end
   end
+end
 end

@@ -16,6 +16,7 @@ require 'net/https'
 require 'thread'
 require 'logger'
 
+module Ideeli
 module AWS
   module Core
     module Http
@@ -92,7 +93,7 @@ module AWS
         # @param [URI::HTTP,URI::HTTPS,String] endpoint The HTTP(S) endpoint to
         #    connect to (e.g. 'https://domain.com').
         #
-        # @param [Net::HTTPRequest] request The request to make.  This can be 
+        # @param [Net::HTTPRequest] request The request to make.  This can be
         #   any request object from Net::HTTP (e.g. Net::HTTP::Get,
         #   Net::HTTP::POST, etc).
         #
@@ -177,7 +178,7 @@ module AWS
           # Calling this method twice with the same options will return
           # the same pool.
           #
-          # @option options [URI::HTTP,String] :proxy_uri A proxy to send 
+          # @option options [URI::HTTP,String] :proxy_uri A proxy to send
           #   requests through.  Formatted like 'http://proxy.com:123'.
           #
           # @option options [Float] :http_continue_timeout (nil) The number of
@@ -346,4 +347,5 @@ module AWS
       end
     end
   end
+end
 end

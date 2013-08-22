@@ -17,7 +17,7 @@ When /^I set the password for the user\'s login profile$/ do
   10.times { pass << alpha[rand(alpha.size-1)] }
   begin
     @user.login_profile.password = pass
-  rescue AWS::IAM::Errors::EntityTemporarilyUnmodifiable => e
+  rescue Ideeli::AWS::IAM::Errors::EntityTemporarilyUnmodifiable => e
     sleep 1
     retry
   end

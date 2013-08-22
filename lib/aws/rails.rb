@@ -13,6 +13,7 @@
 
 require 'yaml'
 
+module Ideeli
 module AWS
 
   if Object.const_defined?(:Rails) and Rails.const_defined?(:Railtie)
@@ -23,7 +24,7 @@ module AWS
       # configure our plugin on boot. other extension points such
       # as configuration, rake tasks, etc, are also available
       initializer "aws-sdk.initialize" do |app|
-        AWS::Rails.setup
+        Ideeli::AWS::Rails.setup
       end
     end
 
@@ -115,7 +116,7 @@ module AWS
     end
 
     # Adds a delivery method to ActionMailer that uses
-    # {AWS::SimpleEmailService}.
+    # {Ideeli::AWS::SimpleEmailService}.
     #
     # Once you have an SES delivery method you can configure Rails to
     # use this for ActionMailer in your environment configuration
@@ -145,7 +146,7 @@ module AWS
     #       config.action_mailer.delivery_method = :amazon_ses
     #
     # @param [Hash] options A hash of options that are passes to
-    #   {AWS::SimpleEmailService#new} before delivering email.
+    #   {Ideeli::AWS::SimpleEmailService#new} before delivering email.
     #
     # @return [nil]
     #
@@ -153,12 +154,12 @@ module AWS
 
       if ::Rails.version.to_s >= '3.0'
         ActiveSupport.on_load(:action_mailer) do
-          self.add_delivery_method(name, AWS::SimpleEmailService, options)
+          self.add_delivery_method(name, Ideeli::AWS::SimpleEmailService, options)
         end
       elsif defined?(::ActionMailer)
         amb = ::ActionMailer::Base
         amb.send(:define_method, "perform_delivery_#{name}") do |mail|
-          AWS::SimpleEmailService.new(options).send_raw_email(mail)
+          Ideeli::AWS::SimpleEmailService.new(options).send_raw_email(mail)
         end
       end
 
@@ -192,4 +193,5 @@ module AWS
     end
 
   end
+end
 end

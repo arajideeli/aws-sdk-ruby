@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/rds/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon Relational
@@ -33,9 +34,9 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::RDS interface:
+  # Or you can set them directly on the Ideeli::AWS::RDS interface:
   #
-  #     rds = AWS::RDS.new(
+  #     rds = Ideeli::AWS::RDS.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -68,4 +69,5 @@ module AWS
     alias_method :snapshots, :db_snapshots
 
   end
+end
 end

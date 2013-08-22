@@ -12,6 +12,7 @@
 # language governing permissions and limitations under the License.
 
 
+module Ideeli
 module AWS
   class CloudFormation
 
@@ -193,11 +194,11 @@ module AWS
       #   parameter; otherwise, this action returns an
       #   InsufficientCapabilities error. IAM resources are the following:
       #
-      #     * AWS::IAM::AccessKey
-      #     * AWS::IAM::Group
-      #     * AWS::IAM::Policy
-      #     * AWS::IAM::User
-      #     * AWS::IAM::UserToGroupAddition
+      #     * Ideeli::AWS::IAM::AccessKey
+      #     * Ideeli::AWS::IAM::Group
+      #     * Ideeli::AWS::IAM::Policy
+      #     * Ideeli::AWS::IAM::User
+      #     * Ideeli::AWS::IAM::UserToGroupAddition
       #
       # @return [nil]
       #
@@ -252,4 +253,5 @@ module AWS
 
     end
   end
+end
 end

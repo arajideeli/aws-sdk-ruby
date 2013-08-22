@@ -22,7 +22,7 @@ unless topic_arn && message
 end
 
 # Get an instance of the SNS interface using the default configuration
-sns = AWS::SNS.new
+sns = Ideeli::AWS::SNS.new
 
 # Find the topic by using the topic's arn
 t = sns.topics[topic_arn]

@@ -59,7 +59,7 @@ After("@ec2") do
   @created_customer_gateways.each do |gateway|
     begin
       gateway.delete
-    rescue AWS::EC2::Errors::InvalidCustomerGatewayID::NotFound
+    rescue Ideeli::AWS::EC2::Errors::InvalidCustomerGatewayID::NotFound
       # already deleted
     end
   end
@@ -68,7 +68,7 @@ After("@ec2") do
     begin
       gateway.vpc = nil
       gateway.delete
-    rescue AWS::EC2::Errors::InvalidInternetGatewayID::NotFound
+    rescue Ideeli::AWS::EC2::Errors::InvalidInternetGatewayID::NotFound
       # already deleted
     end
   end
@@ -90,7 +90,7 @@ After("@ec2") do
   @started_instances.each do |instance|
     begin
       instance.terminate
-    rescue AWS::EC2::Errors::OperationNotPermitted
+    rescue Ideeli::AWS::EC2::Errors::OperationNotPermitted
       instance.api_termination_disabled = false
       retry
     end
@@ -113,8 +113,8 @@ After("@ec2") do
   @created_security_groups.each{|group|
     begin
       group.delete
-    rescue AWS::EC2::Errors::InvalidSecurityGroupID::NotFound,
-           AWS::EC2::Errors::InvalidGroup::NotFound
+    rescue Ideeli::AWS::EC2::Errors::InvalidSecurityGroupID::NotFound,
+           Ideeli::AWS::EC2::Errors::InvalidGroup::NotFound
       # already deleted
     end
   }
@@ -122,8 +122,8 @@ After("@ec2") do
   @created_images.each do |image|
     begin
       image.delete
-    rescue AWS::EC2::Errors::InvalidImageID::NotFound,
-           AWS::EC2::Errors::InvalidAMIID::Unavailable
+    rescue Ideeli::AWS::EC2::Errors::InvalidImageID::NotFound,
+           Ideeli::AWS::EC2::Errors::InvalidAMIID::Unavailable
       # already deleted
     end
   end
@@ -131,8 +131,8 @@ After("@ec2") do
   @created_volumes.each do |volume|
     begin
       volume.delete
-    rescue AWS::EC2::Errors::InvalidVolumeID::NotFound,
-      AWS::EC2::Errors::InvalidVolume::NotFound
+    rescue Ideeli::AWS::EC2::Errors::InvalidVolumeID::NotFound,
+      Ideeli::AWS::EC2::Errors::InvalidVolume::NotFound
       # already deleted
     end
   end
@@ -140,8 +140,8 @@ After("@ec2") do
   @created_snapshots.each do |snapshot|
     begin
       snapshot.delete
-    rescue AWS::EC2::Errors::InvalidSnapshotID::NotFound,
-           AWS::EC2::Errors::InvalidSnapshot::NotFound
+    rescue Ideeli::AWS::EC2::Errors::InvalidSnapshotID::NotFound,
+           Ideeli::AWS::EC2::Errors::InvalidSnapshot::NotFound
       # already deleted
     end
   end
@@ -160,7 +160,7 @@ After("@ec2") do
     @created_subnets.each do |subnet|
       begin
         subnet.delete
-      rescue AWS::EC2::Errors::InvalidSubnetID::NotFound
+      rescue Ideeli::AWS::EC2::Errors::InvalidSubnetID::NotFound
         # subnet already deleted
       end
     end
@@ -170,7 +170,7 @@ After("@ec2") do
   @created_route_tables.each do |table|
     begin
       table.delete
-    rescue AWS::EC2::Errors::InvalidRouteTableID::NotFound
+    rescue Ideeli::AWS::EC2::Errors::InvalidRouteTableID::NotFound
       # route table already deleted
     end
   end
@@ -178,7 +178,7 @@ After("@ec2") do
   @created_vpcs.each do |vpc|
     begin
       vpc.delete
-    rescue AWS::EC2::Errors::InvalidVpcID::NotFound
+    rescue Ideeli::AWS::EC2::Errors::InvalidVpcID::NotFound
       # already deleted
     end
   end
@@ -186,7 +186,7 @@ After("@ec2") do
   @created_dhcp_options.each do |opts|
     begin
       opts.delete
-    rescue AWS::EC2::Errors::InvalidDhcpOptionsID::NotFound
+    rescue Ideeli::AWS::EC2::Errors::InvalidDhcpOptionsID::NotFound
       # already deleted
     end
   end

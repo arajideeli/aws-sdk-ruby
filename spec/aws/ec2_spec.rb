@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   describe EC2 do
@@ -123,4 +124,5 @@ module AWS
 
   end
 
+end
 end

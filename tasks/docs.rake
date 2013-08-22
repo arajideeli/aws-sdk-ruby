@@ -37,7 +37,7 @@ namespace :docs do
 
     supported = {}
 
-    AWS::SERVICES.values.each do |svc|
+    Ideeli::AWS::SERVICES.values.each do |svc|
       apis = Dir.glob("./lib/aws/api_config/#{svc.class_name}*.yml")
       apis = apis.map{|api| api.match(/\d{4}-\d{2}-\d{2}/)[0] }
       supported[svc.class_name] = apis
@@ -48,9 +48,9 @@ namespace :docs do
     supported.sort_by{|svc,api| svc.downcase }.each do |(class_name,apis)|
       rowspan = apis.length > 1 ? " rowspan=\"#{apis.length}\"" : ''
       rows << "    <tr>"
-      rows << "      <td#{rowspan}>AWS::#{class_name}</td>"
+      rows << "      <td#{rowspan}>Ideeli::AWS::#{class_name}</td>"
       rows << "      <td>#{apis.first}</td>"
-      rows << "      <td#{rowspan}>#{AWS::SERVICES[class_name].full_name}</td>"
+      rows << "      <td#{rowspan}>#{Ideeli::AWS::SERVICES[class_name].full_name}</td>"
       rows << "    </tr>"
       apis[1..-1].each do |api|
         rows << "    <tr>"
@@ -86,7 +86,7 @@ namespace :docs do
     require 'aws/core'
 
     svcs = []
-    AWS::SERVICES.values.sort_by(&:method_name).each do |svc|
+    Ideeli::AWS::SERVICES.values.sort_by(&:method_name).each do |svc|
       svcs << "    # @attr_reader [#{svc.class_name}] #{svc.method_name}"
     end
 

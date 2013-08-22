@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleDB
     describe Attribute do
@@ -307,4 +308,5 @@ module AWS
 
     end
   end
+end
 end

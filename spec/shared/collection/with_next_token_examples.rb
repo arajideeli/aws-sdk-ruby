@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for "a pageable collection" do
@@ -69,4 +70,5 @@ module AWS
     end
 
   end
+end
 end

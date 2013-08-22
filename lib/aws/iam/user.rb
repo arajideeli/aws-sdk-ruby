@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class IAM
 
@@ -21,7 +22,7 @@ module AWS
     #
     # ## Creating A User
     #
-    #     iam = AWS::IAM.new
+    #     iam = Ideeli::AWS::IAM.new
     #     user = iam.users.create('johndoe')
     #
     # ## Renaming a User
@@ -197,4 +198,5 @@ module AWS
 
     end
   end
+end
 end

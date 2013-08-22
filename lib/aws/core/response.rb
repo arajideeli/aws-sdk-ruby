@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
 
@@ -30,7 +31,7 @@ module AWS
     # a shortcut for accessing this hash.
     #
     #     # make a request to describe one instance
-    #     ec2 = AWS::EC2.new
+    #     ec2 = Ideeli::AWS::EC2.new
     #     response = ec2.client.describe_instances(:instance_ids => ['i-12345678'])
     #
     #     # find the instance in the response data (2 ways to get the data)
@@ -53,8 +54,8 @@ module AWS
     #
     #     response.request_type #=> :describe_instances
     #     response.request_options #=> { :instance_ids => ['i-12345678'] }
-    #     response.http_request #=> #<AWS::Core::Http::Request>
-    #     response.http_response #=> #<AWS::Core::Http::Response>
+    #     response.http_request #=> #<Ideeli::AWS::Core::Http::Request>
+    #     response.http_response #=> #<Ideeli::AWS::Core::Http::Response>
     #
     class Response
 
@@ -86,7 +87,7 @@ module AWS
 
       alias_method :cached?, :cached
 
-      # @return [AWS::Error,nil] Returns nil unless the request failed.
+      # @return [Ideeli::AWS::Error,nil] Returns nil unless the request failed.
       #   Normally this will be nil unless you are using the Asynchronous
       #   interface.
       attr_accessor :error
@@ -208,4 +209,5 @@ module AWS
 
     end
   end
+end
 end

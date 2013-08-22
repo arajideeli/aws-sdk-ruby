@@ -14,6 +14,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class AutoScaling
     describe ScalingPolicyCollection do
@@ -132,4 +133,5 @@ module AWS
 
     end
   end
+end
 end

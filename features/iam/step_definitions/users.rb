@@ -69,7 +69,7 @@ Then /^the user arn should contain the path$/ do
 end
 
 When /^I add a policy named "([^\"]*)" to the user$/ do |policy_name|
-  @policy_document = AWS::IAM::Policy.new do |p|
+  @policy_document = Ideeli::AWS::IAM::Policy.new do |p|
     p.allow(:actions => ["s3:*"],
             :resources => :any,
             :principals => :any)
@@ -95,13 +95,13 @@ When /^I remove the "([^\"]*)" policy from the user$/ do |policy_name|
 end
 
 Given /^I add policy to the group that allows listing verified email addresses$/ do
-  @policy = AWS::IAM::Policy.new
+  @policy = Ideeli::AWS::IAM::Policy.new
   @policy.allow(:actions => ['ses:ListVerifiedEmailAddresses'], :resources => :any)
   @group.policies['listEmailAddresses'] = @policy
 end
 
 When /^I create a new SES interface object with the new access keys$/ do
-  @ses = AWS::SimpleEmailService.new(@access_key.credentials)
+  @ses = Ideeli::AWS::SimpleEmailService.new(@access_key.credentials)
 end
 
 Then /^an error should be raised if I try to verify an email address$/ do

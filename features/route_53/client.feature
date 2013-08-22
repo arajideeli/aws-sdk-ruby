@@ -25,7 +25,7 @@ Feature: Route 53 Client
   Scenario: DeleteHostedZone
     Given I call #create_hosted_zone on the client
     When I call #delete_hosted_zone on the client with the zone id
-    Then #get_hosted_zone should raise "AWS::Route53::Errors::NoSuchHostedZone"
+    Then #get_hosted_zone should raise "Ideeli::AWS::Route53::Errors::NoSuchHostedZone"
 
   Scenario: GetHostedZone
     Given I call #create_hosted_zone on the client

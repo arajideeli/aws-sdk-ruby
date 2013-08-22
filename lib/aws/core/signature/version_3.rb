@@ -14,6 +14,7 @@
 require 'openssl'
 require 'time'
 
+module Ideeli
 module AWS
   module Core
     module Signature
@@ -74,4 +75,5 @@ module AWS
       end
     end
   end
+end
 end

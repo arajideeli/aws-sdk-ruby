@@ -13,7 +13,8 @@
 
 require 'spec_helper'
 
-module AWS::Core
+module Ideeli
+module Ideeli::AWS::Core
   describe Response do
 
     let(:http_request) { double('http-request', :body_stream => nil) }
@@ -56,7 +57,7 @@ module AWS::Core
         hash = { :a => 1 }
         response.data = { :key => hash }
         response.key.should == hash
-        response.key.should be_a(AWS::Core::Data)
+        response.key.should be_a(Ideeli::AWS::Core::Data)
       end
 
     end
@@ -216,4 +217,5 @@ module AWS::Core
     end
 
   end
+end
 end

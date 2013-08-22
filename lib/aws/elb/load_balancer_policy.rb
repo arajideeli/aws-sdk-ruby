@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class ELB
     class LoadBalancerPolicy < Core::Resource
@@ -73,7 +74,7 @@ module AWS
       def exists?
         r = get_resource
         r.policy_descriptions.find{|d| d.policy_name == name } ? true : false
-      rescue AWS::ELB::Errors::LoadBalancerNotFound
+      rescue Ideeli::AWS::ELB::Errors::LoadBalancerNotFound
         false
       end
 
@@ -90,4 +91,5 @@ module AWS
 
     end
   end
+end
 end

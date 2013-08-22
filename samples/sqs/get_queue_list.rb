@@ -14,7 +14,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../samples_config')
 
 # Gets an instance of the SQS interface using the default configuration
-sqs = AWS::SQS.new
+sqs = Ideeli::AWS::SQS.new
 
 puts "Getting list of all queues ..."
 

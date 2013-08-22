@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class RDS
     describe Client do
@@ -110,4 +111,5 @@ module AWS
 
     end
   end
+end
 end

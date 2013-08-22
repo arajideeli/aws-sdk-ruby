@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SNS
     describe Policy::Statement do
@@ -35,4 +36,5 @@ module AWS
 
     end
   end
+end
 end

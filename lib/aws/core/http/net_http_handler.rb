@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
     module Http
@@ -24,7 +25,7 @@ module AWS
       class NetHttpHandler
 
         class TruncatedBodyError < IOError; end
-        
+
         # @api private
         NETWORK_ERRORS = [
           SocketError, EOFError, IOError, Timeout::Error,
@@ -104,7 +105,7 @@ module AWS
           end
         end
 
-        # Given an AWS::Core::HttpRequest, this method translates
+        # Given an Ideeli::AWS::Core::HttpRequest, this method translates
         # it into a Net::HTTPRequest (Get, Put, Post, Head or Delete).
         # @param [Request] request
         # @return [Net::HTTPRequest]
@@ -144,4 +145,5 @@ module AWS
 
     end
   end
+end
 end

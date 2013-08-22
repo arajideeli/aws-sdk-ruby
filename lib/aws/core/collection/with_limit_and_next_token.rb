@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
     module Collection
@@ -21,7 +22,7 @@ module AWS
       # responses but that also accept a upper limit of results to
       # return in a single request.
       #
-      # See {AWS::Core::Collection} for documentation on the available
+      # See {Ideeli::AWS::Core::Collection} for documentation on the available
       # methods.
       #
       module WithLimitAndNextToken
@@ -68,4 +69,5 @@ module AWS
       end
     end
   end
+end
 end

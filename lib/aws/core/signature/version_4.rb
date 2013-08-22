@@ -15,6 +15,7 @@ require 'time'
 require 'openssl'
 require 'digest'
 
+module Ideeli
 module AWS
   module Core
     module Signature
@@ -132,4 +133,5 @@ module AWS
       end
     end
   end
+end
 end

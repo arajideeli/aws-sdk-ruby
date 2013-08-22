@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe SimpleEmailService do
 
@@ -96,7 +97,7 @@ module AWS
     context '#inspect' do
 
       it 'returns a simple string' do
-        ses.inspect.should == '<AWS::SimpleEmailService>'
+        ses.inspect.should == '<Ideeli::AWS::SimpleEmailService>'
       end
 
     end
@@ -282,4 +283,5 @@ module AWS
     end
 
   end
+end
 end

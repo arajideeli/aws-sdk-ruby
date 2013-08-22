@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class STS
 
@@ -29,4 +30,5 @@ module AWS
     end
 
   end
+end
 end

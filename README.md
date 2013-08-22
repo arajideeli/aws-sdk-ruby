@@ -32,8 +32,8 @@ You can also specify these values via `ENV`:
 Each service provides a service interface and a client.
 
 ```
-ec2 = AWS.ec2 #=> AWS::EC2
-ec2.client #=> AWS::EC2::Client
+ec2 = AWS.ec2 #=> Ideeli::AWS::EC2
+ec2.client #=> Ideeli::AWS::EC2::Client
 ```
 
 The client provides one method for each API operation.  The client methods
@@ -48,7 +48,7 @@ resp[:tag_set].first
 #=> {:resource_id=>"i-12345678", :resource_type=>"instance", :key=>"role", :value=>"web"}
 ```
 
-**Example: list instance tags using the AWS::EC2 higher level interface**
+**Example: list instance tags using the Ideeli::AWS::EC2 higher level interface**
 
 ```
 ec2.instances['i-12345678'].tags.to_h
@@ -77,42 +77,42 @@ The SDK currently supports the following services:
     </thead>
     <tbody>
       <tr>
-      <td>AWS::AutoScaling</td>
+      <td>Ideeli::AWS::AutoScaling</td>
       <td>2011-01-01</td>
       <td>Auto Scaling</td>
     </tr>
     <tr>
-      <td>AWS::CloudFormation</td>
+      <td>Ideeli::AWS::CloudFormation</td>
       <td>2010-05-15</td>
       <td>AWS CloudFormation</td>
     </tr>
     <tr>
-      <td>AWS::CloudFront</td>
+      <td>Ideeli::AWS::CloudFront</td>
       <td>2013-05-12</td>
       <td>Amazon CloudFront</td>
     </tr>
     <tr>
-      <td>AWS::CloudSearch</td>
+      <td>Ideeli::AWS::CloudSearch</td>
       <td>2011-02-01</td>
       <td>Amazon CloudSearch</td>
     </tr>
     <tr>
-      <td>AWS::CloudWatch</td>
+      <td>Ideeli::AWS::CloudWatch</td>
       <td>2010-08-01</td>
       <td>Amazon CloudWatch</td>
     </tr>
     <tr>
-      <td>AWS::DataPipeline</td>
+      <td>Ideeli::AWS::DataPipeline</td>
       <td>2012-10-29</td>
       <td>AWS Data Pipeline</td>
     </tr>
     <tr>
-      <td>AWS::DirectConnect</td>
+      <td>Ideeli::AWS::DirectConnect</td>
       <td>2012-10-25</td>
       <td>AWS Direct Connect</td>
     </tr>
     <tr>
-      <td rowspan="2">AWS::DynamoDB</td>
+      <td rowspan="2">Ideeli::AWS::DynamoDB</td>
       <td>2011-12-05</td>
       <td rowspan="2">Amazon DynamoDB</td>
     </tr>
@@ -120,112 +120,112 @@ The SDK currently supports the following services:
       <td>2012-08-10</td>
     </tr>
     <tr>
-      <td>AWS::EC2</td>
+      <td>Ideeli::AWS::EC2</td>
       <td>2013-02-01</td>
       <td>Amazon Elastic Compute Cloud</td>
     </tr>
     <tr>
-      <td>AWS::ElastiCache</td>
+      <td>Ideeli::AWS::ElastiCache</td>
       <td>2012-11-15</td>
       <td>Amazon ElastiCache</td>
     </tr>
     <tr>
-      <td>AWS::ElasticBeanstalk</td>
+      <td>Ideeli::AWS::ElasticBeanstalk</td>
       <td>2010-12-01</td>
       <td>AWS Elastic Beanstalk</td>
     </tr>
     <tr>
-      <td>AWS::ElasticTranscoder</td>
+      <td>Ideeli::AWS::ElasticTranscoder</td>
       <td>2012-09-25</td>
       <td>Amazon Elastic Transcoder</td>
     </tr>
     <tr>
-      <td>AWS::ELB</td>
+      <td>Ideeli::AWS::ELB</td>
       <td>2012-06-01</td>
       <td>Elastic Load Balancing</td>
     </tr>
     <tr>
-      <td>AWS::EMR</td>
+      <td>Ideeli::AWS::EMR</td>
       <td>2009-03-31</td>
       <td>Amazon Elastic MapReduce</td>
     </tr>
     <tr>
-      <td>AWS::Glacier</td>
+      <td>Ideeli::AWS::Glacier</td>
       <td>2012-06-01</td>
       <td>Amazon Glacier</td>
     </tr>
     <tr>
-      <td>AWS::IAM</td>
+      <td>Ideeli::AWS::IAM</td>
       <td>2010-05-08</td>
       <td>AWS Identity and Access Management</td>
     </tr>
     <tr>
-      <td>AWS::ImportExport</td>
+      <td>Ideeli::AWS::ImportExport</td>
       <td>2010-06-01</td>
       <td>AWS Import/Export</td>
     </tr>
     <tr>
-      <td>AWS::OpsWorks</td>
+      <td>Ideeli::AWS::OpsWorks</td>
       <td>2013-02-18</td>
       <td>AWS OpsWorks</td>
     </tr>
     <tr>
-      <td>AWS::RDS</td>
+      <td>Ideeli::AWS::RDS</td>
       <td>2013-05-15</td>
       <td>Amazon Relational Database Service (Beta)</td>
     </tr>
     <tr>
-      <td>AWS::Redshift</td>
+      <td>Ideeli::AWS::Redshift</td>
       <td>2012-12-01</td>
       <td>Amazon Redshift</td>
     </tr>
     <tr>
-      <td>AWS::Route53</td>
+      <td>Ideeli::AWS::Route53</td>
       <td>2012-12-12</td>
       <td>Amazon Route 53</td>
     </tr>
     <tr>
-      <td>AWS::S3</td>
+      <td>Ideeli::AWS::S3</td>
       <td>2006-03-01</td>
       <td>Amazon Simple Storage Service</td>
     </tr>
     <tr>
-      <td>AWS::SimpleDB</td>
+      <td>Ideeli::AWS::SimpleDB</td>
       <td>2009-04-15</td>
       <td>Amazon SimpleDB</td>
     </tr>
     <tr>
-      <td>AWS::SimpleEmailService</td>
+      <td>Ideeli::AWS::SimpleEmailService</td>
       <td>2010-12-01</td>
       <td>Amazon Simple E-mail Service</td>
     </tr>
     <tr>
-      <td>AWS::SimpleWorkflow</td>
+      <td>Ideeli::AWS::SimpleWorkflow</td>
       <td>2012-01-25</td>
       <td>Amazon Simple Workflow Service</td>
     </tr>
     <tr>
-      <td>AWS::SNS</td>
+      <td>Ideeli::AWS::SNS</td>
       <td>2010-03-31</td>
       <td>Amazon Simple Notifications Service</td>
     </tr>
     <tr>
-      <td>AWS::SQS</td>
+      <td>Ideeli::AWS::SQS</td>
       <td>2012-11-05</td>
       <td>Amazon Simple Queue Service</td>
     </tr>
     <tr>
-      <td>AWS::StorageGateway</td>
+      <td>Ideeli::AWS::StorageGateway</td>
       <td>2012-06-30</td>
       <td>AWS Storage Gateway</td>
     </tr>
     <tr>
-      <td>AWS::STS</td>
+      <td>Ideeli::AWS::STS</td>
       <td>2011-06-15</td>
       <td>AWS Security Token Service</td>
     </tr>
     <tr>
-      <td>AWS::Support</td>
+      <td>Ideeli::AWS::Support</td>
       <td>2013-04-15</td>
       <td>AWS Support</td>
     </tr>

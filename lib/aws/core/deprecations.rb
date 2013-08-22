@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
 
@@ -31,7 +32,7 @@ module AWS
     #
     #     class Example
     #
-    #       extend AWS::Core::Deprecations
+    #       extend Ideeli::AWS::Core::Deprecations
     #
     #       def do_something
     #       end
@@ -81,4 +82,5 @@ module AWS
 
     end
   end
+end
 end

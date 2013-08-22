@@ -11,10 +11,11 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class EC2
 
-    # Most of the AWS::EC2 collections include TaggedCollection.  This
+    # Most of the Ideeli::AWS::EC2 collections include TaggedCollection.  This
     # module provides methods for filtering the collection with
     # tags.
     #
@@ -50,4 +51,5 @@ module AWS
 
     end
   end
+end
 end

@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'delegate'
 
+module Ideeli
 module AWS
 
   shared_examples_for "ec2 resource exists method" do
@@ -54,4 +55,5 @@ module AWS
 
   end
 
+end
 end

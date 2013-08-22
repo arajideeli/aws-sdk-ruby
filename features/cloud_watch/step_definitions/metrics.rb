@@ -14,7 +14,7 @@
 Given /^I have a metric$/ do
   @namespace = 'ruby-integreation-tests'
   @metric_name = "test-#{Time.now.to_i}"
-  @metric = AWS::CloudWatch::Metric.new(@namespace, @metric_name)
+  @metric = Ideeli::AWS::CloudWatch::Metric.new(@namespace, @metric_name)
 end
 
 Given /^I put data for the metric$/ do

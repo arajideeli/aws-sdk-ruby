@@ -13,10 +13,10 @@
 
 require 'spec_helper'
 
-describe AWS::Core::Http::ConnectionPool do
+describe Ideeli::AWS::Core::Http::ConnectionPool do
 
   def pool options = {}
-    AWS::Core::Http::ConnectionPool.new(options)
+    Ideeli::AWS::Core::Http::ConnectionPool.new(options)
   end
 
   let(:endpoint) { 'http://foo.com' }
@@ -33,7 +33,7 @@ describe AWS::Core::Http::ConnectionPool do
   context '.for' do
 
     it 'returns a connection pool' do
-      pool.should be_a(AWS::Core::Http::ConnectionPool)
+      pool.should be_a(Ideeli::AWS::Core::Http::ConnectionPool)
     end
 
     it 'returns a new pool for different options' do
@@ -54,7 +54,7 @@ describe AWS::Core::Http::ConnectionPool do
 
     it 'returns an array of connection pools' do
       pool = pool()
-      pools = AWS::Core::Http::ConnectionPool.pools
+      pools = Ideeli::AWS::Core::Http::ConnectionPool.pools
       pools.should be_an(Array)
       pools.should include(pool)
     end

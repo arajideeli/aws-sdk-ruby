@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class Route53
     describe ChangeInfo do
@@ -68,4 +69,5 @@ module AWS
 
     end
   end
+end
 end

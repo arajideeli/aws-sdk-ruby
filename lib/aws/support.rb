@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/support/config'
 
+module Ideeli
 module AWS
 
   class Support
@@ -27,4 +28,5 @@ module AWS
     endpoint_prefix 'support'
 
   end
+end
 end

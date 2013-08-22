@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'delegate'
 
+module Ideeli
 module AWS
 
   shared_examples_for "resource equality method" do |method|
@@ -73,4 +74,5 @@ module AWS
 
   end
 
+end
 end

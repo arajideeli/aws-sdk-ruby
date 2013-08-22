@@ -15,6 +15,7 @@
 require 'date'
 require 'time'
 
+module Ideeli
 module AWS
   class RDS
     class DBInstanceCollection
@@ -72,4 +73,5 @@ module AWS
 
     end
   end
+end
 end

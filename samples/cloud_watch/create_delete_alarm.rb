@@ -13,7 +13,7 @@
 
 require File.expand_path(File.dirname(__FILE__) + '/../samples_config')
 
-@cloud_watch = AWS::CloudWatch.new
+@cloud_watch = Ideeli::AWS::CloudWatch.new
 
 puts "Using CloudWatch endpoint : #{@cloud_watch.client.endpoint}"
 
@@ -23,7 +23,7 @@ def print_cloud_watch_alarms_for_account
   @cloud_watch.alarms.each do |alarm|
     puts "- #{alarm.name}"
   end
-  puts "--------------------------------------"  
+  puts "--------------------------------------"
 end
 
 print_cloud_watch_alarms_for_account
@@ -32,10 +32,10 @@ test_alarm_name = "TestAlarm-#{Time.now}"
 puts "Creating new CloudWatch Alarm : #{test_alarm_name}"
 
 new_alarm = @cloud_watch.alarms.create test_alarm_name, {
-  :namespace => 'MyTestNamespace', 
-  :metric_name => 'MyTestCustomMetric', 
-  :statistic => 'Average', 
-  :period => 60, 
+  :namespace => 'MyTestNamespace',
+  :metric_name => 'MyTestCustomMetric',
+  :statistic => 'Average',
+  :period => 60,
   :dimensions => [],
   :evaluation_periods => 1,
   :threshold => 5,

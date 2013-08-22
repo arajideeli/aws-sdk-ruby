@@ -13,6 +13,7 @@
 
 require 'base64'
 
+module Ideeli
 module AWS
   class IAM
 
@@ -136,4 +137,5 @@ module AWS
     end
 
   end
+end
 end

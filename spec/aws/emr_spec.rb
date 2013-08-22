@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe EMR do
 
@@ -26,4 +27,5 @@ module AWS
     end
 
   end
+end
 end

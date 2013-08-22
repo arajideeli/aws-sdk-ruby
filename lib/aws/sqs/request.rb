@@ -13,6 +13,7 @@
 
 require 'uri'
 
+module Ideeli
 module AWS
   class SQS
 
@@ -28,4 +29,5 @@ module AWS
     end
 
   end
+end
 end

@@ -109,8 +109,8 @@ When /^I add the following product codes to the image:$/ do |table|
   codes = table.hashes.collect{|h| h['CODE'] }
   begin
     @image.add_product_codes(*codes)
-  rescue AWS::EC2::Errors::InvalidAMIID::Malformed,
-         AWS::EC2::Errors::InvalidParameterValue
+  rescue Ideeli::AWS::EC2::Errors::InvalidAMIID::Malformed,
+         Ideeli::AWS::EC2::Errors::InvalidParameterValue
     # intentional fake ami id
   end
 end

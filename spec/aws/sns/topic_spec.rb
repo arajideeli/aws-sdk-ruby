@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'json'
 
+module Ideeli
 module AWS
   class SNS
     describe Topic do
@@ -530,4 +531,5 @@ module AWS
 
     end
   end
+end
 end

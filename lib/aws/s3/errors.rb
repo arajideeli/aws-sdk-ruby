@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class S3
 
@@ -52,9 +53,9 @@ module AWS
       # This error is special, because S3 does not (and must not
       # according to RFC 2616) return a body with the HTTP response.
       # The interface is the same as for any other client error.
-      class NotModified < AWS::Errors::Base
+      class NotModified < Ideeli::AWS::Errors::Base
 
-        include AWS::Errors::ClientError
+        include Ideeli::AWS::Errors::ClientError
 
         def initialize(req, resp)
           super(req, resp, "NotModified", "Not Modified")
@@ -65,9 +66,9 @@ module AWS
       # This error is special, because S3 does not return a body with
       # the HTTP response.  The interface is the same as for any other
       # client error.
-      class NoSuchKey < AWS::Errors::Base
+      class NoSuchKey < Ideeli::AWS::Errors::Base
 
-        include AWS::Errors::ClientError
+        include Ideeli::AWS::Errors::ClientError
 
         def initialize(req, resp, code = nil, message = nil)
           super(req, resp, "NoSuchKey", "No Such Key")
@@ -78,9 +79,9 @@ module AWS
       # This error is special, because S3 must first retrieve the client
       #   side encryption key in it's encrypted form before finding if the
       #   key is incorrect.
-      class IncorrectClientSideEncryptionKey < AWS::Errors::Base
+      class IncorrectClientSideEncryptionKey < Ideeli::AWS::Errors::Base
 
-        include AWS::Errors::ClientError
+        include Ideeli::AWS::Errors::ClientError
 
         def initialize(msg)
           super("",
@@ -91,4 +92,5 @@ module AWS
       end
     end
   end
+end
 end

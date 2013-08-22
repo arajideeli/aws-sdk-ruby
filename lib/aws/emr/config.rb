@@ -11,7 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
-AWS::Core::Configuration.module_eval do
+Ideeli::AWS::Core::Configuration.module_eval do
 
   add_service 'EMR', 'emr', 'elasticmapreduce.%s.amazonaws.com'
 

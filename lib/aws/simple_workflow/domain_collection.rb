@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class SimpleWorkflow
 
@@ -22,7 +23,7 @@ module AWS
     # To create a domain you need to pass a unique name to #create.
     #
     #     domain = simple_workflow.domains.create('my-domain', :none)
-    #     #=> #<AWS::SimpleWorkflow::Domain name:my-domain>
+    #     #=> #<Ideeli::AWS::SimpleWorkflow::Domain name:my-domain>
     #
     # ## Getting a Domain
     #
@@ -44,7 +45,7 @@ module AWS
     #     # returns an array of names for all deprecated domains
     #     simple_workflow.domains.deprecated.map(&:name)
     #
-    # See {AWS::Core::Collection} to see other useful methods you can
+    # See {Ideeli::AWS::Core::Collection} to see other useful methods you can
     # call against a domain collection (e.g. #enum, #page, #each_batch).
     #
     class DomainCollection
@@ -68,7 +69,7 @@ module AWS
       #
       #     # register a domain named 'domain' that has no expiry on workflow
       #     # execution history
-      #     domain = AWS::SimpleWorkflow.new.domains.register('domain', :none)
+      #     domain = Ideeli::AWS::SimpleWorkflow.new.domains.register('domain', :none)
       #
       # @param [String] name Name of the domain to register. The name must
       #   be unique.
@@ -166,4 +167,5 @@ module AWS
     end
 
   end
+end
 end

@@ -13,7 +13,8 @@
 
 require 'spec_helper'
 
-module AWS::Core
+module Ideeli
+module Ideeli::AWS::Core
   describe MetaUtils do
 
     context '#class_extend_method' do
@@ -34,4 +35,5 @@ module AWS::Core
     end
 
   end
+end
 end

@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'rexml/document'
 
+module Ideeli
 module AWS
   class S3
 
@@ -841,4 +842,5 @@ END
     end
 
   end
+end
 end

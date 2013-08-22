@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for 'an S3 tree-like collection' do
@@ -90,4 +91,5 @@ module AWS
 
   end
 
+end
 end

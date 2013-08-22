@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class EC2
     describe Region do
@@ -66,7 +67,7 @@ module AWS
         end
 
         it 'returns false if describe_regions raises an error' do
-          err = AWS::EC2::Errors::InvalidParameterValue.new('err')
+          err = Ideeli::AWS::EC2::Errors::InvalidParameterValue.new('err')
           region.client.should_receive(:describe_regions).and_raise(err)
           region.exists?.should eq(false)
         end
@@ -81,4 +82,5 @@ module AWS
 
     end
   end
+end
 end

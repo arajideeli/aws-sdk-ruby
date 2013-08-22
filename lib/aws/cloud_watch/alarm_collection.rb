@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class CloudWatch
 
@@ -23,7 +24,7 @@ module AWS
     # If you know the name of the alarm, you can get a reference using
     # the {#[]} method.
     #
-    #     cw = AWS::CloudWatch.new
+    #     cw = Ideeli::AWS::CloudWatch.new
     #     alarm = cw.alarms['alarm-name']
     #
     # ## Enumerating Alarms
@@ -150,4 +151,5 @@ module AWS
 
     end
   end
+end
 end

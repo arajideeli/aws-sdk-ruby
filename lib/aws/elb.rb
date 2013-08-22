@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/elb/config'
 
+module Ideeli
 module AWS
 
   # Provides an expressive, object-oriented interface to Elastic Load
@@ -30,7 +31,7 @@ module AWS
   #
   # Or you can set them directly on the ELB interface:
   #
-  #     elb = AWS::ELB.new(
+  #     elb = Ideeli::AWS::ELB.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -64,4 +65,5 @@ module AWS
 
   end
 
+end
 end

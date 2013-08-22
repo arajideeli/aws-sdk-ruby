@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/cloud_watch/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon CloudWatch.
@@ -35,20 +36,20 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::CloudWatch interface:
+  # Or you can set them directly on the Ideeli::AWS::CloudWatch interface:
   #
-  #     cw = AWS::CloudWatch.new(
+  #     cw = Ideeli::AWS::CloudWatch.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
   # # Using the Client
   #
-  # AWS::CloudWatch does not provide higher level abstractions for CloudWatch at
+  # Ideeli::AWS::CloudWatch does not provide higher level abstractions for CloudWatch at
   # this time.  You can still access all of the API methods using
-  # {AWS::CloudWatch::Client}.  Here is how you access the client and make
+  # {Ideeli::AWS::CloudWatch::Client}.  Here is how you access the client and make
   # a simple request:
   #
-  #     cw = AWS::CloudWatch.new
+  #     cw = Ideeli::AWS::CloudWatch.new
   #
   #     resp = cw.client.describe_alarms
   #     resp[:metric_alarms].each do |alarm|
@@ -116,4 +117,5 @@ module AWS
     end
 
   end
+end
 end

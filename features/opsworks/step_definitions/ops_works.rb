@@ -13,7 +13,7 @@
 
 Before("@ops_works") do
 
-  @ops_works = AWS::OpsWorks.new
+  @ops_works = Ideeli::AWS::OpsWorks.new
   @client = @ops_works.client
 
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for "sdb expect conditions" do
@@ -51,4 +52,5 @@ module AWS
 
   end
 
+end
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for 'an S3 prefixed collection' do
@@ -68,4 +69,5 @@ module AWS
 
   end
 
+end
 end

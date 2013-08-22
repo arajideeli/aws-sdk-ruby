@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for "a DynamoDB method accepting expectations" do
@@ -71,4 +72,5 @@ module AWS
 
   end
 
+end
 end

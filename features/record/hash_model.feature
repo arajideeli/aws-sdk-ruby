@@ -17,7 +17,7 @@ Feature: HashModel Basic Functionality
 
   @slow
   Scenario: Create table from HashModel class
-    Given I set the AWS::Record.table_name_prefix to "ruby-integration-test-"
+    Given I set the Ideeli::AWS::Record.table_name_prefix to "ruby-integration-test-"
     And I set the example class shard name to "example-class"
     When I call create_table on the HashModel example class
     Then the table should eventually be active

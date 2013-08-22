@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class DynamoDB
 
@@ -336,4 +337,5 @@ module AWS
     end
 
   end
+end
 end

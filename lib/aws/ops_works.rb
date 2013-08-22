@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/ops_works/config'
 
+module Ideeli
 module AWS
 
   class OpsWorks
@@ -27,4 +28,5 @@ module AWS
     endpoint_prefix 'opsworks'
 
   end
+end
 end

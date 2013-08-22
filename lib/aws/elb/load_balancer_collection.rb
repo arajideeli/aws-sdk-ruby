@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class ELB
 
@@ -44,7 +45,7 @@ module AWS
       #
       # @option options [required,Array] :availability_zones An array of
       #   one or more availability zones.  Values may be availability zone
-      #   name strings, or {AWS::EC2::AvailabilityZone} objects.
+      #   name strings, or {Ideeli::AWS::EC2::AvailabilityZone} objects.
       #
       # @option options [required,Array<Hash>] :listeners An array of load
       #   balancer listener options:
@@ -143,4 +144,5 @@ module AWS
 
     end
   end
+end
 end

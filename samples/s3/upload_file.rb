@@ -20,7 +20,7 @@ unless bucket_name && file_name
 end
 
 # get an instance of the S3 interface using the default configuration
-s3 = AWS::S3.new
+s3 = Ideeli::AWS::S3.new
 
 # create a bucket
 b = s3.buckets.create(bucket_name)

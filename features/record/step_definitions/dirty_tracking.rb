@@ -26,7 +26,7 @@ end
 When /^I call save on the model instance$/ do
   begin
     @inst.save
-  rescue AWS::DynamoDB::Errors::ResourceNotFoundException
+  rescue Ideeli::AWS::DynamoDB::Errors::ResourceNotFoundException
     # table does not exist
   end
 end

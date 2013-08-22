@@ -18,6 +18,6 @@ end
 Then /^the count of decision tasks for "([^"]*)" should be (\d+)$/ do |task_list,count|
   eventually do
     @domain.decision_tasks.count(task_list).should ==
-      AWS::SimpleWorkflow::Count.new(count.to_i, false)
+      Ideeli::AWS::SimpleWorkflow::Count.new(count.to_i, false)
   end
 end

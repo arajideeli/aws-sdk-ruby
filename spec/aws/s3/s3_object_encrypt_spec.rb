@@ -17,6 +17,7 @@ require 'openssl'
 require 'base64'
 require 'digest/md5'
 
+module Ideeli
 module AWS
   class S3
 
@@ -149,7 +150,7 @@ module AWS
                 $stderr = real_stderr
               end
             end
-            
+
           end
 
           context 'with incorrect arguments' do
@@ -601,7 +602,7 @@ module AWS
               client.should_receive(:head_object)
               object.read(:encryption_key => "IWishIWasRight..",
                           :encryption_materials_location => :metadata)
-            end.should raise_error(AWS::S3::Errors::IncorrectClientSideEncryptionKey)
+            end.should raise_error(Ideeli::AWS::S3::Errors::IncorrectClientSideEncryptionKey)
 
           end
 
@@ -745,4 +746,5 @@ module AWS
     end
 
   end
+end
 end

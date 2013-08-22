@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class DynamoDB
 
@@ -33,7 +34,7 @@ module AWS
     # and the read/write capacity.  A default schema with a hash_key
     # of :id => :string will be provided.
     #
-    #     dynamo_db = AWS::DynamoDB.new
+    #     dynamo_db = Ideeli::AWS::DynamoDB.new
     #     dynamo_db.tables.create('mytable', 10, 5)
     #
     # You can provide your own hash key and optional range key.
@@ -488,4 +489,5 @@ module AWS
     end
 
   end
+end
 end

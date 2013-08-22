@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class AutoScaling
 
@@ -18,9 +19,9 @@ module AWS
     #
     # ## Enumerating Notification Configurations
     #
-    # You can enumerated *ALL* configurations from the AWS::AutoScaling class.
+    # You can enumerated *ALL* configurations from the Ideeli::AWS::AutoScaling class.
     #
-    #     auto_scaling = AWS::AutoScaling.new
+    #     auto_scaling = Ideeli::AWS::AutoScaling.new
     #     auto_scaling.notification_configurations.each do |config|
     #       # ...
     #     end
@@ -180,4 +181,5 @@ module AWS
       end
     end
   end
+end
 end

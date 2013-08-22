@@ -13,16 +13,16 @@
 
 require 'spec_helper'
 
-describe AWS do
+describe Ideeli::AWS do
   context 'configuration' do
 
     def config options = {}
-      AWS.config.with(options)
+      Ideeli::AWS.config.with(options)
     end
 
     context 'options' do
 
-      AWS::SERVICES.values.map(&:method_name).each do |option|
+      Ideeli::AWS::SERVICES.values.map(&:method_name).each do |option|
 
         context(option.inspect) do
 
@@ -77,9 +77,9 @@ describe AWS do
 
       context ':credential_provider' do
 
-        it 'defaults to an AWS::Core::CredentialProviders::DefaultProvider' do
+        it 'defaults to an Ideeli::AWS::Core::CredentialProviders::DefaultProvider' do
           config.credential_provider.should
-            be_a(AWS::Core::CredentialProviders::DefaultProvider)
+            be_a(Ideeli::AWS::Core::CredentialProviders::DefaultProvider)
         end
 
         it 'is constructed with the static credentials from config' do
@@ -165,7 +165,7 @@ describe AWS do
 
         it 'defaults to a NetHttpHandler' do
           handler = config.http_handler
-          handler.should be_a(AWS::Core::Http::NetHttpHandler)
+          handler.should be_a(Ideeli::AWS::Core::Http::NetHttpHandler)
           handler.pool.http_open_timeout.should eq(config.http_open_timeout)
           handler.pool.http_idle_timeout.should eq(config.http_idle_timeout)
         end
@@ -264,7 +264,7 @@ describe AWS do
       context ':log_formatter' do
 
         it 'defaults to the default log formatter' do
-          config.log_formatter.should eq(AWS::Core::LogFormatter.default)
+          config.log_formatter.should eq(Ideeli::AWS::Core::LogFormatter.default)
         end
 
         it 'can be changed' do

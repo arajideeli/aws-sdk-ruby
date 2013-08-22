@@ -13,17 +13,18 @@
 
 require 'pathname'
 
+module Ideeli
 module AWS
   module Core
 
     # # Log Formatters
     #
-    # Log formatters receive a {AWS::Core::Response} object and return
+    # Log formatters receive a {Ideeli::AWS::Core::Response} object and return
     # a log message.  When you construct a {LogFormatter}, you provide
     # a pattern string with substitutions.
     #
     #     pattern = '[REQUEST :http_status_code] :service :operation :duration'
-    #     formatter = AWS::Core::LogFormatter.new(pattern)
+    #     formatter = Ideeli::AWS::Core::LogFormatter.new(pattern)
     #     formatter.format(response)
     #     #=> '[AWS 200] EC2 get_bucket 0.0352'
     #
@@ -34,14 +35,14 @@ module AWS
     # to {AWS.config}.
     #
     #     pattern = '[REQUEST :http_status_code] :service :operation :duration'
-    #     AWS.config(:log_formatter => AWS::Core::LogFormatter.new(pattern)
+    #     AWS.config(:log_formatter => Ideeli::AWS::Core::LogFormatter.new(pattern)
     #
     # ## Canned Formatters
     #
     # Instead of providing your own pattern, you can choose a canned log
     # formatter.
     #
-    #     AWS.config(:log_formatter => AWS::Core::LogFormatter.colored)
+    #     AWS.config(:log_formatter => Ideeli::AWS::Core::LogFormatter.colored)
     #
     # Here is the list of canned formatters.
     #
@@ -154,7 +155,7 @@ module AWS
       end
 
       def _service response
-        response.http_request.class.name.split('::')[1]
+        response.http_request.class.name.split('::')[2]
       end
 
       def _region response
@@ -425,4 +426,5 @@ module AWS
 
     end
   end
+end
 end

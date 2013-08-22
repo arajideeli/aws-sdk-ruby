@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe Route53 do
 
@@ -42,4 +43,5 @@ module AWS
     end
 
   end
+end
 end

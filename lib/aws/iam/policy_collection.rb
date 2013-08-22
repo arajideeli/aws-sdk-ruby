@@ -13,6 +13,7 @@
 
 require 'uri'
 
+module Ideeli
 module AWS
   class IAM
 
@@ -173,7 +174,7 @@ module AWS
       protected
       def resource_name
         raise NotImplementedError unless
-          self.class.name =~ /AWS::IAM::(.*)PolicyCollection$/
+          self.class.name =~ /Ideeli::AWS::IAM::(.*)PolicyCollection$/
         $1.downcase
       end
 
@@ -185,4 +186,5 @@ module AWS
     end
 
   end
+end
 end

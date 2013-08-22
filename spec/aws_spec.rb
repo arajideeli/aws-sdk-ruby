@@ -14,22 +14,22 @@
 require 'spec_helper'
 require 'thread'
 
-describe AWS do
+describe Ideeli::AWS do
 
   context '#config' do
 
     it 'should return a configuration object' do
-      AWS.config.should be_a(AWS::Core::Configuration)
+      Ideeli::AWS.config.should be_a(Ideeli::AWS::Core::Configuration)
     end
 
     it 'should pass options through to Configuration#with' do
-      previous = AWS.config
+      previous = Ideeli::AWS.config
       previous.should_receive(:with).with(:access_key_id => "FOO")
-      AWS.config(:access_key_id => "FOO")
+      Ideeli::AWS.config(:access_key_id => "FOO")
     end
 
     it 'should return the same config when no options are added' do
-      AWS.config.should be(AWS.config)
+      Ideeli::AWS.config.should be(Ideeli::AWS.config)
     end
 
   end
@@ -37,29 +37,29 @@ describe AWS do
   context '#stub!' do
 
     it 'should set the config :stub_clients to true' do
-      AWS.should_receive(:config).with(:stub_requests => true)
-      AWS.stub!
+      Ideeli::AWS.should_receive(:config).with(:stub_requests => true)
+      Ideeli::AWS.stub!
     end
 
   end
 
   context '#start_memoizing' do
 
-    after(:each) { AWS.stop_memoizing }
+    after(:each) { Ideeli::AWS.stop_memoizing }
 
     it 'should enable memoization' do
-      AWS.start_memoizing
-      AWS.memoizing?.should be_true
+      Ideeli::AWS.start_memoizing
+      Ideeli::AWS.memoizing?.should be_true
     end
 
     it 'should return nil' do
-      AWS.start_memoizing.should be_nil
+      Ideeli::AWS.start_memoizing.should be_nil
     end
 
     it 'should not extend into other threads' do
-      AWS.start_memoizing
+      Ideeli::AWS.start_memoizing
       Thread.new do
-        AWS.memoizing?.should be_false
+        Ideeli::AWS.memoizing?.should be_false
       end.join
     end
 
@@ -68,27 +68,27 @@ describe AWS do
   context '#stop_memoizing' do
 
     it 'should do nothing if memoization is disabled' do
-      AWS.memoizing?.should be_false
-      AWS.stop_memoizing
-      AWS.memoizing?.should be_false
+      Ideeli::AWS.memoizing?.should be_false
+      Ideeli::AWS.stop_memoizing
+      Ideeli::AWS.memoizing?.should be_false
     end
 
     it 'should stop memoization' do
-      AWS.start_memoizing
-      AWS.memoizing?.should be_true
-      AWS.stop_memoizing
-      AWS.memoizing?.should be_false
+      Ideeli::AWS.start_memoizing
+      Ideeli::AWS.memoizing?.should be_true
+      Ideeli::AWS.stop_memoizing
+      Ideeli::AWS.memoizing?.should be_false
     end
 
     it 'should only affect the current thread' do
-      AWS.start_memoizing
+      Ideeli::AWS.start_memoizing
       t = Thread.new do
-        AWS.start_memoizing
+        Ideeli::AWS.start_memoizing
         Thread.stop
-        AWS.memoizing?.should be_true
+        Ideeli::AWS.memoizing?.should be_true
       end
       Thread.pass until t.stop?
-      AWS.stop_memoizing
+      Ideeli::AWS.stop_memoizing
       t.wakeup
       t.join
     end
@@ -98,39 +98,39 @@ describe AWS do
   context '#memoize' do
 
     before(:each) do
-      AWS.stub(:start_memoizing)
-      AWS.stub(:stop_memoizing)
+      Ideeli::AWS.stub(:start_memoizing)
+      Ideeli::AWS.stub(:stop_memoizing)
     end
 
     it 'should call start_memoization' do
-      AWS.should_receive(:start_memoizing)
-      AWS.memoize { }
+      Ideeli::AWS.should_receive(:start_memoizing)
+      Ideeli::AWS.memoize { }
     end
 
     it 'should call stop_memoization at the end of the block' do
-      AWS.memoize do
-        AWS.should_receive(:stop_memoizing)
+      Ideeli::AWS.memoize do
+        Ideeli::AWS.should_receive(:stop_memoizing)
       end
     end
 
     it 'should call stop_memoization for an exceptional exit' do
-      AWS.memoize do
-        AWS.should_receive(:stop_memoizing)
+      Ideeli::AWS.memoize do
+        Ideeli::AWS.should_receive(:stop_memoizing)
         raise "FOO"
       end rescue nil
     end
 
     it 'should return the return value of the block' do
-      AWS.memoize { "foo" }.should == "foo"
+      Ideeli::AWS.memoize { "foo" }.should == "foo"
     end
 
     context 'while already memoizing' do
 
       it 'should do nothing' do
-        AWS.stub(:memoizing?).and_return(true)
-        AWS.should_not_receive(:start_memoizing)
-        AWS.should_not_receive(:stop_memoizing)
-        AWS.memoize { }
+        Ideeli::AWS.stub(:memoizing?).and_return(true)
+        Ideeli::AWS.should_not_receive(:start_memoizing)
+        Ideeli::AWS.should_not_receive(:stop_memoizing)
+        Ideeli::AWS.memoize { }
       end
 
     end
@@ -141,24 +141,24 @@ describe AWS do
 
     context 'memoizing' do
 
-      before(:each) { AWS.start_memoizing }
-      after(:each) { AWS.stop_memoizing }
+      before(:each) { Ideeli::AWS.start_memoizing }
+      after(:each) { Ideeli::AWS.stop_memoizing }
 
       it 'should return a resource cache object' do
-        AWS.send(method).should be_a(cache_class)
+        Ideeli::AWS.send(method).should be_a(cache_class)
       end
 
       it 'should return a different cache each time memoization is enabled' do
-        cache = AWS.send(method)
-        AWS.stop_memoizing
-        AWS.start_memoizing
-        AWS.send(method).should_not be(cache)
+        cache = Ideeli::AWS.send(method)
+        Ideeli::AWS.stop_memoizing
+        Ideeli::AWS.start_memoizing
+        Ideeli::AWS.send(method).should_not be(cache)
       end
 
       it 'should return a different cache in each thread' do
-        cache = AWS.send(method)
+        cache = Ideeli::AWS.send(method)
         Thread.new do
-          AWS.memoize { AWS.send(method).should_not be(cache) }
+          Ideeli::AWS.memoize { Ideeli::AWS.send(method).should_not be(cache) }
         end.join
       end
 
@@ -167,7 +167,7 @@ describe AWS do
     context 'not memoizing' do
 
       it 'should return nil' do
-        AWS.send(method).should be_nil
+        Ideeli::AWS.send(method).should be_nil
       end
 
     end
@@ -176,13 +176,13 @@ describe AWS do
 
   context '#resource_cache' do
     let(:method) { :resource_cache }
-    let(:cache_class) { AWS::Core::ResourceCache }
+    let(:cache_class) { Ideeli::AWS::Core::ResourceCache }
     it_should_behave_like "memoization cache"
   end
 
   context '#response_cache' do
     let(:method) { :response_cache }
-    let(:cache_class) { AWS::Core::ResponseCache }
+    let(:cache_class) { Ideeli::AWS::Core::ResponseCache }
     it_should_behave_like "memoization cache"
   end
 
@@ -191,28 +191,28 @@ describe AWS do
     context "SERVICE_region" do
 
       it 'returns REGION when endpoint is SERVICE.REGION.amazonaws.com' do
-        AWS.config.stub(:ec2_endpoint).and_return('ec2.REGION.amazonaws.com')
-        AWS.config.ec2_region.should == 'REGION'
+        Ideeli::AWS.config.stub(:ec2_endpoint).and_return('ec2.REGION.amazonaws.com')
+        Ideeli::AWS.config.ec2_region.should == 'REGION'
       end
 
       it 'returns us-east-1 when endpoint is SERVCIE.amazonaws.com' do
-        AWS.config.stub(:ec2_endpoint).and_return('ec2.amazonaws.com')
-        AWS.config.ec2_region.should == 'us-east-1'
+        Ideeli::AWS.config.stub(:ec2_endpoint).and_return('ec2.amazonaws.com')
+        Ideeli::AWS.config.ec2_region.should == 'us-east-1'
       end
 
       it 'returns us-gov-west-1 when endpoint is ec2.us-gov-west-1.amazonaws.com' do
-        AWS.config.stub(:ec2_endpoint).and_return('ec2.us-gov-west-1.amazonaws.com')
-        AWS.config.ec2_region.should == 'us-gov-west-1'
+        Ideeli::AWS.config.stub(:ec2_endpoint).and_return('ec2.us-gov-west-1.amazonaws.com')
+        Ideeli::AWS.config.ec2_region.should == 'us-gov-west-1'
       end
 
       it 'returns us-gov-west-2 when endpoint is s3-fips-us-gov-west-1.amazonaws.com' do
-        AWS.config.stub(:s3_endpoint).and_return('s3-fips-us-gov-west-2.amazonaws.com')
-        AWS.config.s3_region.should == 'us-gov-west-2'
+        Ideeli::AWS.config.stub(:s3_endpoint).and_return('s3-fips-us-gov-west-2.amazonaws.com')
+        Ideeli::AWS.config.s3_region.should == 'us-gov-west-2'
       end
 
       it 'returns us-gov-west-1 when endpoint is iam.us-gov.amazonaws.com' do
-        AWS.config.stub(:iam_endpoint).and_return('iam.us-gov.amazonaws.com')
-        AWS.config.iam_region.should == 'us-gov-west-1'
+        Ideeli::AWS.config.stub(:iam_endpoint).and_return('iam.us-gov.amazonaws.com')
+        Ideeli::AWS.config.iam_region.should == 'us-gov-west-1'
       end
 
     end
@@ -225,7 +225,7 @@ describe AWS do
       path = File.join(File.dirname(__FILE__), 'fixtures', 'autoload_target')
       mod = Module.new
       mod.send(:autoload, :AutoloadTarget, path)
-      AWS.eager_autoload!(mod)
+      Ideeli::AWS.eager_autoload!(mod)
       mod.autoload?(:AutoloadTarget).should be(nil)
     end
 
@@ -234,7 +234,7 @@ describe AWS do
       mod = Module.new
       mod::Nested = Module.new
       mod::Nested.send(:autoload, :NestedAutoloadTarget, path)
-      AWS.eager_autoload!(mod)
+      Ideeli::AWS.eager_autoload!(mod)
       mod::Nested.autoload?(:NestedAutoloadTarget).should be(nil)
     end
 

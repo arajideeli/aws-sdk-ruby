@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for "a simple collection" do
@@ -53,4 +54,5 @@ module AWS
 
   end
 
+end
 end

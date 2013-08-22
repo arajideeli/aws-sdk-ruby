@@ -14,6 +14,7 @@
 require 'uri'
 require 'time'
 
+module Ideeli
 module AWS
   class S3
 
@@ -96,7 +97,7 @@ module AWS
                         :content_length,
                         :conditions,
                         :ignore]
-      
+
       # Creates a new presigned post object.
       #
       # @param [Bucket] bucket The bucket to which data can be uploaded
@@ -551,4 +552,5 @@ module AWS
     end
 
   end
+end
 end

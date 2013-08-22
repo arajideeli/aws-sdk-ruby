@@ -13,6 +13,7 @@
 
 require 'time'
 
+module Ideeli
 module AWS
   class AutoScaling
 
@@ -192,4 +193,5 @@ module AWS
 
     end
   end
+end
 end

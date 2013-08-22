@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class EMR
     describe JobFlow do
@@ -409,3 +410,4 @@ module AWS
   end
 end
 
+end

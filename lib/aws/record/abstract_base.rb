@@ -14,6 +14,7 @@
 require 'uuidtools'
 require 'set'
 
+module Ideeli
 module AWS
   module Record
     module AbstractBase
@@ -160,7 +161,7 @@ module AWS
         end
 
         # Bulk assigns the attributes and then saves the record.  Raises
-        # an exception (AWS::Record::InvalidRecordError) if the record is not
+        # an exception (Ideeli::AWS::Record::InvalidRecordError) if the record is not
         # valid.
         # @param (see #update_attributes)
         # @return [true]
@@ -196,7 +197,7 @@ module AWS
         # If you define a custom setter, you use #[]= to set the value
         # on the record.
         #
-        #     class Book < AWS::Record::Model
+        #     class Book < Ideeli::AWS::Record::Model
         #
         #       string_attr :name
         #
@@ -239,7 +240,7 @@ module AWS
         # This method's primary use is for getting/setting the value for
         # an attribute inside a custom method:
         #
-        #     class Book < AWS::Record::Model
+        #     class Book < Ideeli::AWS::Record::Model
         #
         #       string_attr :title
         #
@@ -489,9 +490,9 @@ module AWS
           case name
           when nil
             @_shard_name || self.name
-          when AWS::DynamoDB::Table
+          when Ideeli::AWS::DynamoDB::Table
             name.name.gsub(/^#{Record::table_prefix}/, '')
-          when AWS::SimpleDB::Domain
+          when Ideeli::AWS::SimpleDB::Domain
             name.name.gsub(/^#{Record::domain_prefix}/, '')
           else name
           end
@@ -500,7 +501,7 @@ module AWS
 
         # Adds a scoped finder to this class.
         #
-        #     class Book < AWS::Record::Model
+        #     class Book < Ideeli::AWS::Record::Model
         #       scope :top_10, order(:popularity, :desc).limit(10)
         #     end
         #
@@ -513,7 +514,7 @@ module AWS
         # You can also provide a block that accepts params for the scoped
         # finder.  This block should return a scope.
         #
-        #     class Book < AWS::Record::Model
+        #     class Book < Ideeli::AWS::Record::Model
         #       scope :by_author, lambda {|name| where(:author => name) }
         #     end
         #
@@ -537,7 +538,7 @@ module AWS
         # The {#save} method is called on the object(s) after construction.
         # The object(s) are returned wether or not the object(s) are valid.
         #
-        #     class Book < AWS::Record::Model
+        #     class Book < Ideeli::AWS::Record::Model
         #       string_attr :title
         #     end
         #
@@ -557,7 +558,7 @@ module AWS
         # The {#save!} method is called on the object(s) after construction.
         # If the object(s) are not valid, then an error is raised.
         #
-        #     class Book < AWS::Record::Model
+        #     class Book < Ideeli::AWS::Record::Model
         #       string_attr :title
         #       validates_presence_of :title
         #     end
@@ -567,7 +568,7 @@ module AWS
         #     #=> true
         #
         #     book = Book.create!()
-        #     #=> raises AWS::Record::InvalidRecordError
+        #     #=> raises Ideeli::AWS::Record::InvalidRecordError
         #
         def create! attributes = {}
           create_impl(attributes, :create!, :save!)
@@ -687,4 +688,5 @@ module AWS
       end
     end
   end
+end
 end

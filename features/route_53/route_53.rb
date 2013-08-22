@@ -13,7 +13,7 @@
 
 Before("@route_53") do
 
-  @route_53 = AWS::Route53.new
+  @route_53 = Ideeli::AWS::Route53.new
   @route_53_client = @route_53.client
 
   @created_hosted_zone_ids = []
@@ -25,7 +25,7 @@ After("@route_53") do
   @created_hosted_zone_ids.each do |zone_id|
     begin
       @route_53_client.delete_hosted_zone(:id => zone_id)
-    rescue AWS::Route53::Errors::NoSuchHostedZone
+    rescue Ideeli::AWS::Route53::Errors::NoSuchHostedZone
       # already deleted
     end
   end

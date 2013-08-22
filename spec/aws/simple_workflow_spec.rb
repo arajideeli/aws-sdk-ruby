@@ -14,6 +14,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   describe SimpleWorkflow do
@@ -40,4 +41,5 @@ module AWS
 
   end
 
+end
 end

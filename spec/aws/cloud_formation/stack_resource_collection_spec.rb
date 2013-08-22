@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class CloudFormation
     describe StackResourceCollection do
@@ -56,7 +57,7 @@ module AWS
             {
               :stack_name => stack.name,
               :stack_id => 'stack-id',
-              :resource_type => 'AWS::EC2::Instance',
+              :resource_type => 'Ideeli::AWS::EC2::Instance',
               :physical_resource_id => "i-#{i}1234567",
               :logical_resource_id => "id-#{i}",
               :description => 'desc',
@@ -71,7 +72,7 @@ module AWS
           res.should be_a(StackResource)
           res.stack_name.should == 'stack-name'
           res.stack_id.should == 'stack-id'
-          res.resource_type.should == 'AWS::EC2::Instance'
+          res.resource_type.should == 'Ideeli::AWS::EC2::Instance'
           res.physical_resource_id.should == 'i-11234567'
           res.logical_resource_id.should == 'id-1'
           res.description.should == 'desc'
@@ -81,4 +82,5 @@ module AWS
 
     end
   end
+end
 end

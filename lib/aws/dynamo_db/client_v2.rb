@@ -11,23 +11,24 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class DynamoDB
 
     # ClientV2 is now deprecated.  To use the lastest Amazon DynamoDB
-    # api version, pass the :api_version option to AWS::DynamoDB::Client.new
+    # api version, pass the :api_version option to Ideeli::AWS::DynamoDB::Client.new
     #
-    #    AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
-    #    #=> #<AWS::DynamoDB::Client::V20120810>
+    #    Ideeli::AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
+    #    #=> #<Ideeli::AWS::DynamoDB::Client::V20120810>
     #
     #    # defaults to the oldest api version
-    #    AWS::DynamoDB::Client.new
-    #    #=> #<AWS::DynamoDB::Client::V20111205>
+    #    Ideeli::AWS::DynamoDB::Client.new
+    #    #=> #<Ideeli::AWS::DynamoDB::Client::V20111205>
     #
     # @deprecated
     class ClientV2
 
-      DEPRECATION_MSG = "DEPRECATION WARNING: AWS::DynamoDB::ClientV2 is deprecated, use AWS::DynamoDB::Client.new(:api_version => '2012-08-10')"
+      DEPRECATION_MSG = "DEPRECATION WARNING: Ideeli::AWS::DynamoDB::ClientV2 is deprecated, use Ideeli::AWS::DynamoDB::Client.new(:api_version => '2012-08-10')"
 
       class << self
 
@@ -41,4 +42,5 @@ module AWS
       end
     end
   end
+end
 end

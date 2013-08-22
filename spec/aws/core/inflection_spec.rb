@@ -13,7 +13,8 @@
 
 require 'spec_helper'
 
-module AWS::Core
+module Ideeli
+module Ideeli::AWS::Core
   describe Inflection do
 
     context '#ruby_name' do
@@ -113,4 +114,5 @@ module AWS::Core
     end
 
   end
+end
 end

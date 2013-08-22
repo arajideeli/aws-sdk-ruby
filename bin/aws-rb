@@ -113,7 +113,7 @@ if options[:log]
 end
 
 if options[:color]
-  cfg[:log_formatter] = AWS::Core::LogFormatter.colored
+  cfg[:log_formatter] = Ideeli::AWS::Core::LogFormatter.colored
 end
 
 if options[:debug]

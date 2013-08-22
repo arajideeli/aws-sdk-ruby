@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleWorkflow
     describe WorkflowExecutionCollection do
@@ -537,4 +538,5 @@ module AWS
 
     end
   end
+end
 end

@@ -40,7 +40,7 @@ end
 
 Then /^I can get metadata from the domain$/ do
   @metadata = @domain.metadata
-  @metadata.should be_a(AWS::SimpleDB::DomainMetadata)
+  @metadata.should be_a(Ideeli::AWS::SimpleDB::DomainMetadata)
 end
 
 Then /^The domain should be named "([^"]*)"$/ do |domain_name|
@@ -56,6 +56,6 @@ Then /^The domain should not exist$/ do
 end
 
 Then /^A domain named "([^"]*)" should be in the list$/ do |domain_name|
-  klass = AWS::SimpleDB::Domain
+  klass = Ideeli::AWS::SimpleDB::Domain
   @domains.detect{|domain| domain.name == domain_name }.should be_a(klass)
 end

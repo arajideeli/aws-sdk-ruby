@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SQS
 
@@ -170,4 +171,5 @@ module AWS
     end
 
   end
+end
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class AutoScaling
     describe ActivityCollection do
@@ -73,4 +74,5 @@ module AWS
 
     end
   end
+end
 end

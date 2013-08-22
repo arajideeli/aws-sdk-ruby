@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'digest/md5'
 
+module Ideeli
 module AWS
   class S3
     describe Request do
@@ -385,4 +386,5 @@ END
       end
     end
   end
+end
 end

@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Record
     class HashModel
@@ -36,7 +37,7 @@ module AWS
 
         # Creates the DynamoDB table that is configured for this class.
         #
-        #     class Product < AWS::Record::HashModel
+        #     class Product < Ideeli::AWS::Record::HashModel
         #     end
         #
         #     # create the table 'Product' with 10 read/write capacity units
@@ -53,7 +54,7 @@ module AWS
         # can provide a table prefix to group tables and to avoid name
         # collisions:
         #
-        #     AWS::Record.table_prefix = 'myapp-'
+        #     Ideeli::AWS::Record.table_prefix = 'myapp-'
         #
         #     # creates the table 'myapp-Product'
         #     Product.create_table 250, 50
@@ -70,7 +71,7 @@ module AWS
         # @param [Hash] options
         #
         # @option options [String] :shard_name Defaults to the class name.  The
-        #   shard name will be prefixed with {AWS::Record.table_prefix},
+        #   shard name will be prefixed with {Ideeli::AWS::Record.table_prefix},
         #   and that becomes the table name.
         #
         # @return [DynamoDB::Table]
@@ -125,7 +126,7 @@ module AWS
         end
 
         def dynamo_db
-          AWS::DynamoDB.new
+          Ideeli::AWS::DynamoDB.new
         end
 
         def add_attribute(attribute)
@@ -201,4 +202,5 @@ module AWS
     end
 
   end
+end
 end

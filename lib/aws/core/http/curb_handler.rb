@@ -13,6 +13,7 @@
 
 require 'thread'
 
+module Ideeli
 module AWS
   module Core
     module Http
@@ -145,4 +146,5 @@ module AWS
       end
     end
   end
+end
 end

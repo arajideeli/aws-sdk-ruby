@@ -12,6 +12,7 @@
 # language governing permissions and limitations under the License.
 
 
+module Ideeli
 module AWS
   class AutoScaling
 
@@ -99,4 +100,5 @@ module AWS
 
     end
   end
+end
 end

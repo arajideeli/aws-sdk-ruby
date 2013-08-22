@@ -13,6 +13,7 @@
 
 require 'base64'
 
+module Ideeli
 module AWS
   class AutoScaling
 
@@ -155,4 +156,5 @@ module AWS
 
     end
   end
+end
 end

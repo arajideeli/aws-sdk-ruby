@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class RDS
     describe DBInstanceCollection do
@@ -87,4 +88,5 @@ module AWS
 
     end
   end
+end
 end

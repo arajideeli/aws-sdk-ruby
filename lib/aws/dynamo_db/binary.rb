@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class DynamoDB
 
@@ -18,7 +19,7 @@ module AWS
     # to store as a binary attribute.  This can reduce the size
     # of larger attributes to save on storage costs.
     #
-    #     table = AWS::DynamoDB.new.tables['data-table']
+    #     table = Ideeli::AWS::DynamoDB.new.tables['data-table']
     #     table.hash_key = { 'id' => :string }
     #     table.range_key = { 'position' => :number }
     #
@@ -26,10 +27,11 @@ module AWS
     #     table.items.create(
     #       'id' => 'abc',
     #       'position' => 5,
-    #       'data' => AWS::DynamoDB::Binary.new('abc')
+    #       'data' => Ideeli::AWS::DynamoDB::Binary.new('abc')
     #     )
     #
     class Binary < String; end
 
   end
+end
 end

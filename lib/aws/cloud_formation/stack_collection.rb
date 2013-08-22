@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class CloudFormation
     class StackCollection
@@ -34,7 +35,7 @@ module AWS
       #      "Description": "A simple template",
       #      "Resources": {
       #        "web": {
-      #          "Type": "AWS::EC2::Instance",
+      #          "Type": "Ideeli::AWS::EC2::Instance",
       #          "Properties": {
       #            "ImageId": "ami-41814f28"
       #          }
@@ -46,7 +47,7 @@ module AWS
       #
       # @example Creating a stack from an S3 object.
       #
-      #   template = AWS::S3.new.buckets['templates'].objects['template-1']
+      #   template = Ideeli::AWS::S3.new.buckets['templates'].objects['template-1']
       #   stack = cfm.stacks.create('stack-name', template)
       #
       # @example Creating a stack with 3 parameters.
@@ -71,7 +72,7 @@ module AWS
       #     },
       #     "Resources": {
       #       "web": {
-      #         "Type": "AWS::EC2::Instance",
+      #         "Type": "Ideeli::AWS::EC2::Instance",
       #         "Properties": {
       #           "InstanceType": { "Ref" : "InstanceType" },
       #           "SecurityGroups" : [ {"Ref" : "SecurityGroup"} ],
@@ -108,11 +109,11 @@ module AWS
       #   parameter; otherwise, this action returns an
       #   InsufficientCapabilities error. IAM resources are the following:
       #
-      #     * AWS::IAM::AccessKey
-      #     * AWS::IAM::Group
-      #     * AWS::IAM::Policy
-      #     * AWS::IAM::User
-      #     * AWS::IAM::UserToGroupAddition
+      #     * Ideeli::AWS::IAM::AccessKey
+      #     * Ideeli::AWS::IAM::Group
+      #     * Ideeli::AWS::IAM::Policy
+      #     * Ideeli::AWS::IAM::User
+      #     * Ideeli::AWS::IAM::UserToGroupAddition
       #
       # @option options [Boolean] :disable_rollback (false)
       #   Set to true to disable rollback on stack creation failures.
@@ -207,4 +208,5 @@ module AWS
 
     end
   end
+end
 end

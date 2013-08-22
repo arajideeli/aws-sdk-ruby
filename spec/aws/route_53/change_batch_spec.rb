@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class Route53
     describe ChangeBatch do
@@ -66,4 +67,5 @@ module AWS
       end
     end
   end
+end
 end

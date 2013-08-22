@@ -162,8 +162,8 @@ Feature: CRUD Objects (High Level)
 
   Examples:
     | class                        | code        |
-    | AWS::S3::Errors::NotModified | NotModified |
-    | AWS::Errors::ClientError     | NotModified |
+    | Ideeli::AWS::S3::Errors::NotModified | NotModified |
+    | Ideeli::AWS::Errors::ClientError     | NotModified |
 
   @read_object
   Scenario Outline: Read an object if its etag does match the constraint
@@ -175,8 +175,8 @@ Feature: CRUD Objects (High Level)
 
   Examples:
     | class                               | code               |
-    | AWS::S3::Errors::PreconditionFailed | PreconditionFailed |
-    | AWS::Errors::ClientError            | PreconditionFailed |
+    | Ideeli::AWS::S3::Errors::PreconditionFailed | PreconditionFailed |
+    | Ideeli::AWS::Errors::ClientError            | PreconditionFailed |
 
   @read_object
   Scenario Outline: Read an object if it has not been modified recently
@@ -188,8 +188,8 @@ Feature: CRUD Objects (High Level)
 
   Examples:
     | class                               | code               |
-    | AWS::S3::Errors::PreconditionFailed | PreconditionFailed |
-    | AWS::Errors::ClientError            | PreconditionFailed |
+    | Ideeli::AWS::S3::Errors::PreconditionFailed | PreconditionFailed |
+    | Ideeli::AWS::Errors::ClientError            | PreconditionFailed |
 
   @read_object @wip @broken
   Scenario Outline: Read an object if it has been modified recently
@@ -201,8 +201,8 @@ Feature: CRUD Objects (High Level)
 
   Examples:
     | class                        | code        |
-    | AWS::S3::Errors::NotModified | NotModified |
-    | AWS::Errors::ClientError     | NotModified |
+    | Ideeli::AWS::S3::Errors::NotModified | NotModified |
+    | Ideeli::AWS::Errors::ClientError     | NotModified |
 
   @head_object
   Scenario: Get object metadata

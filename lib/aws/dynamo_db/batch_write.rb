@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class DynamoDB
     class BatchWrite
@@ -26,13 +27,13 @@ module AWS
       # Adds one or more items to the batch write operation.
       #
       #     # adding one item at a time to the batch
-      #     batch = AWS::DynamoDB::BatchWrite.new
+      #     batch = Ideeli::AWS::DynamoDB::BatchWrite.new
       #     batch.put('table-name', :id => 'id1', :color => 'red')
       #     batch.put('table-name', :id => 'id2', :color => 'blue')
       #     batch.process!
       #
       #     # adding multiple items to a batch
-      #     batch = AWS::DynamoDB::BatchWrite.new
+      #     batch = Ideeli::AWS::DynamoDB::BatchWrite.new
       #     batch.put('table-name', [
       #       { :id => 'id1', :color => 'red' },
       #       { :id => 'id2', :color => 'blue' },
@@ -56,12 +57,12 @@ module AWS
       # Adds one or more items to the batch to delete.
       #
       #     # for a table w/out a range key
-      #     batch = AWS::DynamoDB::BatchWrite.new
+      #     batch = Ideeli::AWS::DynamoDB::BatchWrite.new
       #     batch.delete('table-name', %w(hk1 hk2))
       #     batch.process!
       #
       #     # for a table with a range key
-      #     batch = AWS::DynamoDB::BatchWrite.new
+      #     batch = Ideeli::AWS::DynamoDB::BatchWrite.new
       #     batch.delete('table-name', [['hk1', 'rk2'], ['hk1', 'rk2']]])
       #     batch.process!
       #
@@ -249,4 +250,5 @@ module AWS
 
     end
   end
+end
 end

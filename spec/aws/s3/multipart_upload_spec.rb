@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
 
@@ -59,7 +60,7 @@ module AWS
 
         it 'should include the object key and upload id' do
           upload.inspect.should ==
-            "<AWS::S3::MultipartUpload:foobucket/foo:abc123>"
+            "<Ideeli::AWS::S3::MultipartUpload:foobucket/foo:abc123>"
         end
 
       end
@@ -576,4 +577,5 @@ module AWS
     end
 
   end
+end
 end

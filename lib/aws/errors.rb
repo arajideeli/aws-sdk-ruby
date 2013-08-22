@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
 
   # # Errors
@@ -138,7 +139,7 @@ a few different ways:
   instances.
 
 * Call AWS.config with :credential_provider.  A credential provider should
-  either include AWS::Core::CredentialProviders::Provider or respond to
+  either include Ideeli::AWS::Core::CredentialProviders::Provider or respond to
   the same public methods.
 
 = Ruby on Rails
@@ -159,4 +160,5 @@ MSG
     end
 
   end
+end
 end

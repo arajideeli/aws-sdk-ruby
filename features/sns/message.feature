@@ -19,7 +19,7 @@ Feature: SNS Message
   I need to be able to verify the authenticity of an SNS message
 
   @sqs
-  Scenario: AWS::SNS::Message verifies message authenticity
+  Scenario: Ideeli::AWS::SNS::Message verifies message authenticity
     Given I create a queue
     And I create an SNS topic
     And I subscribe the queue to the topic
@@ -29,7 +29,7 @@ Feature: SNS Message
     Then the message should be authentic
 
   @sqs
-  Scenario: AWS::SNS::Message reject non-authentic messages
+  Scenario: Ideeli::AWS::SNS::Message reject non-authentic messages
     Given I create a queue
     And I create an SNS topic
     And I subscribe the queue to the topic

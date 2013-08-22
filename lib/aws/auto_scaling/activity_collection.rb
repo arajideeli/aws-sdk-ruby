@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class AutoScaling
 
@@ -18,7 +19,7 @@ module AWS
     #
     # Enumerating ALL activities:
     #
-    #     auto_scaling = AWS::AutoScaling.new
+    #     auto_scaling = Ideeli::AWS::AutoScaling.new
     #     auto_scaling.activities.each do |activity|
     #       # ...
     #     end
@@ -78,4 +79,5 @@ module AWS
 
     end
   end
+end
 end

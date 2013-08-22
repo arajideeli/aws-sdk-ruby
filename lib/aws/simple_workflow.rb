@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/simple_workflow/config'
 
+module Ideeli
 module AWS
 
   # This is the starting point for working with Amazon Simple Workflow Service.
@@ -23,7 +24,7 @@ module AWS
   # To get started, you need to first create a domain.  Domains are used to
   # organize related tasks and activities.
   #
-  #     swf = AWS::SimpleWorkflow.new
+  #     swf = Ideeli::AWS::SimpleWorkflow.new
   #
   #     # name the domain and specify the retention period (in days)
   #     domain = swf.domains.create('my-domain', 10)
@@ -225,4 +226,5 @@ module AWS
     end
 
   end
+end
 end

@@ -13,12 +13,13 @@
 
 require 'zlib'
 
+module Ideeli
 module AWS
   class DynamoDB
 
     # Builds a client for Amazon DynamoDB.
     #
-    #     ddb = AWS::DynamoDB::Client.new
+    #     ddb = Ideeli::AWS::DynamoDB::Client.new
     #
     # ## API Versions
     #
@@ -32,18 +33,18 @@ module AWS
     # `:api_version` option to the {#initialize constructor}.
     #
     #     # defaults to the 2011-12-05 API version
-    #     ddb = AWS::DynamoDB::Client.new
+    #     ddb = Ideeli::AWS::DynamoDB::Client.new
     #
     #     # specify the API version
-    #     ddb = AWS::DynamoDB::Client.new(:api_version => '2011-12-05')
-    #     ddb = AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
+    #     ddb = Ideeli::AWS::DynamoDB::Client.new(:api_version => '2011-12-05')
+    #     ddb = Ideeli::AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
     #
     # You can specify a global default API version using AWS.config:
     #
     #     AWS.config(:dynamo_db => { :api_version => '2012-08-10' })
     #
-    #     AWS::DynamoDB::Client.new
-    #     #=> AWS::DynamoDB::Client::V20120810
+    #     Ideeli::AWS::DynamoDB::Client.new
+    #     #=> Ideeli::AWS::DynamoDB::Client::V20120810
     #
     # @see V20111205
     # @see V20120810
@@ -124,4 +125,5 @@ module AWS
 
     end
   end
+end
 end

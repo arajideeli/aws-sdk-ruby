@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SNS
 
@@ -89,4 +90,5 @@ module AWS
 
   end
 
+end
 end

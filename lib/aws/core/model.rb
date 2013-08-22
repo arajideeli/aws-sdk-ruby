@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
 
@@ -44,7 +45,7 @@ module AWS
       # @return [String] The short name of the service as used in coniguration.
       #   (e.g. SimpleDB::Client.config_prefix #=> 'simple_db')
       def config_prefix
-        Inflection.ruby_name(self.class.to_s.split(/::/)[1])
+        Inflection.ruby_name(self.class.to_s.split(/::/)[2])
       end
 
       # @return [String] A sensible default inspect string.
@@ -54,4 +55,5 @@ module AWS
 
     end
   end
+end
 end

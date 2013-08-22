@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'tempfile'
 
+module Ideeli
 module AWS
   class S3
 
@@ -83,14 +84,14 @@ module AWS
               lambda { client.send(method, opts) }.
                 should raise_error(klass)
             end
-  
+
             it "should raise an instance of #{kind}" do
               lambda { client.send(method, opts) }.
                 should raise_error(kind)
             end
-  
+
           end
-  
+
         end
 
       end
@@ -123,7 +124,7 @@ module AWS
       end
 
       context 'cors', :cors => true do
-  
+
         let(:xml) { <<-XML.strip.xml_cleanup }
 <CORSConfiguration>
   <CORSRule>
@@ -2159,11 +2160,12 @@ module AWS
         resp = Core::Response.new
         resp.http_response = Core::Http::Response.new
         resp.http_response.status = 400
-        resp.error = AWS::S3::Errors::RequestTimeout.new
+        resp.error = Ideeli::AWS::S3::Errors::RequestTimeout.new
         Client.new.send(:retryable_error?, resp).should be(true)
       end
 
     end
 
   end
+end
 end

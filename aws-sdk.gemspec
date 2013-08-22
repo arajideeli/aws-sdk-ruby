@@ -4,7 +4,7 @@ require 'aws/core'
 
 Gem::Specification.new do |s|
   s.name = 'aws-sdk'
-  s.version = AWS::VERSION
+  s.version = Ideeli::AWS::VERSION
   s.summary = 'AWS SDK for Ruby'
   s.description = s.summary
   s.license = 'Apache 2.0'

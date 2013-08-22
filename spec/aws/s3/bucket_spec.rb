@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
     describe Bucket do
@@ -150,7 +151,7 @@ module AWS
         end
 
         it 'returns {} when there are no tags' do
-          err = AWS::S3::Errors::NoSuchTagSet.new
+          err = Ideeli::AWS::S3::Errors::NoSuchTagSet.new
           client.stub(:get_bucket_tagging).and_raise(err)
           bucket.tags.should eq({})
         end
@@ -803,4 +804,5 @@ module AWS
 
     end
   end
+end
 end

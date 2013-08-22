@@ -15,6 +15,7 @@ require 'uuidtools'
 
 require 'timeout'
 
+module Ideeli
 module AWS
   class SimpleWorkflow
 
@@ -222,4 +223,5 @@ module AWS
 
     end
   end
+end
 end

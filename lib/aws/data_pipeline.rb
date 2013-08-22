@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/data_pipeline/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with AWS Data Pipeline.
@@ -35,20 +36,20 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::DataPipeline interface:
+  # Or you can set them directly on the Ideeli::AWS::DataPipeline interface:
   #
-  #     datapipeline = AWS::DataPipeline.new(
+  #     datapipeline = Ideeli::AWS::DataPipeline.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
   # # Using the Client
   #
-  # AWS::DataPipeline does not provide higher level abstractions for AWS Data Pipeline
+  # Ideeli::AWS::DataPipeline does not provide higher level abstractions for AWS Data Pipeline
   # this time.  You can still access all of the API methods using
-  # {AWS::DataPipeline::Client}.  Here is how you access the client and make
+  # {Ideeli::AWS::DataPipeline::Client}.  Here is how you access the client and make
   # a simple request:
   #
-  #     data_pipeline = AWS::DataPipeline.new
+  #     data_pipeline = Ideeli::AWS::DataPipeline.new
   #
   #     resp = data_pipeline.client.describe_pipelines
   #     resp[:pipeline_description_list].each do |pipeline|
@@ -70,4 +71,5 @@ module AWS
     endpoint_prefix 'datapipeline'
 
   end
+end
 end

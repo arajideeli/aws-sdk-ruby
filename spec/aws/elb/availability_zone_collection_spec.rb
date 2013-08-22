@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class ELB
     describe AvailabilityZoneCollection do
@@ -118,4 +119,5 @@ module AWS
 
     end
   end
+end
 end

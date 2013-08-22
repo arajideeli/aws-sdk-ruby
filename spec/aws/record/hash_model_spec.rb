@@ -13,14 +13,15 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Record
     describe Model do
 
-      it_should_behave_like("an aws record base class", AWS::Record::HashModel)
+      it_should_behave_like("an aws record base class", Ideeli::AWS::Record::HashModel)
 
       it "should contain an assignable hash key" do
-        model = Class.new(AWS::Record::HashModel)
+        model = Class.new(Ideeli::AWS::Record::HashModel)
         model.string_attr :hashname, :hash_key => true
         model.string_attr :foo
         model.hash_key.should == "hashname"
@@ -28,4 +29,5 @@ module AWS
 
     end
   end
+end
 end

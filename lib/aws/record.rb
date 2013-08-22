@@ -13,9 +13,10 @@
 
 require 'set'
 
+module Ideeli
 module AWS
 
-  # AWS::Record is an ORM built on top of AWS services.
+  # Ideeli::AWS::Record is an ORM built on top of AWS services.
   module Record
 
     autoload :AbstractBase, 'aws/record/abstract_base'
@@ -51,11 +52,11 @@ module AWS
     autoload :Validator, 'aws/record/validator'
 
     # Sets a prefix to be applied to all SimpleDB domains associated with
-    # AWS::Record::Base classes.
+    # Ideeli::AWS::Record::Base classes.
     #
-    #     AWS::Record.domain_prefix = 'production_'
+    #     Ideeli::AWS::Record.domain_prefix = 'production_'
     #
-    #     class Product < AWS::Record::Base
+    #     class Product < Ideeli::AWS::Record::Base
     #       set_shard_name 'products'
     #     end
     #
@@ -76,12 +77,12 @@ module AWS
     end
 
     # Sets a prefix to be applied to all DynamoDB tables associated
-    # with {AWS::Record::HashModel} and {AWS::Record::ListModel}
+    # with {Ideeli::AWS::Record::HashModel} and {Ideeli::AWS::Record::ListModel}
     # classes.
     #
-    #     AWS::Record.table_prefix = 'production_'
+    #     Ideeli::AWS::Record.table_prefix = 'production_'
     #
-    #     class Product < AWS::Record::HashModel
+    #     class Product < Ideeli::AWS::Record::HashModel
     #       set_shard_name 'products'
     #     end
     #
@@ -136,4 +137,5 @@ module AWS
     end
 
   end
+end
 end

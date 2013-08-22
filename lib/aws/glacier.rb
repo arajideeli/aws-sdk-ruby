@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/glacier/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon Glacier.
@@ -35,9 +36,9 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::Glacier interface:
+  # Or you can set them directly on the Ideeli::AWS::Glacier interface:
   #
-  #     glacier = AWS::Glacier.new(
+  #     glacier = Ideeli::AWS::Glacier.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -77,4 +78,5 @@ module AWS
     end
 
   end
+end
 end

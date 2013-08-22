@@ -10,6 +10,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class IAM
 
@@ -19,7 +20,7 @@ module AWS
     # example:
     #
     #     # add or replace a policy named "ReadOnly"
-    #     policy = AWS::IAM::Policy.new do |p|
+    #     policy = Ideeli::AWS::IAM::Policy.new do |p|
     #       # ...
     #     end
     #     user.policies["ReadOnly"] = policy
@@ -42,4 +43,5 @@ module AWS
 
     end
   end
+end
 end

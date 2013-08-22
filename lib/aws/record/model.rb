@@ -14,12 +14,13 @@
 # todo move these to included modules (like validations and naming)
 
 
+module Ideeli
 module AWS
   module Record
 
     # An ActiveRecord-like interface built ontop of Amazon SimpleDB.
     #
-    #     class Book < AWS::Record::Model
+    #     class Book < Ideeli::AWS::Record::Model
     #
     #       string_attr :title
     #       string_attr :author
@@ -34,8 +35,8 @@ module AWS
     #
     # # Attribute Macros
     #
-    # When extending AWS::Record::Model you should first consider what
-    # attributes your class should have.  Unlike ActiveRecord, AWS::Record
+    # When extending Ideeli::AWS::Record::Model you should first consider what
+    # attributes your class should have.  Unlike ActiveRecord, Ideeli::AWS::Record
     # models are not backed by a database table/schema.  You must choose what
     # attributes (and what types) you need.
     #
@@ -50,7 +51,7 @@ module AWS
     #
     # Normally you just call these methods inside your model class definition:
     #
-    #     class Book < AWS::Record::Model
+    #     class Book < Ideeli::AWS::Record::Model
     #       string_attr :title
     #       boolean_attr :has_been_read
     #       integer_attr :number_of_pages
@@ -78,7 +79,7 @@ module AWS
     # All attribute macros accept the `:default_value` option.  This sets
     # a value that is populated onto all new instnaces of the class.
     #
-    #     class Book < AWS::Record::Model
+    #     class Book < Ideeli::AWS::Record::Model
     #       string_attr :author, :default_value => 'Me'
     #     end
     #
@@ -86,9 +87,9 @@ module AWS
     #
     # ### Multi-Valued (Set) Attributes
     #
-    # AWS::Record permits storing multiple values with a single attribute.
+    # Ideeli::AWS::Record permits storing multiple values with a single attribute.
     #
-    #     class Book < AWS::Record::Model
+    #     class Book < Ideeli::AWS::Record::Model
     #       string_attr :tags, :set => true
     #     end
     #
@@ -110,10 +111,10 @@ module AWS
     # # Validations
     #
     # It's important to validate models before there are persisted to keep
-    # your data clean.  AWS::Record supports most of the ActiveRecord style
+    # your data clean.  Ideeli::AWS::Record supports most of the ActiveRecord style
     # validators.
     #
-    #     class Book < AWS::Record::Model
+    #     class Book < Ideeli::AWS::Record::Model
     #       string_attr :title
     #       validates_presence_of :title
     #     end
@@ -183,7 +184,7 @@ module AWS
     # More useful than writing query fragments all over the place is to
     # name your most common conditions for reuse.
     #
-    #     class Book < AWS::Record::Model
+    #     class Book < Ideeli::AWS::Record::Model
     #
     #       scope :mine, where(:owner => 'Me')
     #
@@ -293,7 +294,7 @@ module AWS
 
         # Creates the SimpleDB domain that is configured for this class.
         #
-        #     class Product < AWS::Record::Model
+        #     class Product < Ideeli::AWS::Record::Model
         #     end
         #
         #     Product.create_table #=> 'Product'
@@ -301,15 +302,15 @@ module AWS
         # If you share a single AWS account with multiple applications, you
         # can provide a domain prefix for your model classes.
         #
-        #     AWS::Record.domain_prefix = 'myapp-'
+        #     Ideeli::AWS::Record.domain_prefix = 'myapp-'
         #
         #     Product.create_table #=> 'myapp-Product'
         #
         # If you have set a model shard name, this is used in place of the
         # class name.
         #
-        #     AWS::Record.domain_prefix = 'prod-'
-        #     class Product < AWS::Record::Model
+        #     Ideeli::AWS::Record.domain_prefix = 'prod-'
+        #     class Product < Ideeli::AWS::Record::Model
         #       set_shard_name 'products'
         #     end
         #
@@ -330,7 +331,7 @@ module AWS
           sdb.domains.create(sdb_domain_name(shard_name))
         end
 
-        # @return [AWS::SimpleDB::Domain]
+        # @return [Ideeli::AWS::SimpleDB::Domain]
         # @api private
         def sdb_domain shard_name = nil
           sdb.domains[sdb_domain_name(shard_name)]
@@ -338,12 +339,12 @@ module AWS
 
         protected
         def sdb_domain_name shard_name = nil
-          "#{AWS::Record.domain_prefix}#{self.shard_name(shard_name)}"
+          "#{Ideeli::AWS::Record.domain_prefix}#{self.shard_name(shard_name)}"
         end
 
         protected
         def sdb
-          AWS::SimpleDB.new
+          Ideeli::AWS::SimpleDB.new
         end
 
       end
@@ -446,8 +447,9 @@ module AWS
 
     end
 
-    # for backwards compatability with the old AWS::Record::Base
+    # for backwards compatability with the old Ideeli::AWS::Record::Base
     Base = Model
 
   end
+end
 end

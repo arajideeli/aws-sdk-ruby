@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class EC2
 
@@ -212,7 +213,7 @@ module AWS
       # You can do this by passing the {ELB::LoadBalancer} into
       # authorize_ingress:
       #
-      #     load_balancer = AWS::ELB.new.load_balancers['web-load-balancer']
+      #     load_balancer = Ideeli::AWS::ELB.new.load_balancers['web-load-balancer']
       #
       #     sg.authorize_ingress(:tcp, 80, load_balancer)
       #
@@ -479,4 +480,5 @@ module AWS
 
     end
   end
+end
 end

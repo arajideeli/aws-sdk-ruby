@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe Record do
 
@@ -45,4 +46,5 @@ module AWS
     end
 
   end
+end
 end

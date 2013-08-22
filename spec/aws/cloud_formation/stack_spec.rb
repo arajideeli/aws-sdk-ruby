@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class CloudFormation
     describe Stack do
@@ -324,4 +325,5 @@ module AWS
 
     end
   end
+end
 end

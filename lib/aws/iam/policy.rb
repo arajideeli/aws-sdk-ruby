@@ -11,10 +11,11 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class IAM
 
-    # (see AWS::Core::Policy)
+    # (see Ideeli::AWS::Core::Policy)
     class Policy < Core::Policy
 
       def to_h
@@ -43,4 +44,5 @@ module AWS
 
     end
   end
+end
 end

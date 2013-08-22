@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
 
@@ -103,7 +104,7 @@ module AWS
                                                    :name => "foo"),
                                  :prefix => "bar"),
                           :prefix => "bar")
-          tree.inspect.should == "<AWS::S3::Tree:foo:bar>"
+          tree.inspect.should == "<Ideeli::AWS::S3::Tree:foo:bar>"
         end
 
       end
@@ -111,4 +112,5 @@ module AWS
     end
 
   end
+end
 end

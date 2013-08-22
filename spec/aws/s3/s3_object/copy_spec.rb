@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'tempfile'
 
+module Ideeli
 module AWS
   class S3
 
@@ -287,4 +288,5 @@ module AWS
 
     end
   end
+end
 end

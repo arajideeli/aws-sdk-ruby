@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
     describe CORSRuleCollection do
@@ -168,4 +169,5 @@ module AWS
 
     end
   end
+end
 end

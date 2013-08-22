@@ -66,8 +66,8 @@ Feature: DynamoDB items
     """
     {
       "id" => "abc",
-      "range" => AWS::DynamoDB::Binary.new('abc'),
-      "data" => AWS::DynamoDB::Binary.new('data'),
+      "range" => Ideeli::AWS::DynamoDB::Binary.new('abc'),
+      "data" => Ideeli::AWS::DynamoDB::Binary.new('data'),
     }
     """
     Then the result should be a DynamoDB item
@@ -75,8 +75,8 @@ Feature: DynamoDB items
     """
     {
       "id" => "abc",
-      "range" => AWS::DynamoDB::Binary.new('abc'),
-      "data" => AWS::DynamoDB::Binary.new('data'),
+      "range" => Ideeli::AWS::DynamoDB::Binary.new('abc'),
+      "data" => Ideeli::AWS::DynamoDB::Binary.new('data'),
     }
     """
 
@@ -92,8 +92,8 @@ Feature: DynamoDB items
       "features" => ["tail", "night vision"],
       "ranks" => [12.3, BigDecimal("21.4179232578941663312")],
       "data" => [
-        AWS::DynamoDB::Binary.new('a' * 200),
-        AWS::DynamoDB::Binary.new('b'),
+        Ideeli::AWS::DynamoDB::Binary.new('a' * 200),
+        Ideeli::AWS::DynamoDB::Binary.new('b'),
       ],
     }
     """
@@ -108,8 +108,8 @@ Feature: DynamoDB items
         BigDecimal("21.4179232578941663312"),
       ]),
       "data" => Set.new([
-        AWS::DynamoDB::Binary.new('a' * 200),
-        AWS::DynamoDB::Binary.new('b'),
+        Ideeli::AWS::DynamoDB::Binary.new('a' * 200),
+        Ideeli::AWS::DynamoDB::Binary.new('b'),
       ]),
     }
     """

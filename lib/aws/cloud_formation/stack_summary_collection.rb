@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class CloudFormation
 
@@ -26,7 +27,7 @@ module AWS
     # You can enumerate all available summaries using enumerable
     # methods.  Yielded summaries are simple hashes.
     #
-    #     cfm = AWS::CloudFormation.new
+    #     cfm = Ideeli::AWS::CloudFormation.new
     #     cfm.stack_summaries.each do |summary|
     #       puts summary.to_yaml
     #     end
@@ -120,4 +121,5 @@ module AWS
 
     end
   end
+end
 end

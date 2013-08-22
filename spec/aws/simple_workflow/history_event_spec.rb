@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleWorkflow
     describe HistoryEvent do
@@ -117,4 +118,5 @@ module AWS
 
     end
   end
+end
 end

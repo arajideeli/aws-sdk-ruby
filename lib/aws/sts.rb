@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/sts/config'
 
+module Ideeli
 module AWS
 
   # This class is a starting point for working with the AWS Security
@@ -24,19 +25,19 @@ module AWS
   #
   # @example Getting temporary credentials and using them to make an EC2 request
   #
-  #   sts = AWS::STS.new(:access_key_id => "LONG_TERM_KEY",
+  #   sts = Ideeli::AWS::STS.new(:access_key_id => "LONG_TERM_KEY",
   #                      :secret_access_key => "LONG_TERM_SECRET")
   #   session = sts.new_session(:duration => 60*60)
-  #   ec2 = AWS::EC2.new(session.credentials)
+  #   ec2 = Ideeli::AWS::EC2.new(session.credentials)
   #   ec2.instances.to_a
   #
   # @example Getting temporary credentials with restricted permissions
   #
-  #   policy = AWS::STS::Policy.new
+  #   policy = Ideeli::AWS::STS::Policy.new
   #   policy.allow(:actions => ["s3:*", "ec2:*"],
   #                :resources => :any)
   #   session = sts.new_federated_session("TemporaryUser", :policy => policy)
-  #   ec2 = AWS::EC2.new(session.credentials)
+  #   ec2 = Ideeli::AWS::EC2.new(session.credentials)
   #   ec2.instances.to_a
   #
   # @!attribute [r] client
@@ -117,7 +118,7 @@ module AWS
     #   sessions range from 3600s (one hour) to 129600s (36 hours),
     #   with one hour as the default.
     #
-    # @option opts [String, AWS::STS::Policy] :policy A policy
+    # @option opts [String, Ideeli::AWS::STS::Policy] :policy A policy
     #   specifying the permissions to associate with the session. The
     #   caller can delegate their own permissions by specifying a
     #   policy for the session, and both policies will be checked when
@@ -162,4 +163,5 @@ module AWS
 
   end
 
+end
 end

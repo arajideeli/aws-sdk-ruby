@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Core
     describe Region do
@@ -42,15 +43,15 @@ module AWS
         Region.new('region-name').config.region.should eq('region-name')
       end
 
-      AWS::SERVICES.each do |klass, svc|
+      Ideeli::AWS::SERVICES.each do |klass, svc|
 
         context "##{svc.method_name}" do
 
-          it "returns an instance of AWS::#{klass}" do
+          it "returns an instance of Ideeli::AWS::#{klass}" do
             region.send(svc.method_name).should be_a(AWS.const_get(klass))
           end
 
-          it "returns an AWS::#{klass} instance with the proper config" do
+          it "returns an Ideeli::AWS::#{klass} instance with the proper config" do
             region.send(svc.method_name).config.region.should eq(region.name)
           end
 
@@ -60,4 +61,5 @@ module AWS
 
     end
   end
+end
 end

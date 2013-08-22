@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
     # @since 1.8.0
@@ -44,4 +45,5 @@ module AWS
     # @deprecated Use RESTXMLClient instead.
     RESTClient = RESTXMLClient
   end
+end
 end

@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'time'
 
+module Ideeli
 module AWS
   class Route53
     describe ResourceRecordSetCollection do
@@ -129,4 +130,5 @@ module AWS
 
     end
   end
+end
 end

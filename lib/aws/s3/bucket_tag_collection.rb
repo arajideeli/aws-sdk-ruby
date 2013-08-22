@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class S3
 
@@ -88,7 +89,7 @@ module AWS
       # @return [Hash]
       def to_h
         client.get_bucket_tagging(:bucket_name => bucket.name).data[:tags]
-      rescue AWS::S3::Errors::NoSuchTagSet
+      rescue Ideeli::AWS::S3::Errors::NoSuchTagSet
         {}
       end
       alias_method :to_hash, :to_h
@@ -108,4 +109,5 @@ module AWS
 
     end
   end
+end
 end

@@ -11,16 +11,17 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class Route53
 
     # # Modify resource record sets with ChangeBatch
     #
-    #     batch = AWS::Route53::ChangeBatch.new(hosted_zone_id)
-    #     batch << AWS::Route53::CreateRequest.new('foo.example.com.', 'A', :resource_records => [{:value => '192.168.0.1'}])
-    #     batch << AWS::Route53::DeleteRequest.new('bar.example.com.', 'CNAME')
-    #     batch << AWS::Route53::DeleteRequest.new('baz.example.com.', 'AAAA')
-    #     batch << AWS::Route53::CreateRequest.new('baz.example.com.', 'AAAA', :resource_records => [{:value => '192.168.0.3'}])
+    #     batch = Ideeli::AWS::Route53::ChangeBatch.new(hosted_zone_id)
+    #     batch << Ideeli::AWS::Route53::CreateRequest.new('foo.example.com.', 'A', :resource_records => [{:value => '192.168.0.1'}])
+    #     batch << Ideeli::AWS::Route53::DeleteRequest.new('bar.example.com.', 'CNAME')
+    #     batch << Ideeli::AWS::Route53::DeleteRequest.new('baz.example.com.', 'AAAA')
+    #     batch << Ideeli::AWS::Route53::CreateRequest.new('baz.example.com.', 'AAAA', :resource_records => [{:value => '192.168.0.3'}])
     #
     #     batch.call
     #
@@ -158,4 +159,5 @@ module AWS
 
     end
   end
+end
 end

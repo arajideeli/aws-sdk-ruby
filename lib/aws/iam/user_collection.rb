@@ -11,13 +11,14 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class IAM
 
     # A collection that provides access to IAM users belonging to this
     # account.
     #
-    #     iam = AWS::IAM.new
+    #     iam = Ideeli::AWS::IAM.new
     #     users = iam.users
     #
     # ## Creating A User
@@ -130,4 +131,5 @@ module AWS
 
     end
   end
+end
 end

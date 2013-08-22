@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class SimpleWorkflow
 
@@ -31,7 +32,7 @@ module AWS
       }
 
       let(:type_symbol) {
-        AWS::Core::Inflection.ruby_name(type_key).to_sym
+        Ideeli::AWS::Core::Inflection.ruby_name(type_key).to_sym
       }
 
       let(:type_info) {{
@@ -279,4 +280,5 @@ module AWS
 
     end
   end
+end
 end

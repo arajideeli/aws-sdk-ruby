@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe SNS do
 
@@ -49,4 +50,5 @@ module AWS
     end
 
   end
+end
 end

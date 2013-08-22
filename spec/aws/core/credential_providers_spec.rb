@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'mock_ec2_metadata_server'
 
+module Ideeli
 module AWS
   module Core
     module CredentialProviders
@@ -460,7 +461,7 @@ module AWS
             :secret_access_key => 'session-secret',
             :session_token => 'session-token' }
 
-          AWS::STS.stub_chain(:new, :new_session, :credentials).
+          Ideeli::AWS::STS.stub_chain(:new, :new_session, :credentials).
             and_return(session_creds)
 
           provider = SessionProvider.for(long_term_creds)
@@ -478,7 +479,7 @@ module AWS
           sts = double('sts')
           sts.stub_chain(:new_session, :credentials).and_return(session_creds)
 
-          AWS::STS.should_receive(:new).
+          Ideeli::AWS::STS.should_receive(:new).
             with(long_term_creds.merge(:use_ssl => true)).
             and_return(sts)
 
@@ -496,7 +497,7 @@ module AWS
             }
           end
 
-          AWS::STS.stub_chain(:new, :new_session, :credentials).
+          Ideeli::AWS::STS.stub_chain(:new, :new_session, :credentials).
             and_return(*session_creds)
 
           provider = SessionProvider.for(long_term_creds)
@@ -523,4 +524,5 @@ module AWS
 
     end
   end
+end
 end

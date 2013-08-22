@@ -11,12 +11,13 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class Route53
 
     # # Delete existing hosted zone
     #
-    #     hosted_zone = AWS::Route53::HostedZone.new(hosted_zone_id)
+    #     hosted_zone = Ideeli::AWS::Route53::HostedZone.new(hosted_zone_id)
     #     hosted_zone.delete
     #
     # @attr_reader [String] name The hosted zone name.
@@ -108,4 +109,5 @@ module AWS
 
     end
   end
+end
 end

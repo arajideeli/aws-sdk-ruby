@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class CloudWatch
     describe AlarmHistoryItemCollection do
@@ -141,4 +142,5 @@ module AWS
 
     end
   end
+end
 end

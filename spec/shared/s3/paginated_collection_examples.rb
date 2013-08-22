@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for 'an S3 paginated collection' do
@@ -100,7 +101,7 @@ module AWS
         results.each do |result|
           result.data[:next_marker] = nil
         end
-        
+
         ["first", "second", "third"].zip(results).each do |name, result|
           stub_markers(result, name)
         end
@@ -121,4 +122,5 @@ module AWS
 
   end
 
+end
 end

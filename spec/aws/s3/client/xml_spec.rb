@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
     class Client < Core::Client
@@ -650,4 +651,5 @@ module AWS
 
     end
   end
+end
 end

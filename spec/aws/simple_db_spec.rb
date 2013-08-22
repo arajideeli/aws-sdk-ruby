@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe SimpleDB do
 
@@ -37,7 +38,7 @@ module AWS
     context '#inspect' do
 
       it 'returns a simple string' do
-        sdb.inspect.should == '<AWS::SimpleDB>'
+        sdb.inspect.should == '<Ideeli::AWS::SimpleDB>'
       end
 
     end
@@ -89,4 +90,5 @@ module AWS
     end
 
   end
+end
 end

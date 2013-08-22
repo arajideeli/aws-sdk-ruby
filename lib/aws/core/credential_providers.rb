@@ -17,6 +17,7 @@ require 'timeout'
 require 'thread'
 require 'time'
 
+module Ideeli
 module AWS
   module Core
     module CredentialProviders
@@ -446,7 +447,7 @@ module AWS
         # Replaces the cached STS session with a new one.
         # @return [nil]
         def refresh_session
-          sts = AWS::STS.new(@static.credentials.merge(:use_ssl => true))
+          sts = Ideeli::AWS::STS.new(@static.credentials.merge(:use_ssl => true))
           @session_mutex.synchronize do
             @session = sts.new_session
           end
@@ -503,4 +504,5 @@ module AWS
 
     end
   end
+end
 end

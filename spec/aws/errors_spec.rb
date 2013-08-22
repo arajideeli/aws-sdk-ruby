@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Errors
 
@@ -69,4 +70,5 @@ module AWS
     end
 
   end
+end
 end

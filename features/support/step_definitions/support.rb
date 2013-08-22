@@ -13,7 +13,7 @@
 
 Before("@support") do
 
-  @support = AWS::Support.new
+  @support = Ideeli::AWS::Support.new
   @support_client = @support.client
 
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -171,7 +172,7 @@ module AWS
       context '#inspect' do
 
         it 'should include the resource type, resource ID, and key' do
-          tag.inspect.should == "<AWS::EC2::Tag:resource-object:resource-id:key>"
+          tag.inspect.should == "<Ideeli::AWS::EC2::Tag:resource-object:resource-id:key>"
         end
 
       end
@@ -187,4 +188,5 @@ module AWS
 
     end
   end
+end
 end

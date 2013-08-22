@@ -12,7 +12,7 @@
 # language governing permissions and limitations under the License.
 
 def build_dynamo_db_crc32(num_failing_reqs = 1, crc_enabled = true)
-  @crc_handler = AWS::Core::Http::Handler.new(@http_handler) do |req, resp, read_block|
+  @crc_handler = Ideeli::AWS::Core::Http::Handler.new(@http_handler) do |req, resp, read_block|
     super(req, resp, &read_block)
     if @retries < @num_failing_reqs
       resp.body = '{"TableNames":[]}'
@@ -23,12 +23,12 @@ def build_dynamo_db_crc32(num_failing_reqs = 1, crc_enabled = true)
   @crc_handler.retries = -1
   @crc_handler.num_failing_reqs = num_failing_reqs
 
-  @dynamo_db = AWS::DynamoDB.new :use_ssl => false, :max_retries => 2,
+  @dynamo_db = Ideeli::AWS::DynamoDB.new :use_ssl => false, :max_retries => 2,
     :dynamo_db_crc32 => crc_enabled, :http_handler => @crc_handler
 end
 
 Given /^I turn SSL off$/ do
-  @dynamo_db = AWS::DynamoDB.new(:config => @dynamo_db.config.with(:use_ssl => false))
+  @dynamo_db = Ideeli::AWS::DynamoDB.new(:config => @dynamo_db.config.with(:use_ssl => false))
 end
 
 Given /^my first request is corrupted with CRC checking (ON|OFF)$/ do |onoff|
@@ -60,7 +60,7 @@ Then /^the request is retried the maximum number of times$/ do
 end
 
 Then /^the request should fail with a CRC checking error$/ do
-  @error.should be_a(AWS::DynamoDB::Errors::CRC32CheckFailed)
+  @error.should be_a(Ideeli::AWS::DynamoDB::Errors::CRC32CheckFailed)
 end
 
 Given /^I have a large item "(.*?)" in the table$/ do |item|

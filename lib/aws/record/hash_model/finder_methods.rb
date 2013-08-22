@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Record
     class HashModel
@@ -117,7 +118,7 @@ module AWS
 
         # Counts records Amazon DynamoDB.
         #
-        #     class Product < AWS::Record::HashModel
+        #     class Product < Ideeli::AWS::Record::HashModel
         #     end
         #
         #     # returns the count of records in the 'Product' table
@@ -169,4 +170,5 @@ module AWS
       end
     end
   end
+end
 end

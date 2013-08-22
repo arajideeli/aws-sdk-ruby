@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/import_export/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with AWS Import/Export.
@@ -35,21 +36,21 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::ImportExport interface:
+  # Or you can set them directly on the Ideeli::AWS::ImportExport interface:
   #
-  #     ie = AWS::ImportExport.new(
+  #     ie = Ideeli::AWS::ImportExport.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
   # # Using the Client
   #
-  # AWS::ImportExport does not provide higher level abstractions for Import/Export at
+  # Ideeli::AWS::ImportExport does not provide higher level abstractions for Import/Export at
   # this time.  You can still access all of the API methods using
-  # {AWS::ImportExport::Client}.  Here is how you access the client and make
+  # {Ideeli::AWS::ImportExport::Client}.  Here is how you access the client and make
   # a simple request:
   #
   #
-  #     ie = AWS::ImportExport.new
+  #     ie = Ideeli::AWS::ImportExport.new
   #
   #     resp = ie.client.list_hosted_zones
   #     resp[:hosted_zones].each do |zone|
@@ -71,4 +72,5 @@ module AWS
     endpoint_prefix 'importexport', :global => true
 
   end
+end
 end

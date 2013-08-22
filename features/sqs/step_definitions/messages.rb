@@ -39,7 +39,7 @@ When /^I receive a message from the queue$/ do
 end
 
 When /^I use the SQS message to construct an SNS message$/ do
-  @message = AWS::SNS::Message.new(@message.body)
+  @message = Ideeli::AWS::SNS::Message.new(@message.body)
 end
 
 Then /^the message should be authentic$/ do
@@ -195,7 +195,7 @@ Then /^the message should have a string sender ID$/ do
 end
 
 Then /^I should be able to send a message using a "(.*?)" client$/ do |region|
-  @sqs = AWS::SQS.new(:sqs_endpoint => "sqs.#{region}.amazonaws.com")
+  @sqs = Ideeli::AWS::SQS.new(:sqs_endpoint => "sqs.#{region}.amazonaws.com")
   @sqs.queues[@queue.url].send_message('HELLO')
 end
 

@@ -11,24 +11,25 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Record
     class HashModel
 
-      # The primary interface for finding records with {AWS::Record::HashModel}.
+      # The primary interface for finding records with {Ideeli::AWS::Record::HashModel}.
       #
       # ## Getting a Scope Object
       #
       # You should normally never need to construct a Scope object directly.
-      # Scope objects are returned from the AWS::Record::HashModel finder
+      # Scope objects are returned from the Ideeli::AWS::Record::HashModel finder
       # methods # (e.g. `shard` and `limit`).
       #
       #     books = Book.limit(100)
-      #     books.class #=> AWS::Record::HashModel::Scope
+      #     books.class #=> Ideeli::AWS::Record::HashModel::Scope
       #
       # Scopes are also returned from methods defined with the `scope` method.
       #
-      #     class Book < AWS::Record::HashModel
+      #     class Book < Ideeli::AWS::Record::HashModel
       #        scope :sampling, limit(10)
       #     end
       #
@@ -105,4 +106,5 @@ module AWS
       end
     end
   end
+end
 end

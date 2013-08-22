@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'uri'
 
+module Ideeli
 module AWS
   class IAM
 
@@ -48,7 +49,7 @@ module AWS
         let(:response) { client.stub_for(:get_user_policy) }
 
         let(:response_policy) {
-          policy = AWS::IAM::Policy.new
+          policy = Ideeli::AWS::IAM::Policy.new
           policy.allow(:resources => :any, :actions => :any)
           policy
         }
@@ -80,7 +81,7 @@ module AWS
 
             # exactly like the returned policy but with the change already
             # applied
-            policy = AWS::IAM::Policy.new
+            policy = Ideeli::AWS::IAM::Policy.new
             policy.allow(:resources => :any, :actions => :any)
             policy.deny(:resources => :any, :actions => :any)
             policy
@@ -105,7 +106,7 @@ module AWS
 
         it 'calls put_user_policy on the client to add/update the policy' do
 
-          policy = AWS::IAM::Policy.new
+          policy = Ideeli::AWS::IAM::Policy.new
           policy.allow(:resources => :any, :actions => :any)
           policy
 
@@ -135,4 +136,5 @@ module AWS
 
   end
 
+end
 end

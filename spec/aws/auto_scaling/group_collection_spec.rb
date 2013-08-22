@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class AutoScaling
     describe GroupCollection do
@@ -179,7 +180,7 @@ module AWS
               "Default",
               "OldestInstance",
             ]))
- 
+
         end
 
         it 'accepts tags' do
@@ -260,4 +261,5 @@ module AWS
 
     end
   end
+end
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe STS do
 
@@ -146,4 +147,5 @@ module AWS
     end
 
   end
+end
 end

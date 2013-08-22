@@ -15,6 +15,7 @@ require 'aws/core'
 require 'aws/emr/config'
 require 'time'
 
+module Ideeli
 module AWS
 
   # Provides an expressive, object-oriented interface to Amazon Elastic
@@ -39,7 +40,7 @@ module AWS
   #
   # Or you can set them directly on the EMR interface:
   #
-  #     emr = AWS::EMR.new(
+  #     emr = Ideeli::AWS::EMR.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -48,7 +49,7 @@ module AWS
   # The {#job_flows} method returns a collection you use to interact
   # with your job flows.
   #
-  #     emr = AWS::EMR.new
+  #     emr = Ideeli::AWS::EMR.new
   #
   #     # creating a job flow
   #     job_flow = emr.job_flows.create(...)
@@ -85,4 +86,5 @@ module AWS
     alias_method :jobs, :job_flows
 
   end
+end
 end

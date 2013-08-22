@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class RDS
     describe DBSnapshotCollection do
@@ -143,4 +144,5 @@ module AWS
 
     end
   end
+end
 end

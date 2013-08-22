@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
     describe CORSRule do
@@ -90,4 +91,5 @@ module AWS
 
     end
   end
+end
 end

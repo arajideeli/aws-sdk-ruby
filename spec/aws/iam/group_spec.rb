@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class IAM
     describe Group do
@@ -244,4 +245,5 @@ module AWS
 
     end
   end
+end
 end

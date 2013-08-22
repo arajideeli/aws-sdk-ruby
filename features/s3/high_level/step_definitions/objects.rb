@@ -372,7 +372,7 @@ When /^I make a http get request to the presigned uri$/ do
 end
 
 When /^I create a pre\-signed "([^"]*)" uri using the session credentials$/ do |http_method|
-  s3 = AWS::S3.new(@session.credentials)
+  s3 = Ideeli::AWS::S3.new(@session.credentials)
   @presigned_uri = s3.buckets[@bucket.name].objects[@object.key].url_for(http_method)
 end
 

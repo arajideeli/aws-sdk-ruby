@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Record
     describe Base do
@@ -135,4 +136,5 @@ module AWS
 
     end
   end
+end
 end

@@ -14,6 +14,7 @@
 require 'base64'
 require 'uuidtools'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -367,4 +368,5 @@ module AWS
 
     end
   end
+end
 end

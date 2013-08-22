@@ -91,7 +91,7 @@ When /^I remove the user from the group$/ do
 end
 
 When /^I add a policy named "([^\"]*)" to the group$/ do |policy_name|
-  @policy_document = AWS::IAM::Policy.new do |p|
+  @policy_document = Ideeli::AWS::IAM::Policy.new do |p|
     p.allow(:actions => ["s3:*"],
             :resources => :any,
             :principals => :any)

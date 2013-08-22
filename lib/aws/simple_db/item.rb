@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class SimpleDB
 
@@ -19,7 +20,7 @@ module AWS
     # use it to access the {AttributeCollection} for the item in
     # order to add, remove, or read the item's attributes.
     #
-    #     item = AWS::SimpleDB.new.domains['mydomain'].items['item-id']
+    #     item = Ideeli::AWS::SimpleDB.new.domains['mydomain'].items['item-id']
     #
     class Item
 
@@ -90,4 +91,5 @@ module AWS
     end
 
   end
+end
 end

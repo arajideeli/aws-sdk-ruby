@@ -13,26 +13,26 @@
 
 require 'spec_helper'
 
-describe AWS::SNS::Message do
+describe Ideeli::AWS::SNS::Message do
 
   it "should be creatable from a JSON string" do
     raw = File.open("#{File.dirname __FILE__}/support/sns_manually_sent.json", 'r') {|f| f.read}
-    AWS::SNS::Message.new(raw).should_not be_nil
+    Ideeli::AWS::SNS::Message.new(raw).should_not be_nil
   end
 
   it "should be creatable from a Hash" do
     raw = File.open("#{File.dirname __FILE__}/support/sns_manually_sent.json", 'r') {|f| f.read}
     hash = JSON.parse raw
-    AWS::SNS::Message.new(hash).should_not be_nil
+    Ideeli::AWS::SNS::Message.new(hash).should_not be_nil
   end
 
   it "should raise an error if the raw SNS string is not valid JSON" do
-    lambda { AWS::SNS::Message.new('foo') }.should raise_error
+    lambda { Ideeli::AWS::SNS::Message.new('foo') }.should raise_error
   end
 
   it "should expose an index of the raw sns message" do
     raw = File.open("#{File.dirname __FILE__}/support/sns_manually_sent.json", 'r') {|f| f.read}
-    AWS::SNS::Message.new(raw)['SignatureVersion'].should == "1"
+    Ideeli::AWS::SNS::Message.new(raw)['SignatureVersion'].should == "1"
   end
 
   describe "When checking authenticity" do
@@ -84,7 +84,7 @@ kMFvPxlw0XwWsvjTGPFCBIR7NZXnwQfVYbdFu88TjT10wTCZ/E3yCp77aDWD1JLV
 
     it "should successfully authenticate a valid sns message" do
       raw = File.open("#{File.dirname __FILE__}/support/sns_manually_sent.json", 'r') {|f| f.read}
-      AWS::SNS::Message.new(raw).should be_authentic
+      Ideeli::AWS::SNS::Message.new(raw).should be_authentic
     end
 
     %w(https://foo.com/wibble.pem https://amazonaws.com.dirtyhackers.com/itsrealhonest.pem http://sns.eu-west-1.amazonaws.com/foo.pem).each do |cert_url|
@@ -93,7 +93,7 @@ kMFvPxlw0XwWsvjTGPFCBIR7NZXnwQfVYbdFu88TjT10wTCZ/E3yCp77aDWD1JLV
         raw = File.open("#{File.dirname __FILE__}/support/sns_manually_sent.json", 'r') {|f| f.read}
         parsed = JSON.parse raw
         parsed['SigningCertURL'] = cert_url
-        AWS::SNS::Message.new(parsed).authentic?.should be_false
+        Ideeli::AWS::SNS::Message.new(parsed).authentic?.should be_false
       end
 
     end
@@ -101,14 +101,14 @@ kMFvPxlw0XwWsvjTGPFCBIR7NZXnwQfVYbdFu88TjT10wTCZ/E3yCp77aDWD1JLV
     it "should raises if the Signing cert cannot be downloaded after 3 tries" do
        http.should_receive(:request).exactly(3).times.and_raise('error')
        lambda {
-         AWS::SNS::Message.new(raw).authentic?
+         Ideeli::AWS::SNS::Message.new(raw).authentic?
        }.should raise_error('error')
     end
 
     it "should return false when the message cannot be verified against the signing-cert" do
       hash = JSON.parse(raw)
       hash['Signature'] = 'clear evidence of tampering'
-      AWS::SNS::Message.new(hash).authentic?.should be_false
+      Ideeli::AWS::SNS::Message.new(hash).authentic?.should be_false
     end
 
   end

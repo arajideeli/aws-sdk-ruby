@@ -20,7 +20,7 @@ YARD::Parser::SourceParser.after_parse_list do
   YARD::Registry.all(:class).each do |klass|
     if klass.name =~ /V\d{8}/
       add_methods(klass, "doc-src/#{svc(klass)}/#{klass.name}.yml")
-    elsif klass.name == :Client && klass.path != 'AWS::Core::Client'
+    elsif klass.name == :Client && klass.path != 'Ideeli::AWS::Core::Client'
       if doc_src = oldest_api_version(klass)
         add_methods(klass, doc_src)
       end

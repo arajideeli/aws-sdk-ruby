@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/direct_connect/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with AWS Import/Export.
@@ -35,20 +36,20 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::DirectConnect interface:
+  # Or you can set them directly on the Ideeli::AWS::DirectConnect interface:
   #
-  #     dc = AWS::DirectConnect.new(
+  #     dc = Ideeli::AWS::DirectConnect.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
   # # Using the Client
   #
-  # AWS::DirectConnect does not provide higher level abstractions for at
+  # Ideeli::AWS::DirectConnect does not provide higher level abstractions for at
   # this time.  You can still access all of the API methods using
-  # {AWS::DirectConnect::Client}.  Here is how you access the client and make
+  # {Ideeli::AWS::DirectConnect::Client}.  Here is how you access the client and make
   # a simple request:
   #
-  #     dc = AWS::DirectConnect.new
+  #     dc = Ideeli::AWS::DirectConnect.new
   #
   #     resp = dc.client.describe_connections
   #     resp[:connections].each do |connection|
@@ -71,4 +72,5 @@ module AWS
     endpoint_prefix 'directconnect'
 
   end
+end
 end

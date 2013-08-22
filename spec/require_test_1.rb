@@ -18,7 +18,7 @@ $:.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'aws-sdk'
 
 print "Service specific config options available before service autoloaded: "
-AWS.config(:ec2_region => 'us-west-2')
-AWS.config.ec2_region
+Ideeli::AWS.config(:ec2_region => 'us-west-2')
+Ideeli::AWS.config.ec2_region
 puts "ok"
 exit 0

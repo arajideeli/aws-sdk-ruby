@@ -13,6 +13,7 @@
 
 require 'thread'
 
+module Ideeli
 module AWS
   module Core
 
@@ -28,7 +29,7 @@ module AWS
     #
     #     Class Foo
     #       module Errors
-    #         extend AWS::Core::LazyErrorClasses
+    #         extend Ideeli::AWS::Core::LazyErrorClasses
     #       end
     #     end
     #
@@ -39,7 +40,7 @@ module AWS
     #     #=> Foo::Errors::Nested::Error::Klasses
     #
     # The errors returned from {#error_class} are subclasses
-    # of {AWS::Errors::Base}.
+    # of {Ideeli::AWS::Errors::Base}.
     #
     module LazyErrorClasses
 
@@ -73,8 +74,8 @@ module AWS
 
       # Converts the error code into an error class constant.
       #
-      #     AWS::EC2::Errors.error_class('Non.Existent.Error')
-      #     #=> AWS::EC2::Errors::Non::Existent::Error
+      #     Ideeli::AWS::EC2::Errors.error_class('Non.Existent.Error')
+      #     #=> Ideeli::AWS::EC2::Errors::Non::Existent::Error
       #
       # @param [String] code An AWS error code.
       #
@@ -87,4 +88,5 @@ module AWS
     end
 
   end
+end
 end

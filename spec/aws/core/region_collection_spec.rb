@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Core
     describe RegionCollection do
@@ -33,7 +34,7 @@ module AWS
 
       context '#each' do
 
-        let(:json) { File.read(File.join(AWS::ROOT, 'endpoints.json')) }
+        let(:json) { File.read(File.join(Ideeli::AWS::ROOT, 'endpoints.json')) }
 
         before(:each) { Net::HTTP.stub(:get).and_return(json) }
 
@@ -86,8 +87,8 @@ module AWS
         context 'with service' do
 
           it 'provides access to services with a global endpoint via any region' do
-            AWS::IAM.global_endpoint?.should be(true)
-            AWS::IAM.regions.map(&:name).should eq(['us-east-1'])
+            Ideeli::AWS::IAM.global_endpoint?.should be(true)
+            Ideeli::AWS::IAM.regions.map(&:name).should eq(['us-east-1'])
             AWS.regions['fake-region'].iam.client.config.iam_region.should eq('us-east-1')
           end
 
@@ -97,4 +98,5 @@ module AWS
 
     end
   end
+end
 end

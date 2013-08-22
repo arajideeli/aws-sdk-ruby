@@ -11,11 +11,12 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
     module Collection
 
-      # AWS::Core::Collection::Simple is used by collections that always
+      # Ideeli::AWS::Core::Collection::Simple is used by collections that always
       # recieve every matching items in a single response.
       #
       # This means:
@@ -27,7 +28,7 @@ module AWS
       # AWS services generally return all items only for requests with a
       # small maximum number of results.
       #
-      # See {AWS::Core::Collection} for documentation on the available
+      # See {Ideeli::AWS::Core::Collection} for documentation on the available
       # collection methods.
       module Simple
 
@@ -79,4 +80,5 @@ module AWS
       end
     end
   end
+end
 end

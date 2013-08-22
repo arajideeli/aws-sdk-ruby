@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleWorkflow
     describe ActivityTaskCollection do
@@ -200,4 +201,5 @@ module AWS
 
     end
   end
+end
 end

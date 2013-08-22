@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   # TODO : dry these up a bit
@@ -57,4 +58,5 @@ module AWS
 
   end
 
+end
 end

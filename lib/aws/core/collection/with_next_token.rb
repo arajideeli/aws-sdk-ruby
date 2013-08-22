@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
     module Collection
@@ -22,7 +23,7 @@ module AWS
       # there are more results than were returned.  You can not control
       # the number of elements returned with each response.
       #
-      # See {AWS::Core::Collection} for documentation on the available
+      # See {Ideeli::AWS::Core::Collection} for documentation on the available
       # collection methods.
       #
       module WithNextToken
@@ -94,4 +95,5 @@ module AWS
       end
     end
   end
+end
 end

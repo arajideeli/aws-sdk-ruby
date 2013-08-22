@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SNS
     describe TopicCollection do
@@ -84,4 +85,5 @@ module AWS
 
   end
 
+end
 end

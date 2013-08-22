@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Core
     describe Client do
@@ -21,11 +22,11 @@ module AWS
 
       before(:each) do
 
-        AWS::SERVICES['Dummy'] = AWS::SvcDetails.new('Dummy',
+        Ideeli::AWS::SERVICES['Dummy'] = Ideeli::AWS::SvcDetails.new('Dummy',
           :full_name => 'Amazon Dummy', # like a crash test dummy
           :method_name => :dummy)
 
-        module ::AWS
+        module ::Ideeli::AWS
           class Dummy
 
             include ServiceInterface
@@ -48,18 +49,18 @@ module AWS
           end
         end
 
-        AWS::Core::Configuration.add_service(
+        Ideeli::AWS::Core::Configuration.add_service(
           'Dummy', 'dummy', 'dummy.amazonaws.com')
 
       end
 
       after(:each) do
-        ::AWS.send(:remove_const, :Dummy)
+        ::Ideeli::AWS.send(:remove_const, :Dummy)
       end
 
-      let(:client_class) { ::AWS::Dummy::Client }
+      let(:client_class) { ::Ideeli::AWS::Dummy::Client }
 
-      let(:request_class) { ::AWS::Dummy::Request }
+      let(:request_class) { ::Ideeli::AWS::Dummy::Request }
 
       let(:config_options) {{}}
 
@@ -71,17 +72,17 @@ module AWS
 
         it 'merges service specific :endpopint option' do
           AWS.config(:dummy => { :endpoint => 'abc.xyz.com' })
-          AWS::Dummy::Client.new.config.dummy_endpoint.should eq('abc.xyz.com')
+          Ideeli::AWS::Dummy::Client.new.config.dummy_endpoint.should eq('abc.xyz.com')
         end
 
         it 'merges service specific :port option' do
           AWS.config(:dummy => { :port => 123 })
-          AWS::Dummy::Client.new.config.dummy_port.should eq(123)
+          Ideeli::AWS::Dummy::Client.new.config.dummy_port.should eq(123)
         end
 
         it 'merges service specific :region option' do
           AWS.config(:dummy => { :region => 'REGION' })
-          AWS::Dummy::Client.new.config.dummy_region.should eq('REGION')
+          Ideeli::AWS::Dummy::Client.new.config.dummy_region.should eq('REGION')
         end
 
       end
@@ -147,4 +148,5 @@ module AWS
 
     end
   end
+end
 end

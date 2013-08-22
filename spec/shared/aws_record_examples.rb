@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Record
 
@@ -48,7 +49,7 @@ module AWS
 
         attributes.each_pair do |attr_name, attr_value|
 
-          values = AWS::Record.as_array(attr_value)
+          values = Ideeli::AWS::Record.as_array(attr_value)
           sdb_data_hash[attr_name.to_s] = values
 
           attr_macro = case values.first
@@ -72,4 +73,5 @@ module AWS
     end
 
   end
+end
 end

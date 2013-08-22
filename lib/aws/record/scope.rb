@@ -11,16 +11,17 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Record
 
-    # Base class for {AWS::Record::Model::Scope} and
-    # {AWS::Record::HashModel::Scope}.
+    # Base class for {Ideeli::AWS::Record::Model::Scope} and
+    # {Ideeli::AWS::Record::HashModel::Scope}.
     class Scope
 
       include Enumerable
 
-      # @param base_class A class that extends {AWS::Record::AbstractBase}.
+      # @param base_class A class that extends {Ideeli::AWS::Record::AbstractBase}.
       # @param [Hash] options
       # @option options :
       # @api private
@@ -35,7 +36,7 @@ module AWS
 
       end
 
-      # @return [Class] Returns the AWS::Record::Model extending class that
+      # @return [Class] Returns the Ideeli::AWS::Record::Model extending class that
       #   this scope will find records for.
       attr_reader :base_class
 
@@ -200,4 +201,5 @@ module AWS
     end
 
   end
+end
 end

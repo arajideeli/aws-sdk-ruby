@@ -13,7 +13,7 @@
 
 Before("@cloud_watch") do
 
-  @cloud_watch = AWS::CloudWatch.new
+  @cloud_watch = Ideeli::AWS::CloudWatch.new
   @cloud_watch_client = @cloud_watch.client
 
   @created_alarms = []

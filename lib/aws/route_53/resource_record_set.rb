@@ -11,19 +11,20 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class Route53
 
     # # Modify resource record set
     #
-    #     rrsets = AWS::Route53::HostedZone.new(hosted_zone_id).rrsets
+    #     rrsets = Ideeli::AWS::Route53::HostedZone.new(hosted_zone_id).rrsets
     #     rrset = rrsets['foo.example.com.', 'A']
     #     rrset.ttl = 3600
     #     rrset.update
     #
     # # Delete existing resource record set
     #
-    #     rrsets = AWS::Route53::HostedZone.new(hosted_zone_id).rrsets
+    #     rrsets = Ideeli::AWS::Route53::HostedZone.new(hosted_zone_id).rrsets
     #     rrset = rrsets['foo.example.com.', 'A']
     #     rrset.delete
     #
@@ -248,4 +249,5 @@ module AWS
       end
     end
   end
+end
 end

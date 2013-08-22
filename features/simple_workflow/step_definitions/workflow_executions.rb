@@ -20,7 +20,7 @@ end
 Then /^there should eventually be (\d+) workflow execution of the workflow type$/ do |count|
   eventually do
     @workflow_type.count_executions.should ==
-      AWS::SimpleWorkflow::Count.new(count.to_i, false)
+      Ideeli::AWS::SimpleWorkflow::Count.new(count.to_i, false)
   end
 end
 
@@ -54,7 +54,7 @@ end
 
 Then /^the workflow type should have (\d+) workflow executions$/ do |count|
   @domain.workflow_executions.count.should ==
-    AWS::SimpleWorkflow::Count.new(count.to_i, false)
+    Ideeli::AWS::SimpleWorkflow::Count.new(count.to_i, false)
 end
 
 When /^I terminate the workflow execution$/ do

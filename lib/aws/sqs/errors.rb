@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class SQS
     module Errors
@@ -98,4 +99,5 @@ module AWS
       end
     end
   end
+end
 end

@@ -21,7 +21,7 @@ unless domain_name
 end
 
 # get an instance of the simpledb interface using the default configuration
-client = AWS::SimpleDB.new
+client = Ideeli::AWS::SimpleDB.new
 
 # get the domain with given name
 puts "Checking the existence of domain"
@@ -34,10 +34,10 @@ begin
 	if d.exists?
 		puts "	The domain '#{domain_name}' is available. Continue to add item"
 	else
-		d = client.domains.create domain_name 
+		d = client.domains.create domain_name
 		puts "	Created domain '#{domain_name}'"
 	end
-rescue AWS::SimpleDB::Errors::InvalidParameterValue => e
+rescue Ideeli::AWS::SimpleDB::Errors::InvalidParameterValue => e
 	puts e.message
 	invalid_name = true
 end
@@ -53,7 +53,7 @@ The generated item data:
 EOS
 	d.items.create item_name, item
 	puts "Added the item '#{item_name}' to domain '#{domain_name}'"
-	
+
 	# Delete the item
 	d.items[item_name].delete
 	puts "Delete the item '#{item_name}' in domain '#{domain_name}'"

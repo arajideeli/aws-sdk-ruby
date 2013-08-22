@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class AutoScaling
 
@@ -23,13 +24,13 @@ module AWS
     #
     #     instance = auto_scaling.instances['i-1234578']
     #     instance.health_statue #=> :healthy
-    #     instance.ec2_instance #=> <AWS::EC2::Instance instance_id:i-1234578>
+    #     instance.ec2_instance #=> <Ideeli::AWS::EC2::Instance instance_id:i-1234578>
     #
     # ## Enumerating Auto Scaling Instances
     #
     # You can enumerate *ALL* instances like so:
     #
-    #     auto_scaling = AWS::AutoScaling.new
+    #     auto_scaling = Ideeli::AWS::AutoScaling.new
     #     auto_scaling.instances.each do |auto_scaling_instance|
     #       # ...
     #     end
@@ -189,4 +190,5 @@ module AWS
 
     end
   end
+end
 end

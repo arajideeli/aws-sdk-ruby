@@ -15,6 +15,7 @@ require 'uuidtools'
 require 'date'
 require 'json'
 
+module Ideeli
 module AWS
   module Core
 
@@ -876,7 +877,7 @@ module AWS
 
             if self.class == Core::Policy::Statement
               msg = 'symbolized action names are only accepted by service ' +
-              'specific policies (e.g. AWS::S3::Policy)'
+              'specific policies (e.g. Ideeli::AWS::S3::Policy)'
               raise ArgumentError, msg
             end
 
@@ -939,4 +940,5 @@ module AWS
 
     end
   end
+end
 end

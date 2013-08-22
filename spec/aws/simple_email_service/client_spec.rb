@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleEmailService
 
@@ -55,4 +56,5 @@ END
     end
 
   end
+end
 end

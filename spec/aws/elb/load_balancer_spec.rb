@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class ELB
     describe LoadBalancer do
@@ -105,7 +106,7 @@ module AWS
         it 'returns false if an error is raised describing the load balancer' do
           client.should_receive(:describe_load_balancers).
             with(:load_balancer_names => [load_balancer.name]).
-            and_raise(AWS::ELB::Errors::LoadBalancerNotFound)
+            and_raise(Ideeli::AWS::ELB::Errors::LoadBalancerNotFound)
           load_balancer.exists?.should == false
         end
 
@@ -342,4 +343,5 @@ module AWS
 
     end
   end
+end
 end

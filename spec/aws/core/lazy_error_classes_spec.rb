@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   module FooService
@@ -44,17 +45,17 @@ module AWS
 
         it 'should generate named classes' do
           mod.error_class("Foo.Bar").name.
-            should == "AWS::FooService::Errors::Foo::Bar"
+            should == "Ideeli::AWS::FooService::Errors::Foo::Bar"
         end
 
         it 'works with codes that are already Ruby class names' do
           mod.error_class("Range.Bar").name.
-            should == "AWS::FooService::Errors::Range::Bar"
+            should == "Ideeli::AWS::FooService::Errors::Range::Bar"
         end
 
         it 'works with codes that are already defined in Core' do
           mod.error_class("Resource.Bar").name.
-            should == "AWS::FooService::Errors::Resource::Bar"
+            should == "Ideeli::AWS::FooService::Errors::Resource::Bar"
         end
 
       end
@@ -62,4 +63,5 @@ module AWS
     end
 
   end
+end
 end

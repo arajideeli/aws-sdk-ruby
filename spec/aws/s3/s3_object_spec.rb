@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'tempfile'
 
+module Ideeli
 module AWS
   class S3
 
@@ -51,7 +52,7 @@ module AWS
 
         it 'should include the object bucket and key' do
           object.inspect.should ==
-            "<AWS::S3::S3Object:foobucket/foo>"
+            "<Ideeli::AWS::S3::S3Object:foobucket/foo>"
         end
 
       end
@@ -1135,4 +1136,5 @@ module AWS
     end
 
   end
+end
 end

@@ -13,7 +13,7 @@
 
 require 'spec_helper'
 
-describe AWS::SNS::FromAutoScaling do
+describe Ideeli::AWS::SNS::FromAutoScaling do
   [
     {
       :read_from => "#{File.dirname __FILE__}/../support/sns_as_instance_terminate.json",
@@ -27,10 +27,10 @@ describe AWS::SNS::FromAutoScaling do
     before do
       @raw = File.open(example[:read_from], 'r') {|f| f.read}
       @json = JSON.parse @raw
-      @sns = AWS::SNS::Message.new @raw
+      @sns = Ideeli::AWS::SNS::Message.new @raw
     end
     it "should be applicable" do
-      AWS::SNS::FromAutoScaling.applicable?(@json).should be_true
+      Ideeli::AWS::SNS::FromAutoScaling.applicable?(@json).should be_true
     end
     it "should apply the mixin" do
       @sns.should respond_to :group_name

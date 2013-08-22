@@ -14,9 +14,10 @@
 require 'aws/core'
 require 'aws/cloud_formation/config'
 
+module Ideeli
 module AWS
 
-  # # AWS::CloudFormation
+  # # Ideeli::AWS::CloudFormation
   #
   # Provides an expressive, object-oriented interface to AWS CloudFormation.
   #
@@ -31,7 +32,7 @@ module AWS
   #
   # Or you can set them directly on the CloudFormation interface:
   #
-  #     cf = AWS::CloudFormation.new(
+  #     cf = Ideeli::AWS::CloudFormation.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -49,7 +50,7 @@ module AWS
   #       "Description": "A simple template",
   #       "Resources": {
   #         "web": {
-  #           "Type": "AWS::EC2::Instance",
+  #           "Type": "Ideeli::AWS::EC2::Instance",
   #           "Properties": {
   #             "ImageId": "ami-41814f28"
   #           }
@@ -58,7 +59,7 @@ module AWS
   #     }
   #     TEMPLATE
   #
-  #     cfm = AWS::CloudFormation.new
+  #     cfm = Ideeli::AWS::CloudFormation.new
   #     stack = cfm.stacks.create('stack-name', template)
   #
   # See {StackCollection#create} for more information on creating templates
@@ -270,4 +271,5 @@ module AWS
     end
 
   end
+end
 end

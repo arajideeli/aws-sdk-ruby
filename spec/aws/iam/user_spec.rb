@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class IAM
     describe User do
@@ -320,4 +321,5 @@ module AWS
 
     end
   end
+end
 end

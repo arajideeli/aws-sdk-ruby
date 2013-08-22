@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/simple_db/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon SimpleDB.
@@ -37,7 +38,7 @@ module AWS
   #
   # Or you can set them directly on the SimpleDB interface:
   #
-  #     sdb = AWS::SimpleDB.new(
+  #     sdb = Ideeli::AWS::SimpleDB.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -172,7 +173,7 @@ module AWS
     # Call this method with a block.  Code executed inside the block
     # make consistent reads until the block ends.
     #
-    #     AWS::SimpleDB.consistent_reads do
+    #     Ideeli::AWS::SimpleDB.consistent_reads do
     #       # ...
     #     end
     #
@@ -182,7 +183,7 @@ module AWS
     # a block.  This is useful if you have consistent reads enabled by
     # default:
     #
-    #     AWS::SimpleDB.consistent_reads(false) do
+    #     Ideeli::AWS::SimpleDB.consistent_reads(false) do
     #       # ...
     #     end
     #
@@ -201,7 +202,7 @@ module AWS
       end
     end
 
-    # @return [Boolean] Returns true if we are inside an AWS::SimpleDB
+    # @return [Boolean] Returns true if we are inside an Ideeli::AWS::SimpleDB
     #   #consistent_reads method block.
     # @api private
     def self.in_consistent_reads_block?
@@ -216,4 +217,5 @@ module AWS
     end
 
   end
+end
 end

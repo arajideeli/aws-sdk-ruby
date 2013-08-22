@@ -14,6 +14,7 @@
 require 'base64'
 require 'digest/md5'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -96,4 +97,5 @@ module AWS
 
     end
   end
+end
 end

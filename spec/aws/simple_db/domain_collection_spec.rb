@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleDB
     describe DomainCollection do
@@ -135,4 +136,5 @@ module AWS
 
     end
   end
+end
 end

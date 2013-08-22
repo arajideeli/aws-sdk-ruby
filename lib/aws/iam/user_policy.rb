@@ -13,6 +13,7 @@
 require 'uri'
 require 'json'
 
+module Ideeli
 module AWS
   class IAM
 
@@ -87,4 +88,5 @@ module AWS
     end
 
   end
+end
 end

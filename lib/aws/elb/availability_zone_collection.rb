@@ -11,13 +11,14 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class ELB
 
     # A collection that help maanage the availability zones for
     # a load balancer.
     #
-    #     load_balancer = AWS::ELB.new.load_balancers['my-load-balancer']
+    #     load_balancer = Ideeli::AWS::ELB.new.load_balancers['my-load-balancer']
     #
     #     zones = load_balancer.availability_zones
     #
@@ -53,7 +54,7 @@ module AWS
       # You can also pass {EC2::AvailabilityZone} objects:
       #
       #     # enable all availabilty zones for this region
-      #     zones = AWS::EC2.new.availability_zones.to_a
+      #     zones = Ideeli::AWS::EC2.new.availability_zones.to_a
       #     load_balancer.availability_zones.enable(zones)
       #
       # The load balancer evenly distributes requests across all its
@@ -88,7 +89,7 @@ module AWS
       # You can also pass {EC2::AvailabilityZone} objects:
       #
       #     # disable all availabilty zones
-      #     zones = AWS::EC2.new.availability_zones.to_a
+      #     zones = Ideeli::AWS::EC2.new.availability_zones.to_a
       #     load_balancer.availability_zones.disable(zones)
       #
       # There must be at least one availability zone registered with a
@@ -135,4 +136,5 @@ module AWS
 
     end
   end
+end
 end

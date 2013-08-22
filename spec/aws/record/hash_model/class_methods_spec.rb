@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Record
     describe Model do
@@ -26,7 +27,7 @@ module AWS
         AWS.config(:access_key_id => nil, :secret_access_key => nil)
       end
 
-      let(:klass) { Class.new(AWS::Record::HashModel) }
+      let(:klass) { Class.new(Ideeli::AWS::Record::HashModel) }
 
       context 'create_table' do
 
@@ -48,8 +49,8 @@ module AWS
           klass.create_table 100, 200, :shard_name => 'products-2'
         end
 
-        it 'prefixes the shard name with AWS::Record.table_prefix' do
-          AWS::Record.stub(:table_prefix).and_return('prefix-')
+        it 'prefixes the shard name with Ideeli::AWS::Record.table_prefix' do
+          Ideeli::AWS::Record.stub(:table_prefix).and_return('prefix-')
           tables.should_receive(:create).with(
             "prefix-#{klass.name}", 100, 200, :hash_key => { 'id' => :string })
           klass.create_table 100, 200
@@ -67,7 +68,7 @@ module AWS
       context 'dynamo_db_table' do
 
         it 'returns a table object' do
-          klass.dynamo_db_table.should be_a(AWS::DynamoDB::Table)
+          klass.dynamo_db_table.should be_a(Ideeli::AWS::DynamoDB::Table)
         end
 
         it 'returns a table object with the correct name' do
@@ -75,7 +76,7 @@ module AWS
         end
 
         it 'applies the table prefix to the shard name' do
-          AWS::Record.stub(:table_prefix).and_return('test-')
+          Ideeli::AWS::Record.stub(:table_prefix).and_return('test-')
           klass.set_shard_name "table-name"
           klass.dynamo_db_table.name.should == "test-table-name"
         end
@@ -111,7 +112,7 @@ module AWS
         end
 
         it 'removes the table prefix' do
-          AWS::Record.stub(:table_prefix).and_return('prefixed-')
+          Ideeli::AWS::Record.stub(:table_prefix).and_return('prefixed-')
           table.stub(:name).and_return('prefixed-shard-name')
           klass['item-name'].shard.should == 'shard-name'
         end
@@ -119,4 +120,5 @@ module AWS
       end
     end
   end
+end
 end

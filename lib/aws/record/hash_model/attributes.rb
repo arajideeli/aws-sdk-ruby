@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Record
     class HashModel
@@ -20,7 +21,7 @@ module AWS
         #
         # @example A standard string attribute
         #
-        #   class Recipe < AWS::Record::HashModel
+        #   class Recipe < Ideeli::AWS::Record::HashModel
         #     string_attr :name
         #   end
         #
@@ -29,7 +30,7 @@ module AWS
         #
         # @example A string attribute with `:set` set to true
         #
-        #   class Recipe < AWS::Record::HashModel
+        #   class Recipe < Ideeli::AWS::Record::HashModel
         #     string_attr :tags, :set => true
         #   end
         #
@@ -46,7 +47,7 @@ module AWS
 
         # Adds an integer attribute to this class.
         #
-        #     class Recipe < AWS::Record::HashModel
+        #     class Recipe < Ideeli::AWS::Record::HashModel
         #       integer_attr :servings
         #     end
         #
@@ -63,7 +64,7 @@ module AWS
 
         # Adds a float attribute to this class.
         #
-        #     class Listing < AWS::Record::HashModel
+        #     class Listing < Ideeli::AWS::Record::HashModel
         #       float_attr :score
         #     end
         #
@@ -82,7 +83,7 @@ module AWS
         #
         # @example
         #
-        #   class Book < AWS::Record::HashModel
+        #   class Book < Ideeli::AWS::Record::HashModel
         #     boolean_attr :read
         #   end
         #
@@ -110,7 +111,7 @@ module AWS
         #
         # @example A standard datetime attribute
         #
-        #   class Recipe < AWS::Record::HashModel
+        #   class Recipe < Ideeli::AWS::Record::HashModel
         #     datetime_attr :invented
         #   end
         #
@@ -135,7 +136,7 @@ module AWS
         #
         # @example A standard date attribute
         #
-        #   class Person < AWS::Record::HashModel
+        #   class Person < Ideeli::AWS::Record::HashModel
         #     date_attr :birthdate
         #   end
         #
@@ -174,7 +175,7 @@ module AWS
         #
         # @example
         #
-        #   class Recipe < AWS::Record::HashModel
+        #   class Recipe < Ideeli::AWS::Record::HashModel
         #     timestamps
         #   end
         #
@@ -192,4 +193,5 @@ module AWS
       end
     end
   end
+end
 end

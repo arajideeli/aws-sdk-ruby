@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
     class Tree
@@ -115,7 +116,7 @@ module AWS
                                                            :name => "foo"),
                                          :prefix => "bar"),
                                   :prefix => "bar")
-            node.inspect.should == "<AWS::S3::Tree::BranchNode:foo:bar>"
+            node.inspect.should == "<Ideeli::AWS::S3::Tree::BranchNode:foo:bar>"
           end
 
         end
@@ -138,4 +139,5 @@ module AWS
       end
     end
   end
+end
 end

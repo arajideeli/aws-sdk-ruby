@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class RDS
 
@@ -141,7 +142,7 @@ module AWS
         begin
           get_resource
           true
-        rescue AWS::RDS::Errors::DBSnapshotNotFound
+        rescue Ideeli::AWS::RDS::Errors::DBSnapshotNotFound
           false
         end
       end
@@ -160,4 +161,5 @@ module AWS
 
     end
   end
+end
 end

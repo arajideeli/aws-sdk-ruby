@@ -21,10 +21,10 @@ def resource_context &example_group_block
 
     context '#config' do
 
-      let(:config) { AWS.config }
+      let(:config) { Ideeli::AWS.config }
 
       it 'defaults to AWS.config' do
-        resource.config.should eq(AWS.config)
+        resource.config.should eq(Ideeli::AWS.config)
       end
 
       it 'can be specified in the constructor' do
@@ -210,7 +210,7 @@ def attr_context attr_name, options = {}, &example_group_block
             exactly(1).times.
             and_return(response)
 
-          AWS.memoize do
+          Ideeli::AWS.memoize do
             resource = new_resource(:config => config)
             resource.send(attr_name)
             resource.send(attr_name)

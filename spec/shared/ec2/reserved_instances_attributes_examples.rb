@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for "it has reserved instance attributes" do
@@ -99,4 +100,5 @@ module AWS
 
   end
 
+end
 end

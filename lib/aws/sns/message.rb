@@ -18,6 +18,7 @@ require 'net/https'
 require 'openssl'
 Dir.glob("#{File.dirname __FILE__}/originators/*.rb").each { |rb| require rb }
 
+module Ideeli
 module AWS
   class SNS
     class MessageWasNotAuthenticError < StandardError
@@ -32,7 +33,7 @@ module AWS
     # can be extended by originators if their #applicable? method returns true when
     # passed the raw message.
     # Originator modules must implement `applicable? sns` module function.
-    # If an originator is applicable, it should set the `@origin` accessor to denote 
+    # If an originator is applicable, it should set the `@origin` accessor to denote
     # itself.
     class Message
       SIGNABLE_KEYS = [
@@ -191,4 +192,5 @@ module AWS
 
     end
   end
+end
 end

@@ -13,7 +13,7 @@
 
 Before("@storage_gateway") do
 
-  @storage_gateway = AWS::StorageGateway.new
+  @storage_gateway = Ideeli::AWS::StorageGateway.new
   @storage_gateway_client = @storage_gateway.client
 
 end

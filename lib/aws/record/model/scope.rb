@@ -11,20 +11,21 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Record
     class Model
 
-      # The primary interface for finding records with {AWS::Record::Model}.
+      # The primary interface for finding records with {Ideeli::AWS::Record::Model}.
       #
       # ## Getting a Scope Object
       #
       # You should normally never need to construct a Scope object directly.
-      # Scope objects are returned from the AWS::Record::Model finder methods
+      # Scope objects are returned from the Ideeli::AWS::Record::Model finder methods
       # (e.g. `shard`, `where`, `order`, `limit`, etc).
       #
       #     books = Book.where(:author => 'John Doe')
-      #     books.class #=> AWS::Record::Scope, not Array
+      #     books.class #=> Ideeli::AWS::Record::Scope, not Array
       #
       # Scopes are also returned from methods defined with the `scope` method.
       #
@@ -192,7 +193,7 @@ module AWS
           scope
         end
 
-        # Converts this scope object into an AWS::SimpleDB::ItemCollection
+        # Converts this scope object into an Ideeli::AWS::SimpleDB::ItemCollection
         # @return [SimpleDB::ItemCollection]
         # @api private
         private
@@ -209,4 +210,5 @@ module AWS
       end
     end
   end
+end
 end

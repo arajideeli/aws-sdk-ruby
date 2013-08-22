@@ -13,6 +13,7 @@
 
 require 'openssl'
 
+module Ideeli
 module AWS
   class Glacier
 
@@ -143,4 +144,5 @@ module AWS
 
     end
   end
+end
 end

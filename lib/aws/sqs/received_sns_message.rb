@@ -14,6 +14,7 @@
 require 'time'
 require 'base64'
 
+module Ideeli
 module AWS
   class SQS
 
@@ -113,4 +114,5 @@ module AWS
 
     end
   end
+end
 end

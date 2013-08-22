@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/iam/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with
@@ -35,7 +36,7 @@ module AWS
   #
   # Or you can set them directly on the IAM interface:
   #
-  #     iam = AWS::IAM.new(
+  #     iam = Ideeli::AWS::IAM.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -208,7 +209,7 @@ module AWS
     # Returns a collection that represents the access keys for this
     # AWS account.
     #
-    #     iam = AWS::IAM.new
+    #     iam = Ideeli::AWS::IAM.new
     #     iam.access_keys.each do |access_key|
     #       puts access_key.id
     #     end
@@ -222,7 +223,7 @@ module AWS
     # Returns a collection that represents the signing certificates
     # for this AWS account.
     #
-    #     iam = AWS::IAM.new
+    #     iam = Ideeli::AWS::IAM.new
     #     iam.signing_certificates.each do |cert|
     #       # ...
     #     end
@@ -246,7 +247,7 @@ module AWS
     # Returns a collection that represents the server certificates
     # for this AWS account.
     #
-    #     iam = AWS::IAM.new
+    #     iam = Ideeli::AWS::IAM.new
     #     iam.server_certificates.each do |cert|
     #       # ...
     #     end
@@ -260,7 +261,7 @@ module AWS
     # Returns a collection that represents the virtual MFA devices
     # that are not assigned to an IAM user.
     #
-    #     iam = AWS::IAM.new
+    #     iam = Ideeli::AWS::IAM.new
     #     iam.virtual_mfa_devices.each do |cert|
     #       # ...
     #     end
@@ -340,7 +341,7 @@ module AWS
     #
     #     # pass in a key pair generated for the user you want to change
     #     # the password for
-    #     iam = AWS::IAM.new(:access_key_id => '...', :secret_access_key => '...)
+    #     iam = Ideeli::AWS::IAM.new(:access_key_id => '...', :secret_access_key => '...)
     #     iam.change_password('old-password', 'new-password')
     #
     # @param [String] old_password
@@ -406,4 +407,5 @@ module AWS
     end
 
   end
+end
 end

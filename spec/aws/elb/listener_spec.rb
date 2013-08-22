@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class ELB
     describe Listener do
@@ -255,4 +256,5 @@ module AWS
 
     end
   end
+end
 end

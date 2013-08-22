@@ -18,7 +18,7 @@ When /^I create a queue$/ do
 end
 
 Given /^I create a queue in "(.*?)"$/ do |region|
-  @sqs = AWS::SQS.new(:sqs_endpoint => "sqs.#{region}.amazonaws.com")
+  @sqs = Ideeli::AWS::SQS.new(:sqs_endpoint => "sqs.#{region}.amazonaws.com")
   step "I create a queue"
 end
 
@@ -104,7 +104,7 @@ When /^I send the following messages in a batch:$/ do |table|
   messages = table.hashes.map{|h| h['MESSAGE'] }
   begin
     @sent = @queue.batch_send(messages)
-  rescue AWS::SQS::Errors::BatchSendError => e
+  rescue Ideeli::AWS::SQS::Errors::BatchSendError => e
     @sent = e.sent
     @failures = e.failures
   end

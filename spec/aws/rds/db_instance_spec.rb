@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class RDS
     describe DBInstance do
@@ -230,7 +231,7 @@ module AWS
 
         it 'returns false if the describe call raises an error' do
           client.stub(:describe_db_instances).
-            and_raise(AWS::RDS::Errors::DBInstanceNotFound)
+            and_raise(Ideeli::AWS::RDS::Errors::DBInstanceNotFound)
           instance.exists?.should eq(false)
         end
 
@@ -238,4 +239,5 @@ module AWS
 
     end
   end
+end
 end

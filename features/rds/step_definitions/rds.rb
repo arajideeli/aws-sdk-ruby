@@ -13,7 +13,7 @@
 
 Before("@rds") do
 
-  @rds = AWS::RDS.new
+  @rds = Ideeli::AWS::RDS.new
   @client = @rds.client
 
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class ELB
 
@@ -180,4 +181,5 @@ module AWS
 
     end
   end
+end
 end

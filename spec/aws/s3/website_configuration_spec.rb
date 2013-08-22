@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class S3
     describe WebsiteConfiguration do
@@ -58,4 +59,5 @@ module AWS
 
     end
   end
+end
 end

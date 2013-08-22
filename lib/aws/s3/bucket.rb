@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class S3
 
@@ -21,7 +22,7 @@ module AWS
     # You create a bucket by name.  Bucket names must be globally unique
     # and must be DNS compatible.
     #
-    #     s3 = AWS::S3.new
+    #     s3 = Ideeli::AWS::S3.new
     #     bucket = s3.buckets.create('dns-compat-bucket-name')
     #
     # # Getting a Bucket
@@ -169,7 +170,7 @@ module AWS
     #
     # You can also work with bucket policies.
     #
-    #     policy = AWS::S3::Policy.new
+    #     policy = Ideeli::AWS::S3::Policy.new
     #     policy.allow(
     #       :actions => [:put_object, :get_object]
     #       :resources => [bucket]
@@ -347,7 +348,7 @@ module AWS
       # Returns the tags for this bucket.
       #
       #     tags = bucket.tags
-      #     #=> <AWS::S3::BucketTagCollection>
+      #     #=> <Ideeli::AWS::S3::BucketTagCollection>
       #
       #     # adds a tag to the bucket
       #     tags['foo'] = 'abc'
@@ -485,7 +486,7 @@ module AWS
 
       # @api private
       def inspect
-        "#<AWS::S3::Bucket:#{name}>"
+        "#<Ideeli::AWS::S3::Bucket:#{name}>"
       end
 
       # @return [Boolean] Returns true if the two buckets have the same name.
@@ -739,4 +740,5 @@ module AWS
     end
 
   end
+end
 end

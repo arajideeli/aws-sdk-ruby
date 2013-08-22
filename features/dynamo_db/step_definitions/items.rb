@@ -79,7 +79,7 @@ end
 
 When /^I put an item with an image as a binary attribute$/ do
   File.open(File.dirname(__FILE__) + '/img.jpg', 'rb') do |file|
-    data = AWS::DynamoDB::Binary.new(file.read)
+    data = Ideeli::AWS::DynamoDB::Binary.new(file.read)
     @item = @table.items.put('id' => 'image', 'data' => data)
   end
 end

@@ -13,6 +13,7 @@
 
 require 'aws/ec2/network_interface/attachment'
 
+module Ideeli
 module AWS
   class EC2
     class NetworkInterface < Resource
@@ -97,4 +98,5 @@ module AWS
       end
     end
   end
+end
 end

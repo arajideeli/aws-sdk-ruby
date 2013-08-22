@@ -14,6 +14,7 @@
 require 'uri'
 require 'base64'
 
+module Ideeli
 module AWS
   class S3
     class WebsiteConfiguration
@@ -99,4 +100,5 @@ module AWS
 
     end
   end
+end
 end

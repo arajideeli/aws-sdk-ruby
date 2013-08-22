@@ -16,6 +16,7 @@ require 'net/https'
 require 'thread'
 require 'logger'
 
+module Ideeli
 module AWS
   module Core
     module Http
@@ -99,4 +100,5 @@ module AWS
 
     end
   end
+end
 end

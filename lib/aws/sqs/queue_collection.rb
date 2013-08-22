@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class SQS
 
@@ -130,7 +131,7 @@ module AWS
       #
       # @example
       #
-      #   queue = AWS::SQS.new.queues.named('my-queue')
+      #   queue = Ideeli::AWS::SQS.new.queues.named('my-queue')
       #
       # @param (see #url_for)
       # @option (see #url_for)
@@ -179,4 +180,5 @@ module AWS
     end
 
   end
+end
 end

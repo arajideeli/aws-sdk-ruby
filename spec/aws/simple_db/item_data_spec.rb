@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleDB
 
@@ -81,4 +82,5 @@ module AWS
     end
 
   end
+end
 end

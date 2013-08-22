@@ -46,7 +46,7 @@ When /^I ask the client to set a bucket ACL using an AccessControlList object$/ 
                   :permission => :full_control }]
   }
   @result = @s3_client.set_bucket_acl(:bucket_name => @bucket_name,
-                                   :acl => AWS::S3::AccessControlList.new(acl))
+                                   :acl => Ideeli::AWS::S3::AccessControlList.new(acl))
 end
 
 Then /^the bucket ACL should resemble the one that was set$/ do
@@ -74,7 +74,7 @@ end
 
 When /^I add a grant to the bucket ACL$/ do
   resp = @s3_client.get_bucket_acl(:bucket_name => @bucket_name)
-  @acl = AWS::S3::AccessControlList.new(resp.data)
+  @acl = Ideeli::AWS::S3::AccessControlList.new(resp.data)
   @acl.grant(:read_acp).to(:amazon_customer_email => "aws-dr-sandbox@amazon.com")
 end
 

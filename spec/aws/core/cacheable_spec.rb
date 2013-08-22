@@ -13,7 +13,8 @@
 
 require 'spec_helper'
 
-module AWS::Core
+module Ideeli
+module Ideeli::AWS::Core
 
   describe Cacheable do
 
@@ -28,13 +29,13 @@ module AWS::Core
 
     context '#cache_key' do
 
-      class AWS::SomeService
+      class Ideeli::AWS::SomeService
         class MyResource
           include Cacheable
         end
       end
 
-      let(:resource) { AWS::SomeService::MyResource.new }
+      let(:resource) { Ideeli::AWS::SomeService::MyResource.new }
 
       let(:credential_provider) {
         double("creds", :access_key_id => "ACCESS_KEY")
@@ -166,4 +167,5 @@ module AWS::Core
 
   end
 
+end
 end

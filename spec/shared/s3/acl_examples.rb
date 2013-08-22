@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for "it has an ACL" do |options|
@@ -39,7 +40,7 @@ module AWS
 
       it 'passes along xml as an AccessControlList as xml' do
 
-        acl = AWS::S3::AccessControlList.new
+        acl = Ideeli::AWS::S3::AccessControlList.new
         acl.stub(:to_xml).and_return('<xml/>')
 
         client.should_receive(setter).
@@ -157,4 +158,5 @@ module AWS
 
   end
 
+end
 end

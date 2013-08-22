@@ -13,6 +13,7 @@
 
 require 'openssl'
 
+module Ideeli
 module AWS
   class S3
     # @api private
@@ -143,4 +144,5 @@ module AWS
       end
     end
   end
+end
 end

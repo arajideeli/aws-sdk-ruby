@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleDB
     describe Item do
@@ -110,7 +111,7 @@ module AWS
             :consistent_read => true
           ).and_return(resp)
 
-          AWS::SimpleDB.consistent_reads do
+          Ideeli::AWS::SimpleDB.consistent_reads do
             item.data
           end
 
@@ -149,4 +150,5 @@ module AWS
 
     end
   end
+end
 end

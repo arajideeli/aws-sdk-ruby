@@ -11,10 +11,11 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Record
 
-    # Validation methods to be used with subclasses of AWS::Record::Model.
+    # Validation methods to be used with subclasses of Ideeli::AWS::Record::Model.
     #
     # # General Usage
     #
@@ -22,7 +23,7 @@ module AWS
     # Call the validation method followed by one more attribute names
     # and then an optional hash of modifiers.
     #
-    #       class Book < AWS::Record::Model
+    #       class Book < Ideeli::AWS::Record::Model
     #
     #       # ...
     #
@@ -78,7 +79,7 @@ module AWS
     # All of the validators can be used with configured attributes, but they
     # can also be used with any attribute that has a setter and a getter.
     #
-    #     Class Book < AWS::Record::Model
+    #     Class Book < Ideeli::AWS::Record::Model
     #       attr_accessor :title
     #       validates_presence_of :title
     #     end
@@ -143,7 +144,7 @@ module AWS
       # checkbox (like an EULA agreement or terms of service acknowledgement)
       # is checked.
       #
-      #     class User < AWS::Record::Model
+      #     class User < Ideeli::AWS::Record::Model
       #       boolean_attr :terms_of_service
       #       validates_acceptance_of :terms_of_service
       #     end
@@ -153,7 +154,7 @@ module AWS
       # If you choose to validate the acceptance of a non-existant attribute
       # then a setter and a getter will be added automtically for you.
       #
-      #     class User < AWS::Record::Model
+      #     class User < Ideeli::AWS::Record::Model
       #       validates_acceptance_of :terms_of_service
       #     end
       #
@@ -170,7 +171,7 @@ module AWS
       # * `nil` implies the field was omitted from the form and therefore
       #   should not be validated
       #
-      #       class User < AWS::Record::Model
+      #       class User < Ideeli::AWS::Record::Model
       #         validates_acceptance_of :terms_of_service
       #       end
       #
@@ -227,7 +228,7 @@ module AWS
       # by requiring it twice:
       #
       #     Model:
-      #       class User < AWS::Record::Model
+      #       class User < Ideeli::AWS::Record::Model
       #         validates_confirmation_of :password, :if => :password_changed?
       #       end
       #
@@ -368,7 +369,7 @@ module AWS
 
       # Adds a block validator that is called during record validation.
       #
-      #     class ExampleClass < AWS::Record::Model
+      #     class ExampleClass < Ideeli::AWS::Record::Model
       #
       #       string_attr :name
       #
@@ -416,7 +417,7 @@ module AWS
       # You may use this with multi-valued attributes the same way you use it
       # with single-valued attributes:
       #
-      #     class Product < AWS::Record::Model
+      #     class Product < Ideeli::AWS::Record::Model
       #       string_attr :tags, :set => true
       #       validates_exlusion_of :tags, :in => four_letter_words
       #     end
@@ -461,7 +462,7 @@ module AWS
       # You may use this with multi-valued attributes the same way you use it
       # with single-valued attributes:
       #
-      #     class Product < AWS::Record::Model
+      #     class Product < Ideeli::AWS::Record::Model
       #       string_attr :tags, :set => true
       #       validates_format_of :tags, :with => /^\w{2,10}$/
       #     end
@@ -499,7 +500,7 @@ module AWS
       # Validates that the attribute value is included in the given enumerable
       # object.
       #
-      #     class MultipleChoiceAnswer < AWS::Record::Model
+      #     class MultipleChoiceAnswer < Ideeli::AWS::Record::Model
       #       validates_inclusion_of :letter, :in => %w(a b c d e)
       #     end
       #
@@ -691,4 +692,5 @@ module AWS
 
     end
   end
+end
 end

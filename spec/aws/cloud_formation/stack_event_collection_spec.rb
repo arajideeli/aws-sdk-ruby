@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'uri'
 
+module Ideeli
 module AWS
   class CloudFormation
     describe StackEventCollection do
@@ -39,7 +40,7 @@ module AWS
               :stack_name => stack.name,
               :stack_id => 'stack-id',
               :timestamp => now,
-              :resource_type => 'AWS::EC2::Instance',
+              :resource_type => 'Ideeli::AWS::EC2::Instance',
               :resource_status_reason => 'reason',
               :resource_status => 'status',
               :resource_properties => 'properties',
@@ -57,7 +58,7 @@ module AWS
           event.stack_name.should == stack.name
           event.stack_id.should == 'stack-id'
           event.timestamp.should == now
-          event.resource_type.should == 'AWS::EC2::Instance'
+          event.resource_type.should == 'Ideeli::AWS::EC2::Instance'
           event.resource_status_reason.should == 'reason'
           event.resource_status.should == 'status'
           event.resource_properties.should == 'properties'
@@ -70,4 +71,5 @@ module AWS
 
     end
   end
+end
 end

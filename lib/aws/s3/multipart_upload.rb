@@ -13,6 +13,7 @@
 
 require 'thread'
 
+module Ideeli
 module AWS
   class S3
 
@@ -341,4 +342,5 @@ module AWS
     end
 
   end
+end
 end

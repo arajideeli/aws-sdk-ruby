@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleDB
     module Errors
@@ -54,4 +55,5 @@ module AWS
 
     end
   end
+end
 end

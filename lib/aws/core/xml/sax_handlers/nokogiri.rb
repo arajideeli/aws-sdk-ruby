@@ -13,6 +13,7 @@
 
 require 'nokogiri'
 
+module Ideeli
 module AWS
   module Core
     module XML
@@ -52,4 +53,5 @@ module AWS
       end
     end
   end
+end
 end

@@ -13,7 +13,7 @@
 
 Around("@orm", "@hash_model") do |scenario,block|
 
-  class ExampleClass < AWS::Record::HashModel; end
+  class ExampleClass < Ideeli::AWS::Record::HashModel; end
 
   block.call
 
@@ -38,8 +38,8 @@ When /^I should be able to delete the table$/ do
   @table.delete
 end
 
-Given /^I set the AWS::Record\.table_name_prefix to "([^"]*)"$/ do |prefix|
-  AWS::Record.table_prefix = prefix
+Given /^I set the Ideeli::AWS::Record\.table_name_prefix to "([^"]*)"$/ do |prefix|
+  Ideeli::AWS::Record.table_prefix = prefix
 end
 
 Given /^I set the example class shard name to "([^"]*)"$/ do |shard_name|
@@ -51,5 +51,5 @@ Then /^the table should be named "([^"]*)"$/ do |table_name|
 end
 
 When /^I should be able to reset the table prefix$/ do
-  AWS::Record.table_prefix = nil
+  Ideeli::AWS::Record.table_prefix = nil
 end

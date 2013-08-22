@@ -13,6 +13,7 @@
 
 require 'aws/ec2/vpn_connection/telemetry'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -96,4 +97,5 @@ module AWS
 
     end
   end
+end
 end

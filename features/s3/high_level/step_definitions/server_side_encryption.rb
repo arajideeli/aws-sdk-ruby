@@ -20,7 +20,7 @@ Then /^the object should be stored with server side encryption$/ do
 end
 
 Given /^I have an Amazon S3 interface configured to use server side encryption$/ do
-  @s3 = AWS::S3.new(:s3_server_side_encryption => :aes256)
+  @s3 = Ideeli::AWS::S3.new(:s3_server_side_encryption => :aes256)
   @s3_client = @s3.client
   @bucket = @s3.buckets[@bucket.name]
 end

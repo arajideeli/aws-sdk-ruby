@@ -16,6 +16,7 @@ require 'set'
 require 'yaml'
 require 'uri'
 
+module Ideeli
 module AWS
   module Core
 
@@ -289,7 +290,7 @@ module AWS
         response.rebuild_request
         if redirected?(response)
           loc = URI.parse(response.http_response.headers['location'].first)
-          AWS::Core::MetaUtils.extend_method(response.http_request, :host) do
+          Ideeli::AWS::Core::MetaUtils.extend_method(response.http_request, :host) do
             loc.host
           end
           response.http_request.host = loc.host
@@ -439,8 +440,8 @@ module AWS
 
       # Given an error code string, this method will return an error class.
       #
-      #     AWS::EC2::Client.new.send(:error_code, 'InvalidInstanceId')
-      #     #=> AWS::EC2::Errors::InvalidInstanceId
+      #     Ideeli::AWS::EC2::Client.new.send(:error_code, 'InvalidInstanceId')
+      #     #=> Ideeli::AWS::EC2::Errors::InvalidInstanceId
       #
       # @param [String] error_code The error code string as returned by
       #   the service.  If this class contains periods, they will be
@@ -454,8 +455,8 @@ module AWS
 
       # Returns the ::Errors module for the current client.
       #
-      #     AWS::S3::Client.new.errors_module
-      #     #=> AWS::S3::Errors
+      #     Ideeli::AWS::S3::Client.new.errors_module
+      #     #=> Ideeli::AWS::S3::Errors
       #
       # @return [Module]
       #
@@ -620,8 +621,8 @@ module AWS
         end
 
         def configured_version
-          svc_opt = AWS::SERVICES[name.split('::')[1]].method_name
-          AWS.config.send(svc_opt)[:api_version]
+          svc_opt = Ideeli::AWS::SERVICES[name.split('::')[2]].method_name
+          Ideeli::AWS.config.send(svc_opt)[:api_version]
         end
 
         protected
@@ -744,4 +745,5 @@ module AWS
 
     end
   end
+end
 end

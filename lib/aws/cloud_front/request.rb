@@ -13,6 +13,7 @@
 
 require 'time'
 
+module Ideeli
 module AWS
   class CloudFront
 
@@ -27,4 +28,5 @@ module AWS
 
     end
   end
+end
 end

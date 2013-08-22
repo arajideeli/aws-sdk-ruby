@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Record
     class Model
@@ -141,7 +142,7 @@ module AWS
         #
         # @example A standard string attribute
         #
-        #   class Recipe < AWS::Record::Model
+        #   class Recipe < Ideeli::AWS::Record::Model
         #     string_attr :name
         #   end
         #
@@ -150,7 +151,7 @@ module AWS
         #
         # @example A string attribute with `:set` set to true
         #
-        #   class Recipe < AWS::Record::Model
+        #   class Recipe < Ideeli::AWS::Record::Model
         #     string_attr :tags, :set => true
         #   end
         #
@@ -167,7 +168,7 @@ module AWS
 
         # Adds an integer attribute to this class.
         #
-        #     class Recipe < AWS::Record::Model
+        #     class Recipe < Ideeli::AWS::Record::Model
         #       integer_attr :servings
         #     end
         #
@@ -184,7 +185,7 @@ module AWS
 
         # Adds a sortable integer attribute to this class.
         #
-        #     class Person < AWS::Record::Model
+        #     class Person < Ideeli::AWS::Record::Model
         #       sortable_integer_attr :age, :range => 0..150
         #     end
         #
@@ -217,7 +218,7 @@ module AWS
 
         # Adds a float attribute to this class.
         #
-        #     class Listing < AWS::Record::Model
+        #     class Listing < Ideeli::AWS::Record::Model
         #       float_attr :score
         #     end
         #
@@ -255,7 +256,7 @@ module AWS
         #
         #     sortable_float_attr :position, :range => (-10..10)
         #
-        # AWS::Record will add 10 to all values and zero pad them
+        # Ideeli::AWS::Record will add 10 to all values and zero pad them
         # (e.g. -10.0 will be represented as '00.0' and 10 will be represented as
         # '20.0').  This will allow the values to be compared lexicographically.
         #
@@ -279,7 +280,7 @@ module AWS
         #
         # @example
         #
-        #   class Book < AWS::Record::Model
+        #   class Book < Ideeli::AWS::Record::Model
         #     boolean_attr :read
         #   end
         #
@@ -307,7 +308,7 @@ module AWS
         #
         # @example A standard datetime attribute
         #
-        #   class Recipe < AWS::Record::Model
+        #   class Recipe < Ideeli::AWS::Record::Model
         #     datetime_attr :invented
         #   end
         #
@@ -332,7 +333,7 @@ module AWS
         #
         # @example A standard date attribute
         #
-        #   class Person < AWS::Record::Model
+        #   class Person < Ideeli::AWS::Record::Model
         #     date_attr :birthdate
         #   end
         #
@@ -356,7 +357,7 @@ module AWS
         #
         # @example
         #
-        #   class Recipe < AWS::Record::Model
+        #   class Recipe < Ideeli::AWS::Record::Model
         #     timestamps
         #   end
         #
@@ -374,4 +375,5 @@ module AWS
       end
     end
   end
+end
 end

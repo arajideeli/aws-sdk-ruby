@@ -12,6 +12,7 @@
 # language governing permissions and limitations under the License.
 
 
+module Ideeli
 module AWS
   class RDS
 
@@ -196,7 +197,7 @@ module AWS
         begin
           get_resource
           true
-        rescue AWS::RDS::Errors::DBInstanceNotFound
+        rescue Ideeli::AWS::RDS::Errors::DBInstanceNotFound
           false
         end
       end
@@ -213,4 +214,5 @@ module AWS
 
     end
   end
+end
 end

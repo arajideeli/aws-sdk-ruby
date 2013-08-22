@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class AutoScaling
     describe LaunchConfiguration do
@@ -107,4 +108,5 @@ module AWS
 
     end
   end
+end
 end

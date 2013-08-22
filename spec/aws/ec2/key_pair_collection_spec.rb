@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'base64'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -122,4 +123,5 @@ module AWS
 
     end
   end
+end
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Record
     describe Model do
@@ -33,7 +34,7 @@ module AWS
         it 'should call create on the domain collection' do
           domains = double('sdb-domain-collection')
           domains.should_receive(:create).with('products-1')
-          AWS::SimpleDB.stub_chain(:new, :domains).and_return(domains)
+          Ideeli::AWS::SimpleDB.stub_chain(:new, :domains).and_return(domains)
           klass.shard_name = 'products-1'
           klass.create_domain
         end
@@ -41,7 +42,7 @@ module AWS
         it 'accepts an override for the shard name' do
           domains = double('sdb-domain-collection')
           domains.should_receive(:create).with('products-2')
-          AWS::SimpleDB.stub_chain(:new, :domains).and_return(domains)
+          Ideeli::AWS::SimpleDB.stub_chain(:new, :domains).and_return(domains)
           klass.create_domain('products-2')
         end
 
@@ -50,7 +51,7 @@ module AWS
       context 'sdb_domain' do
 
         it 'returns a sdb domain object' do
-          klass.sdb_domain.should be_a(AWS::SimpleDB::Domain)
+          klass.sdb_domain.should be_a(Ideeli::AWS::SimpleDB::Domain)
         end
 
         it 'returns a domain with the record class shard name' do
@@ -58,15 +59,15 @@ module AWS
         end
 
         it 'returns a domain with a prefixed shard name when configured' do
-          AWS::Record.stub(:domain_prefix).and_return('prefixed')
+          Ideeli::AWS::Record.stub(:domain_prefix).and_return('prefixed')
           klass.sdb_domain.name.should == "prefixed#{klass.shard_name}"
         end
 
       end
 
-      it_should_behave_like("record class", AWS::Record::Model) do
+      it_should_behave_like("record class", Ideeli::AWS::Record::Model) do
 
-        # specific to AWS::Record::Model
+        # specific to Ideeli::AWS::Record::Model
         context 'sortable_integer_attr' do
 
           it_behaves_like("attribute macro", true) do
@@ -111,7 +112,7 @@ module AWS
 
         end
 
-        # specific to AWS::Record::Model
+        # specific to Ideeli::AWS::Record::Model
         context 'sortable_float_attr' do
 
           it_behaves_like("attribute macro", true) do
@@ -191,7 +192,7 @@ module AWS
           end
 
           it 'removes the domain prefix' do
-            AWS::Record.stub(:domain_prefix).and_return('prefixed-')
+            Ideeli::AWS::Record.stub(:domain_prefix).and_return('prefixed-')
             domain.stub(:name).and_return('prefixed-shard-name')
             klass['item-name'].shard.should == 'shard-name'
           end
@@ -443,4 +444,5 @@ module AWS
       end
     end
   end
+end
 end

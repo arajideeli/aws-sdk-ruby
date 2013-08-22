@@ -13,10 +13,12 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe CloudSearch do
 
     it_should_behave_like "a service interface"
 
   end
+end
 end

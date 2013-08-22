@@ -13,6 +13,7 @@
 
 require 'rexml/text'
 
+module Ideeli
 module AWS
   class S3
 
@@ -261,4 +262,5 @@ module AWS
 
     end
   end
+end
 end

@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/auto_scaling/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Auto Scaling.
@@ -35,9 +36,9 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::AutoScaling interface:
+  # Or you can set them directly on the Ideeli::AWS::AutoScaling interface:
   #
-  #     auto_scaling = AWS::AutoScaling.new(
+  #     auto_scaling = Ideeli::AWS::AutoScaling.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -161,4 +162,5 @@ module AWS
     end
 
   end
+end
 end

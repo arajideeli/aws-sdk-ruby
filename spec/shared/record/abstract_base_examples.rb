@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for("record class") do |base|
@@ -259,4 +260,5 @@ module AWS
 
     end
   end
+end
 end

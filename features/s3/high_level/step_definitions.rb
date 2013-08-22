@@ -53,7 +53,7 @@ Given(/^I monkey\-patch Net::HTTP to work with 100-continue$/) do
 end
 
 Given(/^I configure S3 with a (\d+)MB http_continue_threshold and (\d+) second continue timeout$/) do |size, seconds|
-  @s3 = AWS::S3.new(
+  @s3 = Ideeli::AWS::S3.new(
     :http_continue_threshold => size.to_i * 1024 * 1024,
     :http_continue_timeout => seconds.to_i)
 end

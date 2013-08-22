@@ -14,6 +14,7 @@
 require 'uri'
 require 'base64'
 
+module Ideeli
 module AWS
   class S3
 
@@ -24,7 +25,7 @@ module AWS
     #
     # You can get an object by its key.
     #
-    #     s3 = AWS::S3.new
+    #     s3 = Ideeli::AWS::S3.new
     #     obj = s3.buckets['my-bucket'].objects['key'] # no request made
     #
     # You can also get objects by enumerating a objects in a bucket.
@@ -72,7 +73,7 @@ module AWS
     #
     # ## Streaming Uploads
     #
-    # When you call {#write} with an IO-like object, it will be streamed 
+    # When you call {#write} with an IO-like object, it will be streamed
     # to S3 in chunks.
     #
     # While it is possible to determine the size of many IO objects, you may
@@ -125,7 +126,7 @@ module AWS
     #
     #     AWS.config(:s3_server_side_encryption => :aes256)
     #
-    #     s3 = AWS::S3.new
+    #     s3 = Ideeli::AWS::S3.new
     #     s3.buckets['name'].objects['key'].write('abc') # will be encrypted
     #
     # ## Client Side Encryption
@@ -222,7 +223,7 @@ module AWS
     #
     #     # all objects uploaded/downloaded with this s3 object will be
     #     # encrypted/decrypted
-    #     s3 = AWS::S3.new(:s3_encryption_key => "MY_KEY")
+    #     s3 = Ideeli::AWS::S3.new(:s3_encryption_key => "MY_KEY")
     #
     #     # set the key to always encrypt/decrypt
     #     AWS.config(:s3_encryption_key => "MY_KEY")
@@ -237,7 +238,7 @@ module AWS
       include Core::Model
       include DataOptions
       include ACLOptions
-      include AWS::S3::EncryptionUtils
+      include Ideeli::AWS::S3::EncryptionUtils
 
       # @param [Bucket] bucket The bucket this object belongs to.
       # @param [String] key The object's key.
@@ -1018,19 +1019,19 @@ module AWS
       #
       # @option options [Time] :if_unmodified_since If specified, the
       #   method will raise
-      #   `AWS::S3::Errors::PreconditionFailed` unless the
+      #   `Ideeli::AWS::S3::Errors::PreconditionFailed` unless the
       #   object has not been modified since the given time.
       #
       # @option options [Time] :if_modified_since If specified, the
-      #   method will raise `AWS::S3::Errors::NotModified` if
+      #   method will raise `Ideeli::AWS::S3::Errors::NotModified` if
       #   the object has not been modified since the given time.
       #
       # @option options [String] :if_match If specified, the method
-      #   will raise `AWS::S3::Errors::PreconditionFailed`
+      #   will raise `Ideeli::AWS::S3::Errors::PreconditionFailed`
       #   unless the object ETag matches the provided value.
       #
       # @option options [String] :if_none_match If specified, the
-      #   method will raise `AWS::S3::Errors::NotModified` if
+      #   method will raise `Ideeli::AWS::S3::Errors::NotModified` if
       #   the object ETag matches the provided value.
       #
       # @option options [Range] :range A byte range to read data from
@@ -1299,10 +1300,10 @@ module AWS
 
         multipart_upload(options) do |upload|
           pos = 0
-          # We copy in part_size chunks until we read the 
+          # We copy in part_size chunks until we read the
           until pos >= source_length
             last_byte = (pos + part_size >= source_length) ? source_length - 1 : pos + part_size - 1
-            upload.copy_part(options[:copy_source], options.merge({:copy_source_range => "bytes=#{pos}-#{last_byte}"})) 
+            upload.copy_part(options[:copy_source], options.merge({:copy_source_range => "bytes=#{pos}-#{last_byte}"}))
             pos += part_size
           end
         end
@@ -1582,7 +1583,7 @@ module AWS
           decrypt(decode64(envelope_key), encryption_key)
         rescue RuntimeError
           msg = "Master key used to decrypt data key is not correct."
-          raise AWS::S3::Errors::IncorrectClientSideEncryptionKey, msg
+          raise Ideeli::AWS::S3::Errors::IncorrectClientSideEncryptionKey, msg
         end
 
         [decrypted_key, decode64(envelope_iv)]
@@ -1730,4 +1731,5 @@ module AWS
       end
     end
   end
+end
 end

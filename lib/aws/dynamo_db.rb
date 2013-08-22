@@ -14,11 +14,12 @@
 require 'aws/core'
 require 'aws/dynamo_db/config'
 
+module Ideeli
 module AWS
 
   # Provides a high-level interface for using DynamoDB.
   #
-  #     dynamo_db = AWS::DynamoDB.new(
+  #     dynamo_db = Ideeli::AWS::DynamoDB.new(
   #       :access_key_id => '...',
   #       :secret_access_key => '...')
   #
@@ -65,7 +66,7 @@ module AWS
   #
   #     # create a table (10 read and 5 write capacity units) with the
   #     # default schema (id string hash key)
-  #     dynamo_db = AWS::DynamoDB.new
+  #     dynamo_db = Ideeli::AWS::DynamoDB.new
   #     table = dynamo_db.tables.create('my-table', 10, 5)
   #
   #     sleep 1 while table.status == :creating
@@ -204,4 +205,5 @@ module AWS
     end
 
   end
+end
 end

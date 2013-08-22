@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class EC2
 
@@ -42,7 +43,7 @@ module AWS
     describe Client do
 
       def parse method, xml
-        client_class = AWS::EC2::Client.new.class
+        client_class = Ideeli::AWS::EC2::Client.new.class
         response = double('response')
         response.stub_chain(:http_response, :body).and_return(xml)
         Core::Data.new(client_class.response_parsers[method].extract_data(response))
@@ -407,4 +408,5 @@ module AWS
 
     end
   end
+end
 end

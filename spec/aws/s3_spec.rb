@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   describe S3 do
@@ -42,11 +43,12 @@ module AWS
     context '#inspect' do
 
       it 'returns a simple string' do
-        s3.inspect.should == "<AWS::S3>"
+        s3.inspect.should == "<Ideeli::AWS::S3>"
       end
 
     end
 
   end
 
+end
 end

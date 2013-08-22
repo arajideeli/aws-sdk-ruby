@@ -14,6 +14,7 @@
 require 'date'
 require 'time'
 
+module Ideeli
 module AWS
   class EMR
 
@@ -21,7 +22,7 @@ module AWS
     #
     # Call {#create} to run a new job flow.
     #
-    #     emr = AWS::EMR.new
+    #     emr = Ideeli::AWS::EMR.new
     #
     #     job_flow = emr.job_flows.create('name',
     #       :instances => {
@@ -182,4 +183,5 @@ module AWS
 
     end
   end
+end
 end

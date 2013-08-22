@@ -10,13 +10,14 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class IAM
 
     # This is the primary interface for uploading X.509 signing certificates
     # to an AWS account or an IAM user.
     #
-    #     iam = AWS::IAM.new
+    #     iam = Ideeli::AWS::IAM.new
     #
     #     # upload a certificate for the AWS account:
     #     iam.signing_certificates.upload(<<-CERT)
@@ -128,4 +129,5 @@ module AWS
 
     end
   end
+end
 end

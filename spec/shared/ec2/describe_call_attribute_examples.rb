@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'delegate'
 
+module Ideeli
 module AWS
 
   shared_examples_for "ec2 resource attribute accessor (describe call)" do
@@ -57,4 +58,5 @@ module AWS
 
   end
 
+end
 end

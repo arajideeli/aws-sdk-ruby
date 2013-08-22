@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class EMR
 
@@ -174,21 +175,21 @@ module AWS
       # @return [EC2::Instance,nil]
       def master_instance
         if instance_id = master_instance_id
-          AWS::EC2.new(:config => config).instances[instance_id]
+          Ideeli::AWS::EC2.new(:config => config).instances[instance_id]
         end
       end
 
       # @return [EC2::Instance,nil]
       def slave_instance
         if instance_id = slave_instance_id
-          AWS::EC2.new(:config => config).instances[instance_id]
+          Ideeli::AWS::EC2.new(:config => config).instances[instance_id]
         end
       end
 
       # @return [EC2::AvailabilityZone,nil]
       def availability_zone
         if name = availability_zone_name
-          AWS::EC2.new(:config => config).availability_zones[name]
+          Ideeli::AWS::EC2.new(:config => config).availability_zones[name]
         end
       end
 
@@ -304,4 +305,5 @@ module AWS
 
     end
   end
+end
 end

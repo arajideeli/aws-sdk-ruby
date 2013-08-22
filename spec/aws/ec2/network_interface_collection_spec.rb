@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class EC2
     describe NetworkInterfaceCollection do
@@ -181,4 +182,5 @@ module AWS
       end
     end
   end
+end
 end

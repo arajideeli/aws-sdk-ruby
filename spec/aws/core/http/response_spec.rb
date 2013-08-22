@@ -13,7 +13,8 @@
 
 require 'spec_helper'
 
-module AWS::Core
+module Ideeli
+module Ideeli::AWS::Core
   module Http
     describe Response do
 
@@ -115,4 +116,5 @@ module AWS::Core
 
     end
   end
+end
 end

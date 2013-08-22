@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SNS
     describe Subscription do
@@ -114,4 +115,5 @@ module AWS
 
     end
   end
+end
 end

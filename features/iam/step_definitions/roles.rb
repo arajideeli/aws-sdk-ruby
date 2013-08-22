@@ -14,7 +14,7 @@
 
 Given /^I create an IAM policy$/ do
   @iam_policy_name = "ruby-integration-#{Time.now.to_i}"
-  @iam_policy = AWS::IAM::Policy.new
+  @iam_policy = Ideeli::AWS::IAM::Policy.new
   @iam_policy.allow(:actions => '*', :resources => '*')
 end
 

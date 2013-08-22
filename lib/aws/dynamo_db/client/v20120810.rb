@@ -11,7 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
-class AWS::DynamoDB::Client::V20120810 < AWS::DynamoDB::Client
+class Ideeli::AWS::DynamoDB::Client::V20120810 < Ideeli::AWS::DynamoDB::Client
 
   # client methods #
 

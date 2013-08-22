@@ -15,6 +15,7 @@ require 'aws/core'
 require 'aws/sns/config'
 require 'aws/sns/message'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon Simple
@@ -38,7 +39,7 @@ module AWS
   #
   # Or you can set them directly on the SNS interface:
   #
-  #     sns = AWS::SNS.new(
+  #     sns = Ideeli::AWS::SNS.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -74,4 +75,5 @@ module AWS
     end
 
   end
+end
 end

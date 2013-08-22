@@ -20,7 +20,7 @@ require 'net/ssh'
 instance = key_pair = group = nil
 
 begin
-  ec2 = AWS::EC2.new
+  ec2 = Ideeli::AWS::EC2.new
 
   # optionally switch to a non-default region
   if region = ARGV.first

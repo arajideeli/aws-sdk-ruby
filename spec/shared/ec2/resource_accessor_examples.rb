@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'delegate'
 
+module Ideeli
 module AWS
 
   shared_examples_for 'accessor for ec2 resource' do
@@ -39,4 +40,5 @@ module AWS
 
   end
 
+end
 end

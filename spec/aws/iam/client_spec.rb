@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class IAM
     describe Client do
@@ -79,4 +80,5 @@ module AWS
 
     end
   end
+end
 end

@@ -11,12 +11,13 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class AutoScaling
 
     # Provides an interface for enumerating tags defined in Auto Scaling.
     #
-    #     auto_scaling = AWS::AutoScaling.new
+    #     auto_scaling = Ideeli::AWS::AutoScaling.new
     #     auto_scaling.tags.each do |tag|
     #        puts "#{tag.key}:#{tag.value}"
     #     end
@@ -111,4 +112,5 @@ module AWS
 
     end
   end
+end
 end

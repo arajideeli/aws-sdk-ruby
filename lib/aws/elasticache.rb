@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/elasticache/config'
 
+module Ideeli
 module AWS
 
   # Provides an expressive, object-oriented interface to Amazon ElastiCache.
@@ -29,7 +30,7 @@ module AWS
   #
   # Or you can set them directly on the ElastiCache interface:
   #
-  #     ec = AWS::ElastiCache.new(
+  #     ec = Ideeli::AWS::ElastiCache.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -47,4 +48,5 @@ module AWS
 
   end
 
+end
 end

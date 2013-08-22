@@ -12,4 +12,4 @@
 # language governing permissions and limitations under the License.
 
 # this file exists for Rails < v3
-AWS::Rails.setup
+Ideeli::AWS::Rails.setup

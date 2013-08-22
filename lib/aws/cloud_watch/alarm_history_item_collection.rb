@@ -14,6 +14,7 @@
 require 'date'
 require 'time'
 
+module Ideeli
 module AWS
   class CloudWatch
     class AlarmHistoryItemCollection
@@ -81,4 +82,5 @@ module AWS
 
     end
   end
+end
 end

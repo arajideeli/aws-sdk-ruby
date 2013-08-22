@@ -30,6 +30,7 @@ require 'set'
 #      :secret_access_key => 'SECRET_ACCESS_KEY',
 #      :region => 'us-west-2')
 #
+module Ideeli
 module AWS
 
   # @api private
@@ -261,13 +262,13 @@ module AWS
     #
     #     AWS.config(:max_retries => 2)
     #
-    #     sqs = AWS::SQS.new
+    #     sqs = Ideeli::AWS::SQS.new
     #     sqs.config.max_retries #=> 2
     #
     # If you want to change a configuration value for a single instance you
     # pass the new configuration value to that object's initializer:
     #
-    #     AWS::SQS.new(:max_retries => 0)
+    #     Ideeli::AWS::SQS.new(:max_retries => 0)
     #
     # @note Changing the global configuration does not affect objects
     #   that have already been constructed.
@@ -292,7 +293,7 @@ module AWS
     #   loss of precision).
     #
     # @option options [Boolean] :dynamo_db_retry_throughput_errors (true) When
-    #   true, AWS::DynamoDB::Errors::ProvisionedThroughputExceededException
+    #   true, Ideeli::AWS::DynamoDB::Errors::ProvisionedThroughputExceededException
     #   errors will be retried.
     #
     # @option options [Float] :http_continue_timeout (1) The number of
@@ -314,7 +315,7 @@ module AWS
     #   You must call `AWS.patch_net_http_100_continue!` for this feature to work.
     #   Not supported in Ruby < 1.9.
     #
-    # @option options [Object] :http_handler (AWS::Core::Http::NetHttpHandler)
+    # @option options [Object] :http_handler (Ideeli::AWS::Core::Http::NetHttpHandler)
     #   The http handler that sends requests to AWS.
     #
     # @option options [Integer] :http_idle_timeout (60) The number of seconds
@@ -348,21 +349,21 @@ module AWS
     #   for building log messages from responses. You can quickly change
     #   log formats by providing a pre-configured log formatter.
     #
-    #       AWS.config(:log_formatter => AWS::Core::LogFormatter.colored)
+    #       AWS.config(:log_formatter => Ideeli::AWS::Core::LogFormatter.colored)
     #
     #   Here is a list of pre-configured log formatters:
     #
-    #     * `AWS::Core::LogFormatter.default`
-    #     * `AWS::Core::LogFormatter.short`
-    #     * `AWS::Core::LogFormatter.debug`
-    #     * `AWS::Core::LogFormatter.colored`
+    #     * `Ideeli::AWS::Core::LogFormatter.default`
+    #     * `Ideeli::AWS::Core::LogFormatter.short`
+    #     * `Ideeli::AWS::Core::LogFormatter.debug`
+    #     * `Ideeli::AWS::Core::LogFormatter.colored`
     #
-    #   You can also create an instance of AWS::Core::LogFormatter
+    #   You can also create an instance of Ideeli::AWS::Core::LogFormatter
     #   with a custom log message pattern. See {Core::LogFormatter} for
     #   a complete list of pattern substitutions.
     #
     #       pattern = "[AWS :operation :duration] :error_message"
-    #       AWS.config(:log_formatter => AWS::Core::LogFormatter.new(pattern))
+    #       AWS.config(:log_formatter => Ideeli::AWS::Core::LogFormatter.new(pattern))
     #
     #   Lastly you can pass any object that responds to `#format` accepting
     #   and instance of {Core::Response} and returns a string.
@@ -412,13 +413,13 @@ module AWS
     #     * {S3::Bucket#presigned_post}
     #
     # @option options [OpenSSL::PKey::RSA, String] :s3_encryption_key (nil)
-    #   If this is set, AWS::S3::S3Object #read and #write methods will always
+    #   If this is set, Ideeli::AWS::S3::S3Object #read and #write methods will always
     #   perform client-side encryption with this key. The key can be overridden
     #   at runtime by using the :encryption_key option.  A value of nil
     #   means that client-side encryption will not be used.
     #
     # @option options [Symbol] :s3_encryption_materials_location (:metadata)
-    #   When set to `:instruction_file`, AWS::S3::S3Object will store
+    #   When set to `:instruction_file`, Ideeli::AWS::S3::S3Object will store
     #   encryption materials in a separate object, instead of the object
     #   metadata.
     #
@@ -426,7 +427,7 @@ module AWS
     #   if all SimpleDB read requests should be done consistently.
     #   Consistent reads are slower, but reflect all changes to SDB.
     #
-    # @option options [CredentialProviders::Provider] :credential_provider (AWS::Core::CredentialProviders::DefaultProvider.new)
+    # @option options [CredentialProviders::Provider] :credential_provider (Ideeli::AWS::Core::CredentialProviders::DefaultProvider.new)
     #   Returns the credential provider.  The default credential provider
     #   attempts to check for statically assigned credentials, ENV credentials
     #   and credentials in the metadata service of EC2.
@@ -466,7 +467,7 @@ module AWS
     #   that response bodies match the content-length specified in the
     #   response header, if present. Note that some HTTP handlers will
     #   always do this whether or not this value is true.
-    # 
+    #
     # @return [Core::Configuration] Returns the new configuration.
     #
     def config options = {}
@@ -560,7 +561,7 @@ module AWS
     # The above code would make N+1 requests (where N is the number of
     # instances in the account); iterating the collection of instances
     # is one request, and `Enumerable#sort_by` calls
-    # {AWS::EC2::Instance#launch_time} for each instance, causing
+    # {Ideeli::AWS::EC2::Instance#launch_time} for each instance, causing
     # another request per instance.  We can rewrite the code as
     # follows to make only one request:
     #
@@ -569,7 +570,7 @@ module AWS
     #     end
     #
     # Iterating the collection still causes a request, but each
-    # subsequent call to {AWS::EC2::Instance#launch_time} uses the
+    # subsequent call to {Ideeli::AWS::EC2::Instance#launch_time} uses the
     # results from that first request rather than making a new request
     # for the same data.
     #
@@ -586,7 +587,7 @@ module AWS
     #     request.
     #
     #   * Before retrieving data for an attribute of a resource
-    #     (e.g. {AWS::EC2::Instance#launch_time}), the SDK attempts to
+    #     (e.g. {Ideeli::AWS::EC2::Instance#launch_time}), the SDK attempts to
     #     find a cached response that contains the requested data.  If
     #     such a response is found, the cached data is returned instead
     #     of making a new request.
@@ -648,7 +649,7 @@ module AWS
     # responses while waiting for a 100-continue.
     def patch_net_http_100_continue!
       require 'aws/core/http/patch'
-      AWS::Core::Http.patch_net_http_100_continue!
+      Ideeli::AWS::Core::Http.patch_net_http_100_continue!
       nil
     end
 
@@ -683,4 +684,5 @@ module AWS
     require "aws/#{svc.old_name}/config"
   end
 
+end
 end

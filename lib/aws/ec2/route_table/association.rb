@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class EC2
     class RouteTable < Resource
@@ -40,7 +41,7 @@ module AWS
       # was never explicitly created, then they are associated by default
       # with the main route table.
       #
-      #     subnet.route_table_association #=> AWS::EC2::RouteTable::Association
+      #     subnet.route_table_association #=> Ideeli::AWS::EC2::RouteTable::Association
       #
       #     subnet.route_table_association.main? #=> true/false
       #
@@ -116,4 +117,5 @@ module AWS
       end
     end
   end
+end
 end

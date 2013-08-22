@@ -11,13 +11,14 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class IAM
 
     # A collection that provides access to IAM groups to which a
     # particular user belongs.
     #
-    #     user = AWS::IAM.new.users.first
+    #     user = Ideeli::AWS::IAM.new.users.first
     #     groups = user.groups
     #     groups.each { |g| puts g.name }
     #
@@ -95,4 +96,5 @@ module AWS
     end
 
   end
+end
 end

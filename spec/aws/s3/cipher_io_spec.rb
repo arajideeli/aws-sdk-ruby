@@ -15,6 +15,7 @@ require 'spec_helper'
 require 'tempfile'
 require 'openssl'
 
+module Ideeli
 module AWS
   class S3
 
@@ -112,4 +113,5 @@ module AWS
 
     end
   end
+end
 end

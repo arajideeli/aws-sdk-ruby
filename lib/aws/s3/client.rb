@@ -19,6 +19,7 @@ require 'digest/md5'
 require 'base64'
 require 'nokogiri'
 
+module Ideeli
 module AWS
   class S3
 
@@ -1731,4 +1732,5 @@ module AWS
     class Client::V20060301 < Client; end
 
   end
+end
 end

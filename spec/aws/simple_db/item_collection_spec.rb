@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class SimpleDB
     describe ItemCollection do
@@ -797,4 +798,5 @@ module AWS
 
     end
   end
+end
 end

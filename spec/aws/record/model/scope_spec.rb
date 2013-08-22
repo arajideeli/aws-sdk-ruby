@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Record
     class Model
@@ -583,4 +584,5 @@ module AWS
     end
     end
   end
+end
 end

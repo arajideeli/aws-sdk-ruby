@@ -13,7 +13,7 @@
 
 Before("@elastic_transcoder") do
 
-  @elastic_transcoder = AWS::ElasticTranscoder.new
+  @elastic_transcoder = Ideeli::AWS::ElasticTranscoder.new
   @client = @elastic_transcoder_client = @elastic_transcoder.client
 
   @transcoder_pipeline_ids = []

@@ -11,13 +11,14 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class EC2
 
     # Represents a single route in a {RouteTable}.
     #
     #     # enumerating routes within a route table
-    #     ec2 = AWS::EC2.new
+    #     ec2 = Ideeli::AWS::EC2.new
     #     route_table = ec2.route_tables.first
     #     route_table.routes.each do |route|
     #       # ...
@@ -116,4 +117,5 @@ module AWS
       end
     end
   end
+end
 end

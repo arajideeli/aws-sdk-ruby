@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for "has ec2 public?/private? accessors" do
@@ -97,4 +98,5 @@ module AWS
 
   end
 
+end
 end

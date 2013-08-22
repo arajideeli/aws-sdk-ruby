@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/route_53/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon Route 53.
@@ -35,20 +36,20 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::Route53 interface:
+  # Or you can set them directly on the Ideeli::AWS::Route53 interface:
   #
-  #     r53 = AWS::Route53.new(
+  #     r53 = Ideeli::AWS::Route53.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
   # # Using the Client
   #
-  # AWS::Route53 does not provide higher level abstractions for Route 53 at
+  # Ideeli::AWS::Route53 does not provide higher level abstractions for Route 53 at
   # this time.  You can still access all of the API methods using
-  # {AWS::Route53::Client}.  Here is how you access the client and make
+  # {Ideeli::AWS::Route53::Client}.  Here is how you access the client and make
   # a simple request:
   #
-  #       r53 = AWS::Route53.new
+  #       r53 = Ideeli::AWS::Route53.new
   #
   #     resp = r53.client.list_hosted_zones
   #     resp[:hosted_zones].each do |zone|
@@ -84,4 +85,5 @@ module AWS
     end
 
   end
+end
 end

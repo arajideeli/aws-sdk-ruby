@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   module Core
 
@@ -27,7 +28,7 @@ module AWS
           base::Errors.module_eval { include Errors }
         end
 
-        AWS::Core::MetaUtils.extend(base) do
+        Ideeli::AWS::Core::MetaUtils.extend(base) do
 
           # @api private
           def endpoint_prefix prefix = nil, options = {}
@@ -56,13 +57,13 @@ module AWS
       # hash options.  They are merged with AWS.config or merged
       # with the provided `:config` object.
       #
-      #     @ec2 = AWS::EC2.new(:max_retries => 2)
+      #     @ec2 = Ideeli::AWS::EC2.new(:max_retries => 2)
       #
-      # @see AWS::Cofiguration
+      # @see Ideeli::AWS::Cofiguration
       #
       # @param [Hash] options
       #
-      # @option options [Configuration] :config An AWS::Configuration
+      # @option options [Configuration] :config An Ideeli::AWS::Configuration
       #   object to initialize this service interface object with.  Defaults
       #   to AWS.config when not provided.
       #
@@ -80,4 +81,5 @@ module AWS
 
     end
   end
+end
 end

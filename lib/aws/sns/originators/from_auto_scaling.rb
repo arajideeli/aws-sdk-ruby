@@ -11,6 +11,7 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+module Ideeli
 module AWS
   class SNS
 
@@ -65,4 +66,5 @@ module AWS
       # TODO: Further methods to fully expose what AS-SNS' carry as payload.
     end
   end
+end
 end

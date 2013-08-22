@@ -14,6 +14,7 @@
 require 'set'
 require 'uri'
 
+module Ideeli
 module AWS
   module Core
 
@@ -73,7 +74,7 @@ module AWS
     #   loss of precision).
     #
     # @attr_reader [Boolean] dynamo_db_retry_throughput_errors (true) When
-    #   true, AWS::DynamoDB::Errors::ProvisionedThroughputExceededException
+    #   true, Ideeli::AWS::DynamoDB::Errors::ProvisionedThroughputExceededException
     #   errors will be retried.
     #
     # @attr_reader [Float] http_continue_timeout (1) The number of
@@ -165,16 +166,16 @@ module AWS
     #   You can construct an interface to Amazon S3 which always
     #   stores data using server side encryption as follows:
     #
-    #       s3 = AWS::S3.new(:s3_server_side_encryption => :aes256)
+    #       s3 = Ideeli::AWS::S3.new(:s3_server_side_encryption => :aes256)
     #
     # @attr_reader [OpenSSL::PKey::RSA, String] s3_encryption_key
-    #   If this is set, AWS::S3::S3Object #read and #write methods will always
+    #   If this is set, Ideeli::AWS::S3::S3Object #read and #write methods will always
     #   perform client-side encryption with this key. The key can be overridden
     #   at runtime by using the :encryption_key option.  A value of nil
     #   means that client-side encryption will not be used.
     #
     # @attr_reader [Symbol] s3_encryption_materials_location
-    #   When set to `:instruction_file`, AWS::S3::S3Object will store
+    #   When set to `:instruction_file`, Ideeli::AWS::S3::S3Object will store
     #   encryption materials in a separate object, instead of the object
     #   metadata.
     #
@@ -275,8 +276,8 @@ module AWS
       # You can use these configuration objects returned by #with to create
       # AWS objects:
       #
-      #     AWS::S3.new(:config => no_retries_config)
-      #     AWS::SQS.new(:config => no_retries_config)
+      #     Ideeli::AWS::S3.new(:config => no_retries_config)
+      #     Ideeli::AWS::SQS.new(:config => no_retries_config)
       #
       # @param options (see AWS.config)
       # @option options (see AWS.config)
@@ -496,9 +497,9 @@ module AWS
       add_option :http_wire_trace, false, :boolean => true
 
       add_option_with_needs(:http_handler,
-        AWS::Core::Http::ConnectionPool::OPTIONS + [:verify_response_body_content_length]
+        Ideeli::AWS::Core::Http::ConnectionPool::OPTIONS + [:verify_response_body_content_length]
       ) do |config,options|
-        AWS::Core::Http::NetHttpHandler.new(options)
+        Ideeli::AWS::Core::Http::NetHttpHandler.new(options)
       end
 
       add_option :logger
@@ -525,7 +526,8 @@ module AWS
       add_option :user_agent_prefix
 
       add_option :verify_response_body_content_length, true, :boolean => true
-      
+
     end
   end
+end
 end

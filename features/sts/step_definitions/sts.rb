@@ -12,6 +12,6 @@
 # language governing permissions and limitations under the License.
 
 Before("@sts") do
-  @sts = AWS::STS.new
+  @sts = Ideeli::AWS::STS.new
   @sts_client = @sts.client
 end

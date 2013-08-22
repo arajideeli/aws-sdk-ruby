@@ -13,7 +13,7 @@
 
 Before("@emr") do
 
-  @emr = AWS::EMR.new
+  @emr = Ideeli::AWS::EMR.new
   @emr_client = @emr.client
 
   @created_job_flows = []

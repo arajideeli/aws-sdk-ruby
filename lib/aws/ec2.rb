@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/ec2/config'
 
+module Ideeli
 module AWS
 
   # Provides an expressive, object-oriented interface to Amazon EC2.
@@ -29,7 +30,7 @@ module AWS
   #
   # Or you can set them directly on the EC2 interface:
   #
-  #     ec2 = AWS::EC2.new(
+  #     ec2 = Ideeli::AWS::EC2.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
@@ -181,7 +182,7 @@ module AWS
   # The default region is `us-east-1`; you can access other regions
   # like this:
   #
-  #     ec2 = AWS::EC2.new(:region => "us-west-1")
+  #     ec2 = Ideeli::AWS::EC2.new(:region => "us-west-1")
   #     ec2.instances.create(:image_id => 'ami-3bc9997e')
   #
   # ## Availability Zones
@@ -427,4 +428,5 @@ module AWS
     end
 
   end
+end
 end

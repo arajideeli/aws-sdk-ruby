@@ -13,7 +13,7 @@
 
 Before("@cloud_formation") do
 
-  @cloud_formation = AWS::CloudFormation.new
+  @cloud_formation = Ideeli::AWS::CloudFormation.new
   @cloud_formation_client = @cloud_formation.client
 
   @created_stacks = []

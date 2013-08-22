@@ -14,6 +14,7 @@
 require 'spec_helper'
 require 'json'
 
+module Ideeli
 module AWS
   class S3
 
@@ -176,7 +177,7 @@ module AWS
         it 'should include arbitrary fields and capitalize them' do
           original_post.fields.should include("Arbitrary-Param")
         end
-        
+
         context 'equality condition' do
 
           let(:post) { original_post.where(:expires_header).is("foobar") }
@@ -578,4 +579,5 @@ module AWS
     end
 
   end
+end
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe IAM do
 
@@ -236,4 +237,5 @@ module AWS
     end
 
   end
+end
 end

@@ -12,7 +12,7 @@
 # language governing permissions and limitations under the License.
 
 Before("@cloud_search") do
-  @cloud_search = AWS::CloudSearch.new
+  @cloud_search = Ideeli::AWS::CloudSearch.new
 end
 
 After("@cloud_watch") do

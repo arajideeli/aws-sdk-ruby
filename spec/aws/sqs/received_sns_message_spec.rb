@@ -15,6 +15,7 @@ require 'spec_helper'
 require 'base64'
 require 'json'
 
+module Ideeli
 module AWS
   class SQS
     describe ReceivedSNSMessage do
@@ -104,4 +105,5 @@ module AWS
 
     end
   end
+end
 end

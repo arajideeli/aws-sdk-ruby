@@ -13,6 +13,7 @@
 
 require 'json'
 
+module Ideeli
 module AWS
   class SNS
 
@@ -87,7 +88,7 @@ module AWS
       #
       #    # the queue policy will be added/updated to allow the topic
       #    # to send it messages
-      #    topic.subscribe(AWS::SQS.new.queues.first)
+      #    topic.subscribe(Ideeli::AWS::SQS.new.queues.first)
       #
       # @param [mixed] endpoint The endpoint that should receive
       #   messages that are published to this topic.  Valid values
@@ -400,4 +401,5 @@ module AWS
 
     end
   end
+end
 end

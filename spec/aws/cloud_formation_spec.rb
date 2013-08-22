@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   describe CloudFormation do
 
@@ -166,4 +167,5 @@ module AWS
     end
 
   end
+end
 end

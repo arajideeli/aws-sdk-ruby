@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/elastic_transcoder/config'
 
+module Ideeli
 module AWS
 
   class ElasticTranscoder
@@ -27,4 +28,5 @@ module AWS
     endpoint_prefix 'elastictranscoder'
 
   end
+end
 end

@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class EMR
     describe InstanceGroupCollection do
@@ -36,7 +37,7 @@ module AWS
         it 'calls #add_instance_groups on the client' do
 
           response.data[:instance_group_ids] = ["group-id"]
-          
+
           client.should_receive(:add_instance_groups).with(
             :job_flow_id => job_flow.id,
             :instance_groups => [{
@@ -96,4 +97,5 @@ module AWS
 
     end
   end
+end
 end

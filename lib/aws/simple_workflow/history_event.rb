@@ -13,6 +13,7 @@
 
 require 'json'
 
+module Ideeli
 module AWS
   class SimpleWorkflow
 
@@ -273,4 +274,5 @@ module AWS
 
     end
   end
+end
 end

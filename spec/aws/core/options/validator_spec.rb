@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   module Core
     module Options
@@ -326,4 +327,5 @@ module AWS
       end
     end
   end
+end
 end

@@ -14,6 +14,7 @@
 require 'aws/core'
 require 'aws/cloud_front/config'
 
+module Ideeli
 module AWS
 
   # This class is the starting point for working with Amazon CloudFront.
@@ -35,20 +36,20 @@ module AWS
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
-  # Or you can set them directly on the AWS::Route53 interface:
+  # Or you can set them directly on the Ideeli::AWS::Route53 interface:
   #
-  #     cf = AWS::CloudFront.new(
+  #     cf = Ideeli::AWS::CloudFront.new(
   #       :access_key_id => 'YOUR_ACCESS_KEY_ID',
   #       :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
   #
   # # Using the Client
   #
-  # AWS::CloudFront does not provide higher level abstractions for CloudFront at
+  # Ideeli::AWS::CloudFront does not provide higher level abstractions for CloudFront at
   # this time.  You can still access all of the API methods using
-  # {AWS::CloudFront::Client}.  Here is how you access the client and make
+  # {Ideeli::AWS::CloudFront::Client}.  Here is how you access the client and make
   # a simple request:
   #
-  #       cf = AWS::CloudFront.new
+  #       cf = Ideeli::AWS::CloudFront.new
   #
   #     resp = cf.client.list_distributions
   #     resp[:items].each do |distribution|
@@ -70,4 +71,5 @@ module AWS
     endpoint_prefix 'cloudfront', :global => true
 
   end
+end
 end

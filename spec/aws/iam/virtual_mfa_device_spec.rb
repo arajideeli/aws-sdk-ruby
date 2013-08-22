@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
   class IAM
 
@@ -149,7 +150,7 @@ module AWS
 
           it 'returns the user when provided' do
             device.user.should ==
-              AWS::IAM::User.new('johndoe', :config => device.config)
+              Ideeli::AWS::IAM::User.new('johndoe', :config => device.config)
           end
 
         end
@@ -211,4 +212,5 @@ module AWS
     end
 
   end
+end
 end

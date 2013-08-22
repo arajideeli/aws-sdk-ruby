@@ -13,6 +13,7 @@
 
 require 'spec_helper'
 
+module Ideeli
 module AWS
 
   shared_examples_for("attribute macro") do |allows_set|
@@ -135,4 +136,5 @@ module AWS
 
   end
 
+end
 end

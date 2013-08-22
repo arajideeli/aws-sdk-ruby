@@ -13,6 +13,7 @@
 
 require 'base64'
 
+module Ideeli
 module AWS
   class AutoScaling
     class LaunchConfigurationCollection
@@ -151,4 +152,5 @@ module AWS
 
     end
   end
+end
 end

@@ -397,7 +397,7 @@ module AWS
 
       # @api private
       def populate_id
-        @_id = UUIDTools::UUID.random_create.to_s.downcase
+        @_id = UUID.random_create.to_s.downcase
       end
 
       # @api private

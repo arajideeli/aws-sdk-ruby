@@ -84,7 +84,7 @@ module AWS
         if opts.has_key?(:id) or opts.has_key?("Id")
           @id = opts[:id] || opts["Id"]
         else
-          @id = UUIDTools::UUID.timestamp_create.to_s.tr('-','')
+          @id = UUID.timestamp_create.to_s.tr('-','')
         end
         if opts.has_key?(:version) or opts.has_key?("Version")
           @version = opts[:version] || opts["Version"]
@@ -748,7 +748,7 @@ module AWS
         #   Policy#deny to add conditions to a statement.
         # @see S3::Client
         def initialize(opts = {})
-          self.sid = UUIDTools::UUID.timestamp_create.to_s.tr('-','')
+          self.sid = UUID.timestamp_create.to_s.tr('-','')
           self.conditions = ConditionBlock.new
 
           parse_options(opts)

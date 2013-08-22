@@ -268,7 +268,7 @@ module AWS
 
         security_group_opts(options)
 
-        options[:client_token] = UUIDTools::UUID.timestamp_create.to_s
+        options[:client_token] = UUID.timestamp_create.to_s
 
         resp = client.run_instances(options)
 

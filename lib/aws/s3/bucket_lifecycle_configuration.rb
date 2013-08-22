@@ -165,7 +165,7 @@ module AWS
           options[:expiration_time] = expiration_time
         end
 
-        id = options[:id] || UUIDTools::UUID.random_create.to_s
+        id = options[:id] || UUID.random_create.to_s
         opts = {
           :status => options[:disabled] == true ? 'Disabled' : 'Enabled',
           :expiration_time => options[:expiration_time],

@@ -14,7 +14,7 @@
 require 'uuidtools'
 
 When /^I register a simple workflow domain$/ do
-  name = "ruby-integration-test-#{UUIDTools::UUID.random_create}"
+  name = "ruby-integration-test-#{UUID.random_create}"
   @domain = @swf.domains.create(name, 1)
   @registered_domains << @domain
 end

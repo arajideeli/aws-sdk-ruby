@@ -11,9 +11,9 @@ Gem::Specification.new do |s|
   s.author = 'Amazon Web Services'
   s.homepage = 'http://aws.amazon.com/sdkforruby'
 
-  s.add_dependency('uuidtools', '~> 2.1')
+  s.add_dependency('uuidtools', '~> 1.0.7')
   s.add_dependency('nokogiri', '< 1.6.0') # 1.6 no longer supports Ruby 1.8.7
-  s.add_dependency('json', '~> 1.4')
+  s.add_dependency('json', '~> 1.1.0')
 
   s.files = [
     'ca-bundle.crt',
